@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>littleCarrest 메인</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="jquery.fullPage.css">
+    
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+    <!-- jQuery.fullPage CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" 
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="jquery.fullPage.js"></script>
+    <script src="main.js"></script>
+    <!-- Slick.js -->
+    <link rel="stylesheet" href="slick/slick.css">
+    <link rel="stylesheet" href="slick/slick-theme.css">
+    <script src="slick/slick.js"></script>
+
+    <!-- header관련 -->
+    <!-- <script>
+        document.addEventListener('scroll', function() {
+            var currentScrollValue = document.documentElement.scrollTop;
+            console.log('currentScrollValue is ' + currentScrollValue);
+            
+            let header = document.querySelector('header');
+            if(currentScrollValue > 50){
+                header.style.opacity = '0';
+            }else{
+                header.style.opacity = '1';
+            }
+        });
+    </script> -->
+
+    <style>
+        @media (max-width : 768px){
+            .sec3-contents ul li{
+                width: 300px;
+            }
+
+            .sec5-contents{
+                display: inline-block;
+                width: 350px;
+                margin-left: 20px;
+            }
+        }
+
+
+    </style>
+
+</head>
+<body>
+    <main id="fullpage">
+        <header>
+            <div class="menuTop">
+                <div class="logo"><h3>리틀카레스트</h3></div>
+                <div class="gnb">
+                    <ul>
+                        <li><a href="#none">차박검색</a></li>
+                        <li><a href="#none">관광정보</a></li>
+                        <li><a href="#none">커뮤니티</a></li>
+                    </ul>
+                 </div>
+               <div class=join-box>
+                    <div class="join">
+                        <span><a href="#none" >LOGIN</a></span>
+                        <span><a href="#none">JOIN</a></span>
+                    </div>
+               </div>
+            </div>
+        </header>
+        <section class="section mainPage">
+            <div class="video-frame">
+                <video src="images/Waves - 70796.mp4" 
+                    autoplay muted loop poster="images/poster.jpg"></video>
+            <div class="title">
+                <h5><strong>LittleCarrest</strong>가 추천하는</h5>
+                <h3><span>재</span><span>명</span> 차박 캠핑</h3>
+            </div>
+        </section>
+        <!-- section2_추천서비스 -->
+        <section class="section recommendPage">
+                <div class="sec2-header">
+                    <span class="sec2-title">리틀카레스트는 여러분 <b>감성</b>에 맞는 <em>차박 캠핑 코스</em> 추천 서비스를 제공합니다.</span> 
+                    <span class="sec2-title">여러분의 감성을 자극하는 사진을 <b>click!</b>하세요</span>
+                </div>
+                <div class="sec2-slider">
+                    <div class="img">
+                        <img src="images/sec2-images/camping1.jpg" alt="">
+                    </div>
+                    <div class="img">
+                        <img src="images/sec2-images/sec2_2.jpg" alt="">
+                    </div>
+                    <div class="img">
+                        <img src="images/sec2-images/sec2_3.jpg" alt="">
+                    </div>
+                    <div class="img">
+                        <img src="images/sec2-images/sec2_1.jpg" alt="">
+                    </div>
+                    <div class="img">
+                        <img src="images/sec2-images/camping3.jpg" alt="">
+                    </div>
+                    <div class="img">
+                        <img src="images/sec2-images/camping4.jpg" alt="">
+                    </div>
+                    <div class="img">
+                        <img src="images/sec2-images/camping5.jpg" alt="">
+                    </div>
+                    <div class="img">
+                        <img src="images/sec2-images/camping2.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- section3_캠핑장 정보 -->
+        <section class="section searchPage">
+            <div class="wrap-sec3">
+                <div class="sec3-title">
+                    <h1>캠핑장 정보</h1>
+                    <span>개척, 도전보다는 편안함을 추구한다면 이곳을 둘러보세요. 편의시설을 제공하는 쾌적한 캠핑장입니다</span>
+                </div>
+                <div class="sec3-contents">
+                    <div class="more-view"><a href="#none">더보기</a></div>
+                    <ul class="contents-top">
+                        <li>
+                            <div class="image"><img src="images/sec3_images/차박1.jpg" alt=""></div>
+                            <div class="detail">
+                                <h5>제목</h5>
+                                <span>캠핑장정보들</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="image"><img src="images/sec3_images/차박2.jpg" alt=""></div>
+                            <div class="detail">
+                                <h5>제목</h5>
+                                <span>캠핑장정보들</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="image"><img src="images/sec3_images/차박3.jpg" alt=""></div>
+                            <div class="detail">
+                                <h5>제목</h5>
+                                <span>캠핑장정보들</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="image"><img src="images/sec3_images/차박4.jpg" alt=""></div>
+                            <div class="detail">
+                                <h5>제목</h5>
+                                <span>캠핑장정보들</span>
+                            </div>
+                        </li>
+                       
+                    </ul>
+                    <ul class="contents-bottom">
+                        <li>
+                            <div class="image"><img src="images/sec3_images/차박5.jpg" alt=""></div>
+                            <div class="detail">
+                                <h5>제목</h5>
+                                <span>캠핑장정보들</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="image"><img src="images/sec3_images/차박6.jpg" alt=""></div>
+                            <div class="detail">
+                                <h5>제목</h5>
+                                <span>캠핑장정보들</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="image"></div>
+                            <div class="detail">
+                                <h5>제목</h5>
+                                <span>캠핑장정보들</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="image"></div>
+                            <div class="detail">
+                                <h5>제목</h5>
+                                <span>캠핑장정보들</span>
+                            </div>
+                        </li>
+                    </ul>
+        
+                </div>
+            </div>
+        </section>
+        <!-- section4_지역별축제 -->
+        <section class="section tourInfoPage">
+            <div class="wrap-sec4">
+                <div class="sec4-title">
+                    <h1>지역별 축제</h1>
+                    <span>이번달에 개최되는 축제입니다. 차박가는 길에 축제를 즐겨보세요~</span>
+                </div>
+                <div class="sec4-contents">
+                    <div class="more-view"><a href="#none">더보기</a></div>
+                    <div class="sec4-slider">
+                        <div class="slide1">
+                            <img src="images/sec4-images/고창_복분자수박축제.jpg" alt="">
+                            <div class="fes-title">
+                                <h3><em>제주도</em> 유채꽃축제</h3>
+                            </div>
+                        </div>
+                        <div class="slide2">
+                            <img src="images/sec4-images/무안_연꽃축제.JPG" alt="">
+                            <div class="fes-title">
+                                <h3><em>제주도</em> 유채꽃축제</h3>
+                            </div>
+                        </div>
+                        <div class="slide3">
+                            <img src="images/sec4-images/보령_머드축제.png" alt="">
+                            <div class="fes-title">
+                                <h3><em>제주도</em> 유채꽃축제</h3>
+                            </div>
+                        </div>
+                        <div class="slide4">
+                            <img src="images/sec4-images/신안_수국축제.jpg" alt="">
+                            <div class="fes-title">
+                                <h3><em>제주도</em> 유채꽃축제</h3>
+                            </div>
+                        </div>
+                        <div class="slide5">
+                            <img src="images/sec4-images/이천_도자기축제.jpg" alt="">
+                            <div class="fes-title">
+                                <h3><em>제주도</em> 유채꽃축제</h3>
+                            </div>
+                        </div>
+                        <div class="slide6">
+                            <img src="images/sec4-images/전주_세계소리축제.jpg" alt="">
+                            <div class="fes-title">
+                                <h3><em>제주도</em> 유채꽃축제</h3>
+                            </div>
+                        </div>
+                        <div class="slide7">
+                            <img src="images/sec4-images/춘천_마임축제.JPG" alt="">
+                            <div class="fes-title">
+                                <h3><em>제주도</em> 유채꽃축제</h3>
+                            </div>
+                        </div>
+                        <div class="slide7">
+                            <img src="images/sec4-images/포천_평강랜드_핑크뮬리축제.jpg" alt="">
+                            <div class="fes-title">
+                                <h3><em>제주도</em> 유채꽃축제</h3>
+                            </div>
+                        </div>
+                        <div class="slide7">
+                            <img src="images/sec4-images/홍천_찰옥수수축제.jpg" alt="">
+                            <div class="fes-title">
+                                <h3><em>제주도</em> 유채꽃축제</h3>
+                            </div>
+                        </div>
+        
+                    </div>
+                </div>
+            </div>
+
+
+        </section>
+
+        <!-- section5_community -->
+        <section class="section communityPage">
+            <div class="sec5-title">
+                <h1>커뮤니티 추천글</h1>
+                <span>오늘의 Best3 차박캠퍼</span>
+            </div>
+            <div class="wr-sec5-contents">
+                <div class="sec5-contents">
+                    <div class="more-view"><a href="#none">더보기</a></div>
+                    <div class="wr-sec5-item">
+                        <div class="sec5-item">
+                            <img src="images/sec5_images/insta_차박캠핑_포항썬빌리지.jpg">
+                            <div class="details">
+                                <h5><em>유저 아이디</em>
+                                    포항 썬빌리지 힐링 그자체</h5>
+                                <button>캠퍼보러가기</button>
+                            </div>
+                        </div>
+                        <div class="sec5-item">
+                            <img src="images/sec5_images/차박2.jpg">
+                            <div class="details">
+                                <h5><em>유저 아이디</em>
+                                    포항 썬빌리지 힐링 그자체</h5>
+                                <button>캠퍼보러가기</button>
+                            </div>
+                        </div>
+                        <div class="sec5-item">
+                            <img src="images/sec5_images/차박6.jpg">
+                            <div class="details">
+                                <h5><em>유저 아이디</em>
+                                    포항 썬빌리지 힐링 그자체</h5>
+                                <button>캠퍼보러가기</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+            </div>
+
+
+
+
+        </section>
+        <section class="section footer fp-auto-height">footer</section>
+    </main>
+
+    <script>
+
+    $('.sec2-slider').slick({
+        infinite:true,
+        speed: 300,
+        slidesToShow:3,
+        slidesToScroll:3,
+        autoplay:true,
+        autoplaySpeed:3000,
+
+    })
+
+
+
+
+
+    $('.sec4-slider').slick({
+    dots: true,
+    infinite: true,
+    speed: 300,
+    slidesToShow: 3,
+    slidesToScroll: 4,
+    /* 자동재생 */
+    autoplay:true,
+    autoplaySpeed:3000,
+    /* 반응형 */
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+      // You can unslick at a given breakpoint now by adding:
+      // settings: "unslick"
+      // instead of a settings object
+    ]
+  });
+
+    </script>
+
+
+</body>
+</html>
