@@ -1,0 +1,8 @@
+body footer div {
+    display: inline-block;
+    border: 5px solid rgb(245, 231, 231);
+    text-align: center;
+    height: 100px;
+    width: 100px;
+    background-color: rgb(177, 235, 206);
+}
