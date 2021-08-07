@@ -1,0 +1,45 @@
+@media (min-width : 768px){
+  .container{
+      margin-right : auto;
+      margin-left : auto;
+      width : calc(100% - 80px);
+      max-width:100%;
+      box-sizing: border-box;
+      min-height:1px;
+  }
+  }
+  @media (min-width : 1024px){
+  .container{
+      margin-right : auto;
+      margin-left : auto;
+      width : calc(100% - 122px);
+      max-width:100%;
+      box-sizing: border-box;
+      min-height:1px;
+  }
+  }
+
+  @media (min-width: 375px){
+  .container{
+      margin-right : auto;
+      margin-left : auto;
+      width : calc(100% - 30px);
+      max-width:100%;
+      box-sizing: border-box;
+      min-height:1px;
+  }
+  }
+  /* 모바일 미디어쿼리_팝업창 다음시간에..*/
+  @media (max-width:768px){
+      .modal-inner{
+          flex-direction: column;
+          position: absolute;
+          width: 200px;
+          transform: translate(-50%,-50%);
+          border: 1px solid #000;
+      }
+      .modal-inner>div{
+        width: 100%;
+      }
+      
+  }
