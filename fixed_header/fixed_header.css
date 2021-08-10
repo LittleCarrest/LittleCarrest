@@ -3,16 +3,29 @@
 
 *{
   list-style: none;
+  font-family: 'Nanum Gothic', sans-serif;
 }
 body{
-  font-family: 'Nanum Gothic', sans-serif;
   color: #222;
   margin: 0;
+
 }
 a{
   text-decoration: none;
   color: #222;
 }
+
+/* 콘텐츠 너비-공통 */
+.container{
+	margin-right : auto;
+	margin-left : auto;
+	width : calc(100% - 30px);
+	max-width:100%;
+	box-sizing: border-box;
+	min-height:1px;
+  margin-top: 50px;
+}
+
 #header-wrap{
   width: 100%;
   position: fixed;
