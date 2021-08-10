@@ -1,8 +1,15 @@
-body footer div {
-    display: inline-block;
-    border: 5px solid rgb(245, 231, 231);
+h2 {
     text-align: center;
-    height: 100px;
-    width: 100px;
+}
+
+.content{
+    float: left;
+    border: 5px solid rgb(245, 231, 231);
+    margin: 50px;
+    text-align: center;
+    border-radius: 25%;
+    box-sizing: border-box;
+    height: 250px;
+    width: 250px;
     background-color: rgb(177, 235, 206);
 }
