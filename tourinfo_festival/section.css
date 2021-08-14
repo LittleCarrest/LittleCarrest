@@ -1,0 +1,148 @@
+.festival-main{
+    position: absolute;
+    /* top: 193px; */
+    height: 200px;
+    background-color:#1ECAD3;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    line-height: 30px;
+    color: #fff;
+}
+
+.titleBox{
+    margin-top: 60px;
+}
+
+.titleBox h1{
+    font-weight: 800;
+}
+
+.titleBox span{
+    font-size: 15px;
+}
+
+.class1{
+    position: absolute;
+    width: 70%;
+    height: 800px;
+    margin-top: 250px;
+    /* background-color:peachpuff; */
+}
+
+h2::before{
+    content:"🎏";
+}
+
+.class1 hr{
+    border-color: black;
+}
+
+ul{
+    list-style: none;
+}
+li{
+    float: left;
+    margin-right: 20px;
+}
+
+a{
+    font-size: 20px;
+    /* font-weight: bold; */
+}
+
+.hashtag{
+    height: 100px;
+}
+
+.slide_box{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    /* background-color: #ddd; */
+}
+
+.slide > div{
+    position: absolute;
+    top: 70px;
+    align-items: center;
+    width: 100%;
+    height:550px;
+    
+    /* background-color:cornflowerblue; */
+}
+
+.slide > img{
+    width: inherit;
+    max-width: 100%;
+    height: auto;
+}
+
+.class2{
+    position: absolute;
+    width: 70%;
+    height: 800px;
+    margin-top: 1000px;
+    /* background-color: #ddd; */
+}
+
+.class2 h2 span{
+    color: #1ECAD3;
+    font-weight: bold;
+
+}
+
+.bottom_slide_box{
+    position: relative;
+}
+
+.bottom_slide_box button{
+    position: absolute;
+    z-index: 10;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    background: #ddd;
+    border: none;
+    
+}
+
+.bottom_slide_box button:before {
+    font-family: 'xeicon';
+    color: #fff;
+    font-size: 45px;
+}
+
+.bottom_slide_box button.slick-prev {
+    left: -7%;
+    font-size: 0;
+    color: transparent;
+}
+
+.bottom_slide_box button.slick-prev:before {
+    content:"\e93d";
+    font-family: 'xeicon';
+} 
+
+
+.bottom_slide_box button.slick-next {
+    right: -7%;
+    font-size: 0;
+    color: transparent;
+}
+
+.bottom_slide_box button.slick-next:before {
+    content:"\e940";
+    font-family: 'xeicon';
+} 
+
+.bottom_slide {
+    width: 100%;
+    height: 450px;
+    background-color: rgba(65, 105, 225, 0.644);
+    text-align: center;
+    font-size: 50px;
+}
