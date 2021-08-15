@@ -1,0 +1,184 @@
+/* Nanum Gothic */
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap');
+
+*{
+  list-style: none;
+  font-family: 'Nanum Gothic', sans-serif;
+}
+body{
+  color: #222;
+  margin: 0;
+  background-color: #eee;
+  font-size: 15px;
+}
+a{
+  text-decoration: none;
+  color: #222;
+}
+
+/* 콘텐츠 너비-공통 */
+.container{
+	margin-right : auto;
+	margin-left : auto;
+	width : calc(100% - 30px);
+	max-width:100%;
+	box-sizing: border-box;
+	min-height:1px;
+  margin-top: 50px;
+}
+
+#header-wrap{
+  width: 100%;
+  position: fixed;
+  background-color: #fff;
+  z-index: 99999;
+}
+.inline-header-normal{}
+.logo-wrap {
+  margin: auto;
+}
+
+.logo-inline-inside {
+  width: 1200px;
+  margin: auto;
+}
+
+.logo-inline-section {
+  display: flex;
+  justify-content: center;
+}
+
+.inline-col-group-left {
+  width: 390px;
+  height: 90px;
+  /* padding:30px 0px; */
+}
+
+.inline-col-group-center {
+  width: 420px;
+  height: 90px;
+  /* padding:30px 0px; */
+  display: flex;
+  justify-content: center;
+}
+
+.logo-img  {
+  padding: 30px;
+}
+
+.inline-col-group-right {
+  width: 390px;
+  height: 90px;
+  /* padding:30px 0px; */
+  display: flex;
+  justify-content: flex-end;
+}
+
+.wiget {
+  margin: 30px;
+}
+
+.wiget a {
+  margin-left: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #55585b;
+}
+section{
+  position: absolute;
+  top: 90px;
+  width: 100%;
+  height: calc(100vh - 90px);
+  /* box-sizing: border-box; */
+}
+.login{
+  width: 360px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+.login-type{
+}
+.login-type h1{
+  margin-top: 0;
+  font-size: 25px;
+  text-align: center;
+  font-weight: normal;
+}
+.common-login input{
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  border-radius: 3px;
+  padding-left: 15px;
+}
+.common-login input::placeholder{
+  opacity: 1;
+  transition: 0.3s;
+}
+.common-login input:focus::placeholder{
+  opacity: 0;
+}
+.btn{
+  display: block;
+  text-align: center;
+  padding: 15px;
+  border-radius: 3px;
+  margin-bottom: 10px;
+/*   background-image: url(images/kakao-talk.png);
+  background-repeat: no-repeat;
+  background-position: center left; */
+  opacity: 0.8;
+}
+.btn:nth-of-type(1){
+  background: #1ECAD3;
+  color: #fff;
+
+}
+.btn:nth-of-type(2){
+  background: gold url(images/kakao-talk1.png) no-repeat center left 10px;
+  
+}
+.btn:hover{
+  opacity: 1;
+}
+.or-text{
+  display: block;
+  text-align: center;
+  margin-bottom: 10px;
+  position: relative;
+}
+/* before after는 자식요소이자, 인라인요소 */
+.or-text:before,
+.or-text::after{
+  content: '';
+  position: absolute;
+  background-color: lightgray;
+  height: 1px;
+  width: 44%;
+  top: 8px;
+
+}
+.or-text:before{
+  left: 0;
+}
+.or-text::after{
+  right: 0;
+}
+.login-footer{
+  font-size: 13px;
+  color: rgb(97, 97, 97);
+}
+.login-footer p{
+  text-align: center;
+}
+.login-footer p a{
+  font-weight: 700;
+}
+.login-footer p a:hover{
+  text-decoration: underline;
+}
