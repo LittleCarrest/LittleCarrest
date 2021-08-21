@@ -1,61 +1,81 @@
-:root{
-  --text-color:#555555;
-  --point-color:#1ECAD3;
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+:root {
+  --text-color: #555555;
+  --point-color: #1ECAD3;
   --bg-color: rgb(240, 240, 240);
 }
 
-body{
+body {
+  font-family: 'Noto Sans KR', sans-serif;
   color: #555555;
   font-size: 15px;
 }
-a{
+
+a {
   color: #555555;
 
 }
-.top_header{
+
+.top_header {
   text-align: center;
   position: fixed;
   width: 100%;
   background-color: #fff;
   z-index: 99999;
 }
-.user{
+
+.user {
   position: absolute;
-  right: 0;
+  right: 100px;
+  font-weight: 100;
   /* border: 1px solid #000; */
-  padding: 20px;
+  padding: 40px;
 }
-.user span{
+
+.user span {
   padding-left: 10px;
   font-size: 13px;
 }
-.login{}
-.join{}
-.logo{
+
+.login {}
+
+.join {}
+
+.logo {
   padding: 30px;
 }
-.menu, .sub-menu{
+
+.menu,
+.sub-menu {
+  font-weight: 300;
   display: flex;
   justify-content: center;
 }
-.menu li, .sub-menu li{
-  padding: 15px 50px;
+
+.menu li,
+.sub-menu li {
+  padding: 15px 80px;
 }
 
-.sub-menu{
+.sub-menu {
   background-color: rgb(240, 240, 240);
-  font-size: 13px;
+  font-size: 14px;
+  font-weight: 100;
   display: none;
 }
+
 /* 차박검색 페이지에만 적용하는 코드 */
-.sub-menu.search{
+.sub-menu.search {
   display: flex;
 }
+
 .sub-menu li:hover {
   background-color: var(--point-color);
   color: #fff;
 }
-.nav_toggleBtn{
+
+.nav_toggleBtn {
   position: absolute;
   left: 0;
   top: 0;
@@ -67,43 +87,49 @@ a{
 
 
 /* 콘텐츠영역 */
-section{
+section {
   position: absolute;
   top: 180px;
   width: 100%;
 }
+
 /* 콘텐츠 너비-공통 */
-.container{
-	margin-right : auto;
-	margin-left : auto;
-	width : calc(100% - 30px);
-	max-width:100%;
-	box-sizing: border-box;
-	min-height:1px;
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  width: calc(100% - 30px);
+  max-width: 100%;
+  box-sizing: border-box;
+  min-height: 1px;
   margin-top: 50px;
 }
-.con_sub01{
-}
-.title{
-  padding: 10px;
+
+.con_sub01 {}
+
+.title {
+  padding: 10px 0;
   color: var(--point-color);
   font-size: 15px;
-  font-weight: bold;
-  border-bottom: 2px solid #ddd;
+  font-weight: 400;
+  border-bottom: 1px solid #ddd;
 }
-.contents{
+
+.contents {
   /* border: 1px solid #000; */
 }
-.contentCnt{
+
+.contentCnt {
   padding: 20px 0 10px 0;
   font-size: 13px;
 
 }
-.wrap_content{
+
+.wrap_content {
   display: flex;
   justify-content: space-between;
 }
-.new{
+
+.new {
   position: absolute;
   top: 0;
   left: 0;
@@ -115,7 +141,8 @@ section{
   margin: 10px;
   border-radius: 3px;
 }
-.wrap_content a{
+
+.wrap_content a {
   display: inline-block;
   width: 300px;
   height: 250px;
@@ -123,7 +150,8 @@ section{
   margin-bottom: 50px;
   position: relative;
 }
-.wrap_content a img{
+
+.wrap_content a img {
   position: absolute;
   top: 0;
   left: 50%;
@@ -133,7 +161,8 @@ section{
   border-radius: 8px;
 
 }
-.wrap_content a h2{
+
+.wrap_content a h2 {
   position: absolute;
   width: 100%;
   bottom: 0;
@@ -142,7 +171,8 @@ section{
   font-size: 14px;
   font-weight: bold;
 }
-.wrap_content a h2 em{
+
+.wrap_content a h2 em {
   display: block;
   font-size: 13px;
   padding: 5px;
@@ -150,8 +180,8 @@ section{
 
 
 
-@media screen and (max-width:1024px){
-  .wrap_content a{
+@media screen and (max-width:1024px) {
+  .wrap_content a {
     display: inline-block;
     width: 250px;
     height: 250px;
@@ -162,11 +192,11 @@ section{
 
 
 @media screen and (max-width:768px) {
-   .top_header{
+  .top_header {
     position: static;
-  } 
+  }
 
-  .menu{
+  .menu {
     flex-direction: column;
     display: none;
     text-align: left;
@@ -176,36 +206,41 @@ section{
     background-color: #fff;
     z-index: 99999;
   }
-  
-  .menu.active{
+
+  .menu.active {
     display: flex;
   }
-  .menu li{
-    
-  }
-  .menu li:hover{
+
+  .menu li {}
+
+  .menu li:hover {
     background-color: var(--point-color) !important;
   }
-  .menu li:hover a{
+
+  .menu li:hover a {
     color: #fff;
   }
 
-  .nav_toggleBtn{
+  .nav_toggleBtn {
     display: inline-block;
   }
-  .user{
+
+  .user {
     display: none;
   }
-  .sub-menu{
+
+  .sub-menu {
     display: none !important;
   }
-  section{
+
+  section {
     position: absolute;
     top: 50px;
     width: 100%;
     z-index: -1;
   }
-  .wrap_content{
+
+  .wrap_content {
     display: flex;
     flex-direction: column;
     align-items: center;

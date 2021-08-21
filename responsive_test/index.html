@@ -13,36 +13,38 @@
   <script src="https://kit.fontawesome.com/6fd6b71dc1.js" crossorigin="anonymous"></script>
 </head>
 <body>
-<nav class="top_header">
-  <div class="user">
-    <span class="login">login</span>
-    <span class="join">join</span>
+<header class="top_header">
+  <div class="header-wrap">
+    <div class="user">
+      <span class="login">LOGIN</span>
+      <span class="join">JOIN</span>
+    </div>
+    <div class="logo">
+      <img src="carrest_logo.png" alt="">
+    </div>
+    <ul class="menu">
+      <li id="gnb_search" data-gnb='01'><a href="#">차박검색</a></li>
+      <li id="gnb_tourInfo" data-gnb='02'><a href="#">관광정보</a></li>
+      <li id="gnb_community" data-gnb='03'><a href="#">커뮤니티</a></li>
+    </ul>
+    <ul class="sub-menu search" data-gnb='01'>
+      <li>테마별</li>
+      <li>코스추천</li>
+    </ul>
+    <ul class="sub-menu tourInfo" data-gnb='02'>
+      <li>지역별축제</li>
+      <li>지역별명소</li>
+    </ul>
+    <ul class="sub-menu community" data-gnb='03'>
+      <li>홈</li>
+      <li>#차박캠퍼</li>
+      <li>차박가이드</li>
+    </ul>
+    <a href="#" class="nav_toggleBtn">
+      <i class="fas fa-bars"></i>
+    </a>
   </div>
-  <div class="logo">
-    <img src="carrest_logo.png" alt="">
-  </div>
-  <ul class="menu">
-    <li id="gnb_search" data-gnb='01'><a href="#">차박검색</a></li>
-    <li id="gnb_tourInfo" data-gnb='02'><a href="#">관광정보</a></li>
-    <li id="gnb_community" data-gnb='03'><a href="#">커뮤니티</a></li>
-  </ul>
-  <ul class="sub-menu search" data-gnb='01'>
-    <li>테마별</li>
-    <li>코스추천</li>
-  </ul>
-  <ul class="sub-menu tourInfo" data-gnb='02'>
-    <li>지역별축제</li>
-    <li>지역별명소</li>
-  </ul>
-  <ul class="sub-menu community" data-gnb='03'>
-    <li>홈</li>
-    <li>#차박캠퍼</li>
-    <li>차박가이드</li>
-  </ul>
-  <a href="#" class="nav_toggleBtn">
-    <i class="fas fa-bars"></i>
-  </a>
-</nav>
+</header>
 <section class="sub01_campingSearch">
   <div class="container con_sub01">
     <div class="title">
