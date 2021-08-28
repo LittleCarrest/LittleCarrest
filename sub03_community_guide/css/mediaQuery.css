@@ -1,0 +1,246 @@
+
+/* 375~768 */
+@media screen and (min-width: 375px){
+    .container{
+        margin-right : auto;
+        margin-left : auto;
+        width : calc(100% - 30px);
+        max-width:100%;
+        box-sizing: border-box;
+        min-height:1px;
+    }
+    .sub-menu{
+        display: none;
+    }
+    .wrap-col-sub01{
+        grid-template-columns: 1fr;
+        justify-content: space-around;
+    }
+    .wrap-col-sub03-best-camper,
+    .wrap-col-sub03-latest-post{
+        grid-template-columns: 1fr 1fr;
+        justify-content: space-around;
+    }
+
+    .wrap-col-sub03-guide-tip,
+    .wrap-col-sub03-guide-board{
+        grid-template-columns: 1fr 1fr;
+        justify-content: space-around;
+    }
+
+}
+/* 768~1024 */
+@media screen and (min-width : 768px){
+    /* pc부터는 헤더 고정 */
+    header{
+        top: 0;
+        left: 0;
+        position: fixed;
+    }
+    #gnb-aside{
+        display: none;
+    }
+    .gnb-menu{
+        display: flex;
+    }
+
+    .nav-toggleBtn{
+        display: none;
+    }
+    /* 공통section */
+    section{
+        position: absolute;
+        width: 100%;
+        top: 160px;
+    }
+    /* community-guide section */
+    .sub03-community-guide{
+        top: 138px;
+    }
+
+    .container{
+        margin-right : auto;
+        margin-left : auto;
+        width : calc(100% - 80px);
+        max-width:100%;
+        box-sizing: border-box;
+        min-height:1px;
+    }
+    .wrap-col-sub01{
+        grid-template-columns: 1fr 1fr;
+        margin: auto;
+    }
+    .wrap-col-sub03-best-camper,
+    .wrap-col-sub03-latest-post{
+        grid-template-columns: 1fr 1fr 1fr;
+        margin: auto;
+    }
+    .tit-sub03-camper-tag{
+        grid-template-columns: repeat(auto-fill, minmax(120px,1fr));
+        /* grid-template-columns: repeat(10,1fr); */
+    }
+
+    .tit-sub03-camper-tag li{
+        font-size: 14px;
+    }
+    .tit-sub03-guide-search{
+        font-size: 18px;
+    }
+    .sub03-guide-search{
+        margin: auto;
+        width: 50%;
+    }
+
+    .wrap-col-sub03-guide-tip,
+    .wrap-col-sub03-guide-board{
+        grid-template-columns: 1fr 1fr 1fr;
+        margin: auto;
+    }
+
+
+    
+/* Layer Popup */
+.modal{
+    position: fixed;
+    z-index: 99999;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display: none;
+  }
+  .modal-inner{
+    background-color: #fff;
+    min-width: 800px;
+    height: 500px;
+    padding: 15px;
+    z-index: 10;
+    display: flex;
+  }
+  .modal-inner>div{
+    padding: 10px;
+  }
+  .click-img{
+    flex: 2;
+    border: 1px solid #000;
+    box-sizing: border-box;
+  }
+  .desc{
+    flex: 1;              /* flex-grow:1; flex-shrink:0; flex-basis:auto; */
+    line-height: 1.6em;
+  }
+  .profile{}
+  .profile span{
+    margin-left: 20px;
+    padding: 15px;
+    padding-left: 40px;
+    display: block;
+    position: relative;
+  }
+  .profile span::before{
+    content: '';
+    width: 30px;
+    height: 30px;
+    top: 22%;         
+    left: 0;
+    position: absolute;
+    display: inline-block;
+    background-color: lightcoral;
+    margin-right: 15px;
+    border-radius: 50%;
+  
+  }
+  .close-modal{
+    position: absolute;
+    top: 0;         
+    right: 0;
+    margin: 15px;
+    cursor: pointer;
+    background-color: transparent;
+    font-size: 25px;
+    color: #999;
+    border: none;
+  }
+  .close-modal:hover{
+    color: #000;
+  }
+  .desc-content{}
+  .desc-content p{
+    padding: 10px;
+  }
+  .hashtag{
+    padding: 10px;
+    position: absolute;
+    bottom: 0;
+    margin: 0 20px 20px 0;
+  }
+  .overlay{
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.082);
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    display: none;
+  }
+  
+}
+/* 1024~1256 */
+@media screen and (min-width : 1024px){
+    .container{
+        margin-right : auto;
+        margin-left : auto;
+        width : calc(100% - 122px);
+        max-width:100%;
+        box-sizing: border-box;
+        min-height:1px;
+    }
+    .wrap-col-sub01{
+        grid-template-columns: repeat(3,1fr);
+    }
+    .wrap-col-sub03-best-camper,
+    .wrap-col-sub03-latest-post{
+        grid-template-columns: repeat(4,1fr);
+
+    }
+    .wrap-col-sub03-guide-tip,
+    .wrap-col-sub03-guide-board{
+        grid-template-columns: repeat(4,1fr);
+    }
+}
+
+/* 1256~ */
+@media screen and (min-width: 1256px){
+    .container {
+        margin-right: auto;
+        margin-left: auto;
+        box-sizing: border-box;
+        width: 1136px;
+        max-width: 100%;
+        box-sizing: border-box;
+        min-height: 1px;
+    }
+    .wrap-col-sub01{
+        width: 100%;
+        grid-template-columns: repeat(4, 1fr);
+        overflow: hidden;
+    }
+    .wrap-col-sub03-best-camper,
+    .wrap-col-sub03-latest-post{
+        grid-template-columns: repeat(5,1fr);
+
+    }
+    .wrap-col-sub03-guide-tip,
+    .wrap-col-sub03-guide-board{
+        grid-template-columns: repeat(5,1fr);
+    }
+}
+
+
+
+
+
+
+
+  
