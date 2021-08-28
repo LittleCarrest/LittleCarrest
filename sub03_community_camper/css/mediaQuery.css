@@ -1,0 +1,142 @@
+
+/* 375~768 */
+@media screen and (min-width: 375px){
+    .container{
+        margin-right : auto;
+        margin-left : auto;
+        width : calc(100% - 30px);
+        max-width:100%;
+        box-sizing: border-box;
+        min-height:1px;
+    }
+    .sub-menu{
+        display: none;
+    }
+    .wrap-col-sub01{
+        grid-template-columns: 1fr;
+        justify-content: space-around;
+    }
+    .wrap-col-sub03-best-camper,
+    .wrap-col-sub03-latest-post{
+        grid-template-columns: 1fr 1fr;
+        justify-content: space-around;
+    }
+}
+/* 768~1024 */
+@media screen and (min-width : 768px){
+    /* pc부터는 헤더 고정 */
+    header{
+        top: 0;
+        left: 0;
+        position: fixed;
+    }
+    #gnb-aside{
+        display: none;
+    }
+    .gnb-menu{
+        display: flex;
+    }
+
+    .nav-toggleBtn{
+        display: none;
+    }
+    section{
+        position: absolute;
+        width: 100%;
+        top: 160px;
+    }
+    .container{
+        margin-right : auto;
+        margin-left : auto;
+        width : calc(100% - 80px);
+        max-width:100%;
+        box-sizing: border-box;
+        min-height:1px;
+    }
+    .wrap-col-sub01{
+        grid-template-columns: 1fr 1fr;
+        margin: auto;
+    }
+    .wrap-col-sub03-best-camper,
+    .wrap-col-sub03-latest-post{
+        grid-template-columns: 1fr 1fr 1fr;
+        margin: auto;
+    }
+    .tit-sub03-camper-tag{
+        grid-template-columns: repeat(auto-fill, minmax(120px,1fr));
+        /* grid-template-columns: repeat(10,1fr); */
+    }
+
+    .tit-sub03-camper-tag li{
+        font-size: 14px;
+    }
+}
+/* 1024~1256 */
+@media screen and (min-width : 1024px){
+    .container{
+        margin-right : auto;
+        margin-left : auto;
+        width : calc(100% - 122px);
+        max-width:100%;
+        box-sizing: border-box;
+        min-height:1px;
+    }
+    .wrap-col-sub01{
+        grid-template-columns: repeat(3,1fr);
+    }
+    .wrap-col-sub03-best-camper,
+    .wrap-col-sub03-latest-post{
+        grid-template-columns: repeat(4,1fr);
+
+    }
+}
+
+/* 1256~ */
+@media screen and (min-width: 1256px){
+    .container {
+        margin-right: auto;
+        margin-left: auto;
+        box-sizing: border-box;
+        width: 1136px;
+        max-width: 100%;
+        box-sizing: border-box;
+        min-height: 1px;
+    }
+    .wrap-col-sub01{
+        width: 100%;
+        grid-template-columns: repeat(4, 1fr);
+        overflow: hidden;
+    }
+    .wrap-col-sub03-best-camper,
+    .wrap-col-sub03-latest-post{
+        grid-template-columns: repeat(5,1fr);
+
+    }
+
+}
+
+
+
+
+
+
+
+  
+  /* 모바일 미디어쿼리 */
+  @media (max-width:768px){
+      .sub-menu{
+          display: none;
+      }
+      /* 팝업창 */
+      .modal-inner{
+          flex-direction: column;
+          position: absolute;
+          width: 200px;
+          transform: translate(-50%,-50%);
+          border: 1px solid #000;
+      }
+      .modal-inner>div{
+        width: 100%;
+      }
+      
+  }
