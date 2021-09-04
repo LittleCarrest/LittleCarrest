@@ -1,0 +1,253 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+:root {
+  --text-color: #555555;
+  --point-color: #1ECAD3;
+  --bg-color: rgb(240, 240, 240);
+}
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  color: #555555;
+  font-size: 15px;
+  width: 100%;
+  height: 100%;
+}
+
+a {
+  color: #555555;
+}
+#gnb-aside{
+  position: absolute;
+  background-color: #fff;
+  width: 300px;
+  height: 100%;
+  top: 0;
+  left: -300px;
+  z-index: 99;
+  transition: 0.5s;
+}
+.gnb-aside-menu{
+  position: absolute;
+  width: 100%;
+  top: 80px;
+  left: 0;
+  display: none;
+  flex-direction: column;
+  text-align: left;
+  font-size: 14px;
+}
+.gnb-aside-menu li{
+  font-weight: 400;
+}
+.gnb-aside-menu.active{
+  display: flex;
+}
+
+header {
+  text-align: center;
+  position: static;
+  width: 100%;
+  background-color: #fff;
+  z-index: 999;
+}
+.wrap-header{
+  position: relative;
+  margin-top: 0;
+}
+.con-header{
+  position: relative;
+}
+.nav-toggleBtn {
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding-top: 20px;
+  font-size: 20px;
+  color: rgb(189, 186, 186);
+  z-index: 99999;
+}
+.user {
+  position: absolute;
+  right: 0;
+  font-weight: 100;
+  padding-top: 30px;
+}
+
+.user span {
+  padding-left: 10px;
+  font-size: 13px;
+}
+
+.login {}
+
+.join {}
+
+.logo {
+  padding: 30px;
+}
+.logo img{
+  width: 150px;
+}
+.gnb-menu,
+.sub-menu{
+  display: none;
+  justify-content: center;
+}
+
+.gnb-menu{
+  border-bottom: 1px solid #eee;
+}
+.gnb-menu li a,
+.gnb-aside-menu li a{
+  font-weight: 400;
+}
+
+.gnb-menu li,
+.gnb-aside-menu li {
+  padding: 15px 80px;
+  box-sizing: border-box;
+}
+.wrap-gnb-subMenu{
+  background-color: rgb(240, 240, 240);
+}
+.sub-menu li {
+  width: calc(768px / 3);
+  padding: 15px 0;
+  font-size: 14px;
+  font-weight: 100;
+}
+
+
+.gnb-aside-menu li:hover,
+.sub-menu li:hover {
+  background-color: var(--point-color);
+  color: #fff;
+}
+.gnb-aside-menu li:hover a{
+  color: #fff;
+}
+
+
+/* 콘텐츠영역 */
+.sub01-campingSearch {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.tit-image {
+  position: relative;
+  width: 100%;
+  height: 320px;
+  background-color: #555555;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.tit-image p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: #fff;
+  font-size: 50px;
+  transform: translate(-50%, -50%);
+  letter-spacing: 7px;
+  align-items: center;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.486);
+}
+
+.sub01-campingSearch {
+  margin-top: 20px;
+}
+
+/* 콘텐츠 너비-모바일 */
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  width: calc(100% - 30px);
+  max-width: 100%;
+  box-sizing: border-box;
+  min-height: 1px;
+}
+
+.con-sub01 {}
+
+.tit-sub01 {
+  padding: 10px 0;
+  color: var(--point-color);
+  font-size: 15px;
+  font-weight: 500;
+  border-bottom: 1px solid #ddd;
+}
+
+.contents-sub01 {}
+
+.contentCnt {
+  padding: 20px 0 10px 0;
+  font-size: 13px;
+
+}
+
+/* (width: ~375px) 모바일 기준
+  (여행지에서 핸드폰 사용할거 고려하면 폰기준해도 괜찮을 것 같았어요!
+  오늘의집이 웹을 저리 잘만들었는데 왜 미디어쿼리가 모바일 기준일까 생각해보니 모바일 사용자가 많을거 고려했을거
+  같더라구요. 모바일기준임에도 쿼리를 세부적으로 나눴기때문에 웹도 잘나왔다는 생각이들어서
+  오늘의집 쿼리 따라가보려구요. 이견도 환영입니다요 :D ) */
+.wrap-col-sub01{
+  width: 100%;
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  overflow: hidden;
+}
+.col-sub01{}
+.col-sub01-item{
+  border-radius: 8px;
+  background: #fff;
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+  box-sizing: border-box;
+  overflow: hidden;
+  
+  /* new 처리에 필요한 코드 
+  : 최신(예를들어 현재로부터 12시간 이내) 업로드 게시물일 경우,
+    relative속성 추가  + span태그 만들어(createElement) className으로 new지정 */
+  position: relative;
+}
+.new {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9;
+  font-size: 12px;
+  background-color: pink;
+  color: #fff;
+  padding: 5px;
+  margin: 15px;
+  border-radius: 3px;
+}
+.col-sub01-bg{
+  padding-bottom: 60%;
+  background-size: cover;
+  background-position: center center;
+  border-radius: 8px;
+}
+.col-sub01-item article{
+  text-align: center;
+  padding: 10px;
+}
+.col-sub01-item article h1{
+  font-weight: 700;
+  padding-bottom: 10px;
+}
+.col-sub01-item article span{
+  font-size: 13px;
+}
+
+
+
+
+

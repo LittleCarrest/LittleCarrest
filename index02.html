@@ -4,69 +4,62 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/main/css/responsive.css">
+    <link rel="stylesheet" href="/main/css/reset.css">
     <link rel="stylesheet" href="/main/css/style02.css">
-    <!-- <link rel="shortcut icon" href="경로/파일명.ico"> -->
+    <!-- <link rel="stylesheet" href="/main/css/mediaQuery.css"> -->
+    <script defer src="/main/javascript/gnb-menu.js"></script>
+    <script src="https://kit.fontawesome.com/6fd6b71dc1.js" crossorigin="anonymous"></script>
+    <!-- jquery cdn -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <title>LittleCarrest</title>
 </head>
 <body>
-    <header id="header-wrap">
-        <div class="new-header">
-            <!-- header 전체크기 -->
-            <div id="inline-header-normal" style="min-height: 30px;">
-                <!-- 최상단 로고있는부분 -->
-                <div class="inline-section-wrap">
-                     <!-- 최상단 로고있는부분 인사이드 -->
-                    <div class="inline-inside">
-                        <div class="inline-section">
-                            <div class="inline-col-group inline-col-group-left"></div>
-                            <div class="inline-col-group inline-col-group-center">
-                                <div class="logo-img">
-                                    <a href="#none">
-                                        <img src="/main/img/carrest_logo.png" alt="">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="inline-col-group inline-col-group-right">
-                                <div class="wiget">
-                                    <a href="#none">LOGIN</a>
-                                    <a href="#none">JOIN</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            <!-- 하단 gnb 전체크기 -->
-                <div class="inline-section-warp">
-                    <!-- gnb 영역 1200px -->
-                     <div class="inline-inside">
-
-                         <div class="inlin-section">
-                             <div class="inline-row">
-                                 <div class="inline-col">
-                                     <ul>
-                                         <li class="main-gnb"><a href="">차박검색</a></li>
-                                         <li class="main-gnb"><a href="">관광정보</a></li>
-                                         <li class="main-gnb"><a href="">커뮤니티</a></li>
-                                     </ul>
-                                 </div>
-                             </div>
-                             <!-- <div class="inline-row">
-                                <div class="inline-col">
-                                    <ul>
-                                        <li><a href="">난이도별</a></li>
-                                        <li><a href="">테마별</a></li>
-                                    </ul>
-                                </div>
-                                 <div class="line"></div>
-                             </div> -->
-                         </div>
-                     </div> 
-                     <!-- <div class="inline-insid-bottom-bg"></div>   -->
-                </div>
+    <aside id="gnb-aside">
+        <ul class="gnb-aside-menu">
+          <li id="gnb-aside-search" data-gnb='01'><a href="index.html">차박검색</a></li>
+          <li id="gnb-aside-tourInfo" data-gnb='02'><a href="#">관광정보</a></li>
+          <li id="gnb-aside-community" data-gnb='03'><a href="#">커뮤니티</a></li>
+        </ul>
+      </aside>
+      <header>
+        <div class="wrap-header">
+          <div class="container con-header">
+            <button class="nav-toggleBtn">
+              <i class="fas fa-bars"></i>
+            </button>
+            <div class="user">
+              <span class="login">LOGIN</span>
+              <span class="join">JOIN</span>
             </div>
-            <div class="line"></div>
+            <div class="logo">
+              <img src="img/real_logo.png" alt="">
+            </div>
+          </div>
+          <div class="wrap-gnb-menu">
+            <ul class="gnb-menu">
+              <li id="gnb-search" data-gnb='01'><a href="#">차박검색</a></li>
+              <li id="gnb-tourInfo" data-gnb='02'><a href="#">관광정보</a></li>
+              <li id="gnb-community" data-gnb='03'><a href="#">커뮤니티</a></li>
+            </ul>
+          </div>
+          <div class="wrap-gnb-subMenu">
+            <ul class="sub-menu search" data-gnb='01'>
+              <li>테마별</li>
+              <li>풀코스추천</li>
+            </ul>
+            <ul class="sub-menu tourInfo" data-gnb='02'>
+              <li>지역별 축제</li>
+              <li>지역별 명소</li>
+            </ul>
+            <ul class="sub-menu community" data-gnb='03'>
+              <li>홈</li>
+              <li>#차박캠퍼</li>
+              <li>차박가이드</li>
+            </ul>
+          </div>
         </div>
-</header>
+      </header>
     <main>
         <section class="sec01">
             <div class="sec01-title">
