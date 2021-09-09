@@ -130,23 +130,120 @@ header {
 
 
 /* 콘텐츠영역 */
+/* -------------------------------------풀코스 내용부분---------- */
 .fullcourse {
+  /* padding: 64px 120px; */
   position: absolute;
-  top: 30px;
-  border: 1px solid red ;
+  top: 40px;
+  /* border: 1px solid red ; */
   display: flex;
   flex-direction: column;
-  align-items: center;
   width: 100%;
   height: 100vh;
   z-index: 9999;
   background-color: white;
+  border-radius: 13px;
+  overflow: scroll;
 }
+
+.fullcourse::-webkit-scrollbar {
+  display: none;
+}
+
+.fullcourse-content {
+  margin: 64px 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.fullcourse-content-container {
+  max-width: 1136px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fullcourse-header {
+  max-width: 768px;
+  width: 100%;
+ 
+}
+
+.fullcourse-img {
+  border-radius: 13px;
+  max-width: 768px;
+  width: 100%;
+  margin-top: 40px;
+  overflow: hidden;
+}
+
+.fullcourse-img img {
+  width: 100%;
+}
+
+.fullcourse-content-container p {
+  font-size: 30px;
+  font-weight: 500;
+}
+
+.fullcourse-article {
+  border-radius: 13px;
+  max-width: 768px;
+  width: 100%;
+  height: 170px;
+  margin-top: 40px;
+  background-color: #eee;
+}
+
+.fullcourse-line {
+  max-width: 1136px;
+  width: 100%;
+  margin-top: 60px;
+}
+
+.line {
+  border: 1px solid #e7e7e9;
+}
+
+.fullcourse-article-tour {
+  border-radius: 13px;
+  max-width: 1136px;
+  width: 100%;
+  margin-top: 40px;
+}
+
+.tour-title h2 {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.tour-img {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px,1fr));
+  grid-gap: 40px;
+}
+
+.tour-img-detail {
+  overflow: hidden;
+}
+
+.tour-img-detail img{
+  border-radius: 13px;
+  width: 250px;
+}
+
+/* -------------------------------------------------------------- */
 
 .bakc-fullcourse {
   position: absolute;
   width: 100%;
   height: 100vh;
+  background-color: rgba(0, 0, 0, 0.185);
+  z-index: 8888;
 }
 
 
