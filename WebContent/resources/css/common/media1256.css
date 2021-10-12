@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+/* 1256~ */
+@media screen and (min-width: 1256px){
+    .container {
+        margin-right: auto;
+        margin-left: auto;
+        box-sizing: border-box;
+        width: 1136px;
+        max-width: 100%;
+        box-sizing: border-box;
+        min-height: 1px;
+    }
+
+    .wrap-col-sub01{
+        width: 100%;
+        grid-template-columns: repeat(4, 1fr);
+        overflow: hidden;
+    }
+    .wrap-col-sub03-best-camper,
+    .wrap-col-sub03-latest-post{
+        grid-template-columns: repeat(5,1fr);
+
+    }
+    .wrap-col-sub03-guide-tip,
+    .wrap-col-sub03-guide-board{
+        grid-template-columns: repeat(5,1fr);
+    }
+}

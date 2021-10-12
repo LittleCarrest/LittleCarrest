@@ -1,0 +1,53 @@
+@charset "UTF-8";
+
+/* 1024~1256 */
+@media screen and (min-width : 1024px){
+    .container{
+        margin-right : auto;
+        margin-left : auto;
+        width : calc(100% - 122px);
+        max-width:100%;
+        box-sizing: border-box;
+        min-height:1px;
+    }
+    /* 메인 */
+    .wrap-col-main-sec03,
+    .wrap-col-main-sec04{
+        grid-gap: 10px 40px;
+    }
+    /* 메인바탕용 */
+    .bg-main-sec03{
+        position: absolute;
+        top: 180vh;
+        width: 100%;
+        background-color: #fff;
+    }
+    .bg-main-sec04{
+        position: absolute;
+        top: 260vh;
+        padding-top: 0;
+    }
+    /* sub01 */
+    .wrap-col-sub01{
+        grid-template-columns: repeat(3,1fr);
+    }
+    /* sub02 */
+    .wrap-col-sub02-site-region{
+        grid-template-columns: repeat(4,1fr);
+    }
+    /* sub03 */
+    .wrap-col-main-sec03,
+    .wrap-col-main-sec04{
+        height: 80vh;
+    }
+
+    .wrap-col-sub03-best-camper,
+    .wrap-col-sub03-latest-post{
+        grid-template-columns: repeat(4,1fr);
+
+    }
+    .wrap-col-sub03-guide-tip,
+    .wrap-col-sub03-guide-board{
+        grid-template-columns: repeat(4,1fr);
+    }
+}

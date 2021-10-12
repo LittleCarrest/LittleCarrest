@@ -1,0 +1,41 @@
+@charset "UTF-8";
+
+/* 375~768 */
+
+@media screen and (min-width: 375px){
+    .container{
+        margin-right : auto;
+        margin-left : auto;
+        width : calc(100% - 30px);
+        max-width:100%;
+        box-sizing: border-box;
+        min-height:1px;
+    }
+    .sub-menu{
+        display: none;
+    }
+
+    /* sub01 */
+    .wrap-col-sub01{
+        grid-template-columns: 1fr;
+        justify-content: space-around;
+    }
+    /* sub02 */
+    .wrap-col-sub02-site-region{
+        grid-template-columns: 1fr 1fr;
+        justify-content: space-around;
+    }
+    /* sub03 */
+    .wrap-col-sub03-best-camper,
+    .wrap-col-sub03-latest-post{
+        grid-template-columns: 1fr 1fr;
+        justify-content: space-around;
+    }
+
+    .wrap-col-sub03-guide-tip,
+    .wrap-col-sub03-guide-board{
+        grid-template-columns: 1fr 1fr;
+        justify-content: space-around;
+    }
+    
+}

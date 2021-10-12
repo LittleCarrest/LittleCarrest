@@ -1,0 +1,129 @@
+@charset "UTF-8";
+.sub02-tour-site{}
+.sub02-tour-site-welcome-box{
+  position: absolute;
+  top: 90px;
+  height: 400px;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  position: fixed;
+  z-index: -1;
+}
+
+.sub02-tour-site-welcome-box h1{
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-60%,-50%);
+  font-size:18px;
+  color: #fff;
+  text-align: center;
+}
+.wrap-con-sub02-site-bg{
+  background-color: #fff;
+  z-index: 1;
+}
+.con-sub02-site-currLoc{
+  /* border: 1px solid #000; */
+  margin-top: 400px;
+  background: #fff;
+  justify-content: center;
+  padding-top: 20px;
+}
+.tit-sub02-site-currLoc{
+}
+.tit-sub02-site-currLoc h1,
+.tit-sub02-site-region h1{
+  font-size: 16px;
+  margin: 20PX 0;
+  padding-left: 10px;
+  border-left: 4px solid var(--point-color);
+}
+/* 카카오맵 + geolocation 으로 내위치 + 주변관광지(x km반경) 마커 표시 */
+.map{
+  width: 100%;
+  height: 350px;
+  border: 1px solid #000;
+}
+
+/* grid */
+.wrap-col-sub02-site-currLoc{
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(100px,1fr));
+  padding: 20px 0;
+  box-sizing: border-box;
+}
+.col-sub02-site-currLoc{}
+.col-sub02-site-currLoc-item{
+  background: #fff;
+  display: flex;
+  border-radius: 50%;
+  flex-direction: column;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+  padding-bottom: 100%;
+}
+.col-sub02-site-currLoc-img,
+.overlay-col-sub02{
+  position: absolute;
+  top: 50%;left: 50%;
+  transform: translate(-50%,-50%);
+  width: 100%;
+  height: 100%;
+}
+.overlay-col-sub02{
+  background-color: rgba(0, 0, 0, 0.171);
+}
+.col-sub02-site-currLoc-item h1{
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  top: 50%;left: 50%;
+  transform: translate(-50%,-50%);
+  color: #fff;
+  font-size: 13px;
+}
+
+/* 지역별 명소; sub02-site-region */
+.wrap-col-sub02-site-region{
+  width: 100%;
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  overflow: hidden;
+}
+.col-sub02-site-region-item{
+  border-radius: 8px;
+  background: #fff;
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.col-sub02-site-region-bg{
+  padding-bottom: 60%;
+  background-size: cover;
+  background-position: center center;
+  border-radius: 8px;
+}
+.col-sub02-site-region-item article{
+  text-align: center;
+  padding: 10px;
+}
+.col-sub02-site-region-item article h1{
+  font-size: var(--font-itemTit);
+  padding-bottom: 7px;
+}
+.col-sub02-site-region-item article span{
+  font-size: var(--font-viewCnt);
+}
+
+.tit-sub02-site-region{
+  margin-top: 100px;
+}

@@ -1,0 +1,228 @@
+@charset "UTF-8";
+
+
+.sub03-community-guide{}
+.sub03-search-box{
+  height: 200px;
+  width: 100%;
+  background-color: var(--point-color);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.wrap-sub03-guide-search{
+  width: 100%;
+  padding-top: 50px;
+  /* margin-top: 50px; */
+}
+.sub03-guide-search{
+  margin: auto;
+  width: calc(100% - 30px);
+  /* padding-top: 40px; */
+}
+.sub03-guide-search input{
+  width: 100%;
+  height: 40px;
+  border-radius: 20px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  padding-left: 15px;
+  box-sizing: border-box;
+}
+.search{
+  position: relative;
+  
+}
+.search i{
+  position: absolute;
+  font-size: 20px;
+  top: 10px;
+  right: 15px;
+  color: #aaa;
+}
+
+.tit-sub03-guide-search{
+  padding: 20px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: bold;
+  color: #fff;
+  margin-top: 0;
+}
+
+
+
+/* 캠핑tip */
+.con-sub03-guide-tip{
+  margin-top: 50px;
+  
+}
+.tit-sub03-guide-tip{}
+.tit-sub03-guide-tip h1,
+.tit-sub03-guide-board h1{
+  margin: 20PX 0;
+  border-left: 3px solid #000;
+  padding-left: 10px;
+}
+.tit-sub03-guide-tip h1 span,
+.tit-sub03-guide-board h1 span{
+  float: right;
+  font-size: 11px;
+  font-weight: bold;
+  color: var(--point-color);
+}
+.wrap-col-sub03-guide-tip,
+.wrap-col-sub03-guide-board{
+  /* position: absolute; */
+  width: 100%;
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  overflow: hidden;
+}
+.col-sub03-guide-tip{}
+.col-sub03-guide-item{
+  border-radius: 8px;
+  background: #fff;
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+  padding-bottom: 100%;
+}
+.col-sub03-guide-img{
+  position: absolute;
+  top: 50%;left: 50%;
+  transform: translate(-50%,-50%);
+  height: 100%;
+}
+
+/* 캠핑가이드 게시판 */
+.con-sub03-guide-board{
+  margin-top: 100px;
+}
+
+/* 감성캠핑 사진-용품태그 article */
+.camping-vibes-share{
+  position: absolute;
+  width: 100%;
+  top: 750px;
+  /* border: 1px solid #000; */
+}
+
+/* container는 공통style로 규정 */
+.vibes-img-container{}
+
+.vibes-img-container h1,
+.camping-tip-container h1{
+  font-size: 20px;
+  text-align: center;
+}
+.vibes-img{
+  text-align: center;
+}
+.vibes-img img{
+  width: 220px;
+  height: 220px;
+  margin: 15px;
+}
+
+
+
+/* 모바일 미디어쿼리 */
+
+/* 팝업창 */
+.modal{
+  position: fixed;
+  z-index: 99999;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  /* display: none; */
+  font-size: 11px;
+}
+.modal-inner{
+  flex-direction: column;
+  position: absolute;
+  background-color: #fff;
+  width: 300px;
+  transform: translate(-50%,-50%);
+}
+.modal-inner>div{
+  width: 100%;
+}
+.click-img{
+  /* background-image: url(img/여름나기.jpg); */
+  flex: 2;
+  box-sizing: border-box;
+}
+.click-img img{
+  width: 100%;
+  height: 100%;
+}
+.desc{
+  flex: 1;              /* flex-grow:1; flex-shrink:0; flex-basis:auto; */
+  line-height: 1.6em;
+}
+.profile{}
+.profile span{
+  margin-left: 20px;
+  padding: 15px;
+  padding-left: 40px;
+  display: block;
+  position: relative;
+}
+.profile span::before{
+  content: '';
+  width: 30px;
+  height: 30px;
+  top: 22%;         
+  left: 0;
+  position: absolute;
+  display: inline-block;
+  background-color: lightcoral;
+  margin-right: 15px;
+  border-radius: 50%;
+
+}
+.close-modal{
+  position: absolute;
+  top: 0;         
+  right: 0;
+  margin: 15px;
+  cursor: pointer;
+  background-color: transparent;
+  font-size: 25px;
+  color: #999;
+  border: none;
+}
+.close-modal:hover{
+  color: #000;
+}
+.desc-content{}
+.desc-content p{
+  padding: 10px;
+}
+.hashtag{
+  padding: 10px;
+  bottom: 0;
+}
+.overlay{
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.082);
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  /* display: none; */
+}
+    
+
+
