@@ -58,7 +58,7 @@ public class MemberController extends HttpServlet {
 		case "join-impl":
 			  joinImpl(request,response);
 			break;
-		case "id-check": //�쉶�썝媛��엯�떆 �븘�씠�뵒 以묐났�솗�씤
+		case "id-check":
 			 checkId(request,response);
 			break;
 		case "search-id":
