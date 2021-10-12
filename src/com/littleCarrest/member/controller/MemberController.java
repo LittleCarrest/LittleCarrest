@@ -58,7 +58,7 @@ public class MemberController extends HttpServlet {
 		case "join-impl":
 			  joinImpl(request,response);
 			break;
-		case "id-check": //회원가입시 아이디 중복확인
+		case "id-check": //�쉶�썝媛��엯�떆 �븘�씠�뵒 以묐났�솗�씤
 			 checkId(request,response);
 			break;
 		case "search-id":
@@ -77,8 +77,7 @@ public class MemberController extends HttpServlet {
 
 	}
 	private void searchPassword(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		
+		System.out.println("hi world");
 	}
 
 	private void matchId(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
