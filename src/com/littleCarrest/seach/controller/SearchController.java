@@ -38,9 +38,17 @@ public class SearchController extends HttpServlet {
 		case "green":	//산멍
 			green(request,response);
 			break;
+		case "full-course":	
+			fullCourse(request,response);
+			break;
 		default: /*throw new PageNotFoundException();*/
 			break;
 		}
+	}
+
+	private void fullCourse(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.getRequestDispatcher("/sub01/full-course").forward(request, response);
+		
 	}
 
 	private void green(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
