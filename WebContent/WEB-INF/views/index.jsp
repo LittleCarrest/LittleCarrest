@@ -7,12 +7,6 @@
 <%@ include file="/WEB-INF/views/include/head.jsp" %>
 <link rel="stylesheet" href="/resources/css/main/index.css">
 <%@ include file="/WEB-INF/views/include/mediaquery.jsp" %>
-<style type="text/css">
-@media screen and (min-width: 1519px){#footer_main{top: 2400px;}}
-@media screen and (min-width: 1660px){#footer_main{top: 2700px;}}
-@media screen and (min-width: 1900px){#footer_main{top: 3050px;}}
-@media screen and (min-width: 1900px){#footer_main{top: 3150px;}}
-</style>
 </head>
 <body>
 <%@ include file="/WEB-INF/views/include/fixed-header.jsp" %>
@@ -59,9 +53,6 @@
       <div class="col-main-sec04-item"></div>
     </div>
   </div>
-  <footer id="footer_main">
-    Copyright 2021 by PCLASS 4TEAM. All Rights Reserved.
-  </footer>
 <script src="/resources/js/main/main-gnb.js"></script>
 </body>
 </html>
