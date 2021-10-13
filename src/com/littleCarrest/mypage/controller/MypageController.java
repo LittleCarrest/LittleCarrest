@@ -1,4 +1,4 @@
-package com.littleCarrest.community.controller;
+package com.littleCarrest.mypage.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class CommunityController
+ * Servlet implementation class MypageController
  */
-@WebServlet("/community/*")
-public class CommunityController extends HttpServlet {
+@WebServlet("/mypage/*")
+public class MypageController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CommunityController() {
+    public MypageController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -27,34 +27,36 @@ public class CommunityController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String[] uriArr = request.getRequestURI().split("/");
-		
+
 		switch (uriArr[uriArr.length-1]) {
-		case "camper":	
-			camper(request,response);
+		case "home":
+			  home(request,response);
 			break;
-		case "guide":	
-			guide(request,response);
+		case "edit-profile":
+			  editProfile(request,response);
 			break;
-		case "board-form":	
-			boardForm(request,response);
+		case "edit":
+			  edit(request,response);
 			break;
 		default: /*throw new PageNotFoundException();*/
 			break;
 		}
+	
+	
 	}
 
-	private void boardForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/sub03/board-form").forward(request, response);
+	private void edit(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		
 	}
 
-	private void guide(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/sub03/guide").forward(request, response);
+	private void editProfile(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.getRequestDispatcher("/member/mypage/edit-profile").forward(request, response);
 		
 	}
 
-	private void camper(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/sub03/camper").forward(request, response);
+	private void home(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.getRequestDispatcher("/member/mypage/mypage").forward(request, response);
 		
 	}
 

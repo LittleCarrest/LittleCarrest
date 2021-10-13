@@ -421,6 +421,7 @@
       <button id="join" type="submit" onclick="fn-check()">가입하기</button>
 
  </form>       
+ <%@ include file="/WEB-INF/views/include/footer.jsp" %>
 </section>
 
 <script type="text/javascript" src="/resources/js/member/joinForm.js">

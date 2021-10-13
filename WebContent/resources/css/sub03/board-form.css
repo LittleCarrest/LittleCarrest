@@ -1,0 +1,9 @@
+@charset "UTF-8";
+
+.sec03-board-form{
+	margin-top: 20px; 
+}
+.con-tit-board-form h1{
+	padding: 5px 0;
+	border-bottom: 1px solid #000;
+}

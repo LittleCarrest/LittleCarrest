@@ -51,7 +51,7 @@
       <!-- 감성캠핑 공유 섹션 -->
     <div class="container con-sub03-guide-board">
       <div class="tit-sub03-guide-board">
-        <h1>나만의 꾸미기tip으로 감성캠퍼 되기<span>더보기</span>!</h1>
+        <h1>나만의 꾸미기tip으로 감성캠퍼 되기!<a href="/community/board-form" id="btn_write">글쓰기</a></h1>
       </div>
       <article class="wrap-col-sub03-guide-board">
         <div class="col-sub03-guide-tip">
@@ -97,7 +97,7 @@
 
       </article>
     </div>
-    
+    <%@ include file="/WEB-INF/views/include/footer.jsp" %>
   </section>
 
   <!-- Layer Popup -->

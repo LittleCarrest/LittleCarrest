@@ -132,6 +132,14 @@
   margin: 15px;
 }
 
+.tit-sub03-guide-board h1 a{
+	float: right;
+	color: #fff;
+	background-color: lightcoral;
+	border-radius: 5px;
+	padding: 5px 8px;
+}
+
 
 
 /* 모바일 미디어쿼리 */

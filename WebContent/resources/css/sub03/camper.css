@@ -44,12 +44,19 @@
   border-left: 3px solid #000;
   padding-left: 10px;
 }
-.tit-sub03-best-camper h3 span,
+
 .tit-sub03-latestPost h3 span{
   float: right;
   font-size: 11px;
   font-weight: bold;
   color: var(--point-color);
+}
+.tit-sub03-best-camper h3 a{
+	float: right;
+	color: #fff;
+	background-color: lightcoral;
+	border-radius: 5px;
+	padding: 5px 8px;
 }
 
 .wrap-col-sub03-best-camper,
@@ -97,6 +104,94 @@
 }
 
 
+/* 팝업창 */
+.modal{
+  position: fixed;
+  z-index: 99999;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  /* display: none; */
+  font-size: 11px;
+}
+.modal-inner{
+  flex-direction: column;
+  position: absolute;
+  background-color: #fff;
+  width: 300px;
+  transform: translate(-50%,-50%);
+}
+.modal-inner>div{
+  width: 100%;
+}
+.click-img{
+  /* background-image: url(img/여름나기.jpg); */
+  flex: 2;
+  box-sizing: border-box;
+}
+.click-img img{
+  width: 100%;
+  height: 100%;
+}
+.desc{
+  flex: 1;              /* flex-grow:1; flex-shrink:0; flex-basis:auto; */
+  line-height: 1.6em;
+}
+.profile{}
+.profile span{
+  margin-left: 20px;
+  padding: 15px;
+  padding-left: 40px;
+  display: block;
+  position: relative;
+}
+.profile span::before{
+  content: '';
+  width: 30px;
+  height: 30px;
+  top: 22%;         
+  left: 0;
+  position: absolute;
+  display: inline-block;
+  background-color: lightcoral;
+  margin-right: 15px;
+  border-radius: 50%;
+
+}
+.close-modal{
+  position: absolute;
+  top: 0;         
+  right: 0;
+  margin: 15px;
+  cursor: pointer;
+  background-color: transparent;
+  font-size: 25px;
+  color: #999;
+  border: none;
+}
+.close-modal:hover{
+  color: #000;
+}
+.desc-content{}
+.desc-content p{
+  padding: 10px;
+}
+.hashtag{
+  padding: 10px;
+  bottom: 0;
+}
+.overlay{
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.082);
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  /* display: none; */
+}
+    
 
 
 
