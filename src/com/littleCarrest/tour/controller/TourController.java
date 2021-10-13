@@ -35,10 +35,18 @@ public class TourController extends HttpServlet {
 		case "festival":	
 			festival(request,response);
 			break;
+		case "detail":	
+			festivalDetail(request,response);
+			break;
 
 		default: /*throw new PageNotFoundException();*/
 			break;
 		}
+	}
+
+	private void festivalDetail(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.getRequestDispatcher("/sub02/tour-festival-detail").forward(request, response);
+		
 	}
 
 	private void festival(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

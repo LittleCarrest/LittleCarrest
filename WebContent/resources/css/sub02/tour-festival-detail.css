@@ -1,0 +1,84 @@
+/* 20211013 정현직 */
+:root {
+    --text-color: #555555;
+    --point-color: #1ECAD3;
+    --bg-color: rgb(240, 240, 240);
+  }
+
+ 
+ footer{
+    margin-top: 150px;
+	color:#fff;
+	font-size:0.8em;
+	padding:70px;
+	text-align:center;
+    background-color: #7ddfe4;
+}
+
+.festival-image {
+    width: 100%;
+    padding: 200px 0;
+    background-color: #555555;
+}
+
+.festival-status p {
+    display: inline-block;
+    background-color: #1ECAD3;
+    color:white;
+    padding: 5px;
+    border-radius: 3px;
+    margin-top: 60px;
+}
+
+.festival-title {
+    margin-top: 6px;
+    font-size: 35px;
+    font-weight: 600;
+}
+
+.festival-date {
+    margin-top: 10px;
+}
+
+.festival-detail {
+    margin-top: 40px;
+}
+
+.festival-detail h1 {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.festival-detail p {
+    font-size: 18px;
+    line-height: 29px;
+}
+
+.line {
+    margin: 20px 0;
+    border: 1px solid #d3d3d3;
+}
+
+.detail-info {
+    width: 100%;
+    padding: 30px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    background-color:rgba(247, 248, 250);
+    line-height: 25px;
+    word-break:keep-all;
+    margin-top: 30px;
+}
+
+.detail-info strong {
+    color:rgb(143, 143, 143);
+    margin-right: 5px;
+    margin-left: 14px;
+}
+
+
+
+
+
+
+
