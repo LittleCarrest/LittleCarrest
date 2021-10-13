@@ -8,26 +8,11 @@
 <link rel="stylesheet" href="/resources/css/main/index.css">
 <%@ include file="/WEB-INF/views/include/mediaquery.jsp" %>
 <style type="text/css">
-@media screen and (min-width: 1519px){
-    /* main-footer */
-    #footer_main{
-		position:absolute;
-		width:100%;
-		top: 2300px;
-	}
-}
-
-@media screen and (min-width: 1900px){
-    /* main-footer */
-    #footer_main{
-		position:absolute;
-		width:100%;
-		top: 3000px;
-	}
-}
+@media screen and (min-width: 1519px){#footer_main{top: 2400px;}}
+@media screen and (min-width: 1660px){#footer_main{top: 2700px;}}
+@media screen and (min-width: 1900px){#footer_main{top: 3050px;}}
+@media screen and (min-width: 1900px){#footer_main{top: 3150px;}}
 </style>
-
-
 </head>
 <body>
 <%@ include file="/WEB-INF/views/include/fixed-header.jsp" %>
