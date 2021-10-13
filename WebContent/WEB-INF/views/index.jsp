@@ -7,7 +7,27 @@
 <%@ include file="/WEB-INF/views/include/head.jsp" %>
 <link rel="stylesheet" href="/resources/css/main/index.css">
 <%@ include file="/WEB-INF/views/include/mediaquery.jsp" %>
-<script defer src="/resources/js/main/main-gnb.js"></script>
+<style type="text/css">
+@media screen and (min-width: 1519px){
+    /* main-footer */
+    #footer_main{
+		position:absolute;
+		width:100%;
+		top: 2300px;
+	}
+}
+
+@media screen and (min-width: 1900px){
+    /* main-footer */
+    #footer_main{
+		position:absolute;
+		width:100%;
+		top: 3000px;
+	}
+}
+</style>
+
+
 </head>
 <body>
 <%@ include file="/WEB-INF/views/include/fixed-header.jsp" %>
@@ -54,9 +74,9 @@
       <div class="col-main-sec04-item"></div>
     </div>
   </div>
-
-
-
-
+  <footer id="footer_main">
+    Copyright 2021 by PCLASS 4TEAM. All Rights Reserved.
+  </footer>
+<script src="/resources/js/main/main-gnb.js"></script>
 </body>
 </html>

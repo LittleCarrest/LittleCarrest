@@ -292,4 +292,11 @@
         display: none;
     }
     
+    /* main-footer */
+    #footer_main{
+		position:absolute;
+		width:100%;
+		top: 2200px;
+	}
+    
 }

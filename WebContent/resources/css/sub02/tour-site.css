@@ -96,6 +96,7 @@
   grid-template-columns: 1fr;
   grid-template-rows: auto;
   overflow: hidden;
+  padding-bottom: 30px;
 }
 .col-sub02-site-region-item{
   border-radius: 8px;

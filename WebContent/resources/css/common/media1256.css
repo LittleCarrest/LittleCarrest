@@ -26,4 +26,6 @@
     .wrap-col-sub03-guide-board{
         grid-template-columns: repeat(5,1fr);
     }
+    
+
 }

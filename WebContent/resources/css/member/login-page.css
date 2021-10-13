@@ -112,3 +112,9 @@
 .login-footer p a:hover{
   text-decoration: underline;
 }
+
+footer{
+  position: absolute;
+  top: 100vh;
+  width: 100%;
+}

@@ -54,4 +54,11 @@
     .mypage-profile {
         margin-top: 50px;
     }
+    
+    /* main-footer */
+    #footer_main{
+		position:absolute;
+		width:100%;
+		top: 2300px;
+	}
 }
