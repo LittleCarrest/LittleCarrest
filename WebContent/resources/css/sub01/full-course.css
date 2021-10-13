@@ -217,7 +217,9 @@
   min-height: 1px;
 }
 
-.con-sub01 {}
+.con-sub01 {
+	padding-top: 50px;
+}
 
 .tit-sub01 {
   padding: 10px 0;
@@ -227,7 +229,9 @@
   border-bottom: 1px solid #ddd;
 }
 
-.contents-sub01 {}
+.contents-sub01 {
+	padding-bottom:50px;
+}
 
 .contentCnt {
   padding: 20px 0 10px 0;
@@ -286,4 +290,10 @@
 }
 .col-sub01-item article span{
   font-size: 13px;
+}
+
+footer{
+	position: absolute;
+	width: 100%;
+	top: 100vh;	
 }

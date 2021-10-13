@@ -7,7 +7,6 @@
 <%@ include file="/WEB-INF/views/include/head.jsp" %>
 <link rel="stylesheet" href="/resources/css/main/index.css">
 <%@ include file="/WEB-INF/views/include/mediaquery.jsp" %>
-<script defer src="/resources/js/main/main-gnb.js"></script>
 </head>
 <body>
 <%@ include file="/WEB-INF/views/include/fixed-header.jsp" %>
@@ -54,9 +53,6 @@
       <div class="col-main-sec04-item"></div>
     </div>
   </div>
-
-
-
-
+<script src="/resources/js/main/main-gnb.js"></script>
 </body>
 </html>

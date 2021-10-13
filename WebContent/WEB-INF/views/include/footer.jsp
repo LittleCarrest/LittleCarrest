@@ -4,7 +4,7 @@
 <html>
 <body>
     <footer>
-      Copyright 2021 by PCLASS 4TEAM. All Rights Reserved.
+      Copyright 2021 by LittleCarrest. All Rights Reserved.
     </footer>
 
 </body>

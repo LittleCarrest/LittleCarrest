@@ -5,6 +5,15 @@
 	let header = document.querySelector('header');
 	
 	
+	window.addEventListener("load", function(event) {
+		document.querySelectorAll('.sub-menu').forEach((sub)=>{
+	      sub.style.display='none';	
+	      sub.parentElement.style.backgroundColor='rgba(0, 0, 0, 0.178)';
+	    })
+	});
+	
+	
+	
 	//스크롤시 sub-menu 감추기 + 상단고정메뉴 배경색 white
 	document.addEventListener('scroll',()=>{
 	
@@ -37,8 +46,8 @@
 	      e.style.color='';
 	    })
 	    document.querySelectorAll('.sub-menu').forEach((sub)=>{
-	      sub.style.display='none';
-	      sub.parentElement.style.backgroundColor='';
+	      sub.style.display='none';	
+	      sub.parentElement.style.backgroundColor='rgba(0, 0, 0, 0.178)';
 	    })
 	    document.querySelectorAll('.user>a').forEach((e)=>{
 	      e.style.color='';
