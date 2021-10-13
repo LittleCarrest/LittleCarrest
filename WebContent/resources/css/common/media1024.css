@@ -50,4 +50,8 @@
     .wrap-col-sub03-guide-board{
         grid-template-columns: repeat(4,1fr);
     }
+    /* mypage */
+    .mypage-profile {
+        margin-top: 50px;
+    }
 }

@@ -1,0 +1,159 @@
+@charset "UTF-8";
+
+.con-sub03-guide-tip{
+  margin-top: 50px;
+  
+}
+
+.mypage-profile {
+    width: 100%;
+    height: 150px;
+    margin-top: 50px;
+}
+
+.profile-inside {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+}
+
+.profile-image { 
+    width: 100px;
+    height: 100px;
+    border-radius: 80%;
+    background-color: bisque;
+    overflow: hidden;
+}
+
+.profile-image img {
+    width: 100px;
+}
+
+.profile-info {
+    margin-left: 15px;
+}
+
+.profile-name {
+    display: flex;
+    align-items: center;
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.profile-name h3 {
+    margin-right: 6px;
+}
+
+.profile-follow {
+    margin-top: 15px;
+    font-size: 13px;
+    margin-bottom: 7px;
+}
+
+.mypage-button {
+    width: 100%;
+    display: flex;
+}
+
+.mypage-button a{
+    display: inline-block;
+    width: 30%;
+    height: 40px;
+    border-radius: 4px;
+    text-align: center;
+    line-height: 40px;
+    margin: 0 auto;
+    margin-top: 10px;
+    color: white;
+    background-color: var(--point-color);
+}
+
+.mypage-button a:hover {
+    color: #1ECAD3;
+    background-color: transparent;
+    border: 1px solid #1ECAD3;
+}
+
+
+/* 201013 정현직 editprofile */
+.edit-image {
+    margin-left: 13px;
+}
+
+.edit-image label { 
+    display: inline-block; 
+    padding: .5em .75em; 
+    color: #fff; 
+    font-size: inherit; 
+    line-height: normal; 
+    vertical-align: middle; 
+    background-color: #1ECAD3; 
+    cursor: pointer; 
+    border: 1px solid #ebebeb; 
+    border-radius: .25em; 
+} 
+
+.edit-image label:hover {
+    background-color:transparent;
+    border: 1px solid #1ECAD3;
+    color: #1ECAD3;
+}
+
+.edit-image input[type="file"] { 
+    /* 파일 필드 숨기기 */ 
+    position: absolute; 
+    width: 1px; 
+    height: 1px; 
+    padding: 0; 
+    margin: -1px; 
+    overflow: hidden; clip:rect(0,0,0,0); 
+    border: 0; 
+ }
+
+ .edit-profile-detail input {
+     width: 100%;
+     height: 40px;
+     background: #eeee;
+     border-radius: 6px;
+     border: none;
+     margin-top: 10px;
+     transition: 0.3s;
+     outline: none;
+     padding-left: 15px;
+ }
+
+ .mt {
+     margin-top: 18px;
+ }
+
+ .line {
+     border-top:1px solid #eeee;
+     padding-top: 30px;
+     margin-top: 30px;
+ }
+
+input:focus {
+     background-color: #fff !important;
+     box-shadow: 0 0 5px #1ECAD3 !important;
+ }
+
+ .edit-button input {
+    width: 100%;
+    height: 50px;
+    margin-top: 50px;
+    border-radius: 6px;
+    background-color: transparent;
+    color: #1ECAD3;
+    font-size: 20px;
+    font-weight: bold;
+    border: 1px solid #1ECAD3;
+ }
+
+ .edit-button input:hover {
+     background-color: #1ECAD3;
+     color: #fff;
+ }

@@ -2,10 +2,10 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<head>
-<%@ include file="/WEB-INF/views/include/head.jsp" %>
-</head>
 <body>
+    <footer>
+      Copyright 2021 by PCLASS 4TEAM. All Rights Reserved.
+    </footer>
 
 </body>
 </html>

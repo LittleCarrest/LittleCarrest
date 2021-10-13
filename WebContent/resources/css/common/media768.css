@@ -181,7 +181,20 @@
     .wrap-col-sub03-guide-board{
         grid-template-columns: 1fr 1fr 1fr;
     }
+    
 
+/* mypage */
+    .mypage-profile {
+        margin-top: 50px;
+    }
+    
+    .profile-inside {
+        width: 90%;
+    }
+
+    .mypage-button a {
+        width: 40%;
+    }
 
 
         

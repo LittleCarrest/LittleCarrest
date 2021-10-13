@@ -11,6 +11,8 @@
 
 
 <link rel="stylesheet" href="${contextPath}/resources/css/common/reset.css">
+<link rel="stylesheet" href="/resources/css/common/fixed-header.css">
+<link rel="stylesheet" href="/resources/css/common/footer.css">
 
 <!-- jQuery CDN -->
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>

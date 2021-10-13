@@ -115,7 +115,6 @@ header {
   font-weight: 100;
 }
 
-
 .gnb-aside-menu li:hover,
 .sub-menu li:hover {
   background-color: var(--point-color);

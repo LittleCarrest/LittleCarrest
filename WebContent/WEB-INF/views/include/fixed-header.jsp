@@ -24,7 +24,7 @@
 	          <a class="join" href="/member/join-page">JOIN</a>
 			</c:if>
 			<c:if test="${not empty authentication}">
-	          <a class="mypage" href="/member/mypage">MYPAGE</a>
+	          <a class="mypage" href="/mypage/home">MYPAGE</a>
 	          <a class="logout" href="/member/logout">LOGOUT</a>
 			</c:if>
         </div>

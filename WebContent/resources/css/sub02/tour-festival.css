@@ -1,1 +1,218 @@
 @charset "UTF-8";
+
+/* 콘텐츠영역 */
+.sub01-campingSearch {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* ---------------------- 상단 이달의 축제--------- */
+.festival-wrap {
+  position: relative;
+}
+
+.festival-prev-button {
+  position: absolute;
+  left: -20px;
+  top: 50%;
+  transform: translateX(-50%);
+  transform: translateY(-50%);
+  z-index: 1;
+  border-radius: 50%;
+  height: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.281);
+  
+} 
+
+.festival-after-button {
+  position: absolute;
+  right: -20px;
+  top: 50%;
+  transform: translateX(-50%);
+  transform: translateY(-50%);
+  z-index: 1;
+  border-radius: 50%;
+  height: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.281);
+}
+
+.festival-row {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  grid-gap: 40px;
+}
+
+.festival-col {
+  position: relative;
+  width: 100%;
+  height: 320px;
+  background-color: #555555;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.festival-col p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: #fff;
+  font-size: 50px;
+  transform: translate(-50%, -50%);
+  letter-spacing: 7px;
+  align-items: center;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.486);
+}
+
+/* ---------------------- 상단 이달의 축제--------- */
+
+/* ---------------------- 하단 계절병별 축제-------- */
+.season-tabs {
+  margin-top: 60px;
+}
+
+.season-button {
+  width: 100%;
+}
+
+.season-button ul {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(4,1fr);
+  
+}
+
+
+.season-button li {
+  width: 100%;
+  border-bottom: 2px solid #eee;
+}
+
+.season-button li:hover {
+  background-color: #eee;
+}
+
+.season-button li a {
+  display: inline-block;
+  width: 100%;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  
+}
+
+.season-main {
+    margin-top:40px ;
+    width: 100%;
+    height: 1200px;
+    border-radius: 9px;
+    background-color: #eee;
+}
+
+.season-sub-wrap {
+  margin-top: 20px;
+}
+
+.season-sub-row {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  width: 100%;
+  grid-gap: 20px;
+}
+
+.season-sub-col {
+  border-radius: 9px;
+  height: 200px;
+  background-color: #ddd;
+}
+
+/* ---------------------- 하단 계절병별 축제-------- */
+
+
+.sub01-campingSearch {
+  margin-top: 20px;
+}
+
+/* 콘텐츠 너비-모바일 */
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  width: calc(100% - 30px);
+  max-width: 100%;
+  box-sizing: border-box;
+  min-height: 1px;
+}
+
+.con-sub01 {}
+
+.tit-sub01 {
+  padding: 40px 0;
+  color: var(--point-color);
+  font-size: 15px;
+  font-weight: 500;
+  border-bottom: 1px solid #ddd;
+}
+
+.contents-sub01 {}
+
+.contentCnt {
+  padding: 20px 0 10px 0;
+  font-size: 13px;
+
+}
+
+
+.wrap-col-sub01{
+  width: 100%;
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  overflow: hidden;
+}
+.col-sub01{}
+.col-sub01-item{
+  border-radius: 8px;
+  background: #fff;
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+  box-sizing: border-box;
+  overflow: hidden;
+  
+
+  position: relative;
+}
+.new {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9;
+  font-size: 12px;
+  background-color: pink;
+  color: #fff;
+  padding: 5px;
+  margin: 15px;
+  border-radius: 3px;
+}
+.col-sub01-bg{
+  padding-bottom: 60%;
+  background-size: cover;
+  background-position: center center;
+  border-radius: 8px;
+}
+.col-sub01-item article{
+  text-align: center;
+  padding: 10px;
+}
+.col-sub01-item article h1{
+  font-weight: 700;
+  padding-bottom: 10px;
+}
+.col-sub01-item article span{
+  font-size: 13px;
+}
+
+
+
+
