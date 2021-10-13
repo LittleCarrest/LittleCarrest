@@ -41,9 +41,16 @@ public class SearchController extends HttpServlet {
 		case "full-course":	
 			fullCourse(request,response);
 			break;
+		case "detail":	
+			searchDetail(request,response);
+			break;
 		default: /*throw new PageNotFoundException();*/
 			break;
 		}
+	}
+
+	private void searchDetail(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.getRequestDispatcher("/sub01/search-detail").forward(request, response);
 	}
 
 	private void fullCourse(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

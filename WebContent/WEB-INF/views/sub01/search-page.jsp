@@ -27,7 +27,7 @@
         <!-- 콘텐츠 grid영역 -->
         <div class="wrap-col-sub01">
           <div class="col-sub01">
-            <a class="col-sub01-item" href="#">
+            <a class="col-sub01-item" href="/search/detail">
               <span class="new">NEW</span>
               <div class="col-sub01-bg" style="background-image: url(https://media.timeout.com/images/105658195/image.jpg)">
               </div>

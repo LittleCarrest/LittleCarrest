@@ -1,0 +1,51 @@
+/* 20211013 정현직 */
+:root {
+    --text-color: #555555;
+    --point-color: #1ECAD3;
+    --bg-color: rgb(240, 240, 240);
+  }
+
+ 
+ footer{
+    margin-top: 150px;
+	color:#fff;
+	font-size:0.8em;
+	padding:70px;
+	text-align:center;
+    background-color: #7ddfe4;
+}
+
+.detail-image {
+    width: 100%;
+    padding: 200px 0;;
+    background-color: #555555;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 50px;
+    margin-top: 100px;
+}
+
+.detail-title {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.detail-info {
+    width: 100%;
+    padding: 30px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    background-color:rgba(247, 248, 250);
+    line-height: 25px;
+    word-break:keep-all;
+}
+
+.detail-info strong {
+    color:rgb(143, 143, 143);
+    margin-right: 5px;
+    margin-left: 14px;
+}
+
+
+
