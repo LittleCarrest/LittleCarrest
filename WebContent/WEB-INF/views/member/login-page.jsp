@@ -18,8 +18,8 @@
       <div class="login-type">
         <h1>로그인</h1>
         <div class="common-login">
-          <input type="text" placeholder="아이디를 입력하세요">
-          <input type="password" placeholder="패스워드를 입력하세요">
+          <input type="text" name="userId" placeholder="아이디를 입력하세요">
+          <input type="password" name="password" placeholder="패스워드를 입력하세요">
         </div>
         <input type="submit" class="btn" value="로그인">
         <span class="or-text">또는</span>
