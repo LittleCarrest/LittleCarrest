@@ -21,9 +21,9 @@
           <input type="text" name="userId" placeholder="아이디를 입력하세요">
           <input type="password" name="password" placeholder="패스워드를 입력하세요">
         </div>
-        <input type="submit" class="btn" value="로그인">
+        <input type="submit" class="btn btn-login" value="로그인">
         <span class="or-text">또는</span>
-        <a class="btn" href="/member/kakao-login">카카오톡 로그인</a>
+        <a class="btn btn-kakao-login" href="/member/kakao-login">카카오톡 로그인</a>
         <div class="login-footer">
           <h3 class="wrap-find">
              <a href="/member/find-id">아이디 찾기</a>
