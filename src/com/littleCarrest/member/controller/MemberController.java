@@ -7,16 +7,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.littleCarrest.member.model.dto.Member;
+import com.littleCarrest.member.model.service.MemberService;
+
 /**
  * Servlet implementation class MemberController
  */
 @WebServlet("/member/*")
 public class MemberController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	private MemberService memberService = new MemberService();
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
     public MemberController() {
         super();
         // TODO Auto-generated constructor stub
@@ -126,12 +128,23 @@ public class MemberController extends HttpServlet {
 	}
 
 	private void logout(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		
+		request.getSession().removeAttribute("authentication");
+		response.sendRedirect("/");
 	}
 
 	private void login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		String userId = request.getParameter("userId");
+		String password = request.getParameter("password");
+		
+		Member member = memberService.memberAuthenticate(userId,password);
+		
+		if(member == null) {
+			response.sendRedirect("/member/login-form?err=1");
+			return;
+		}
+		
+		request.getSession().setAttribute("authentication", member);
+		response.sendRedirect("/index");
 		
 	}
 

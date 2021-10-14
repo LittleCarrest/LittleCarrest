@@ -118,3 +118,10 @@ footer{
   top: 100vh;
   width: 100%;
 }
+
+/* 211014 정현직 */
+
+input[type="submit"] {
+  border: none;
+  width: 100%;
+}

@@ -7,151 +7,80 @@ public class Member {
 	
 	private String userId;
 	private String password;
-	private Date birth;
-	private String info;
-	private String nickname;
-	private Date joinDate;
 	private String email;
-	private String grade;
-	private int isHost;
-	private int isLeave;
-	private int postCnt;
-	private int replyCnt;
-
+	private String nickname;
+	private String tel;
+	private String address;
+	private Date regDate;
+	private String info;
+	private String profile;
+	private String socialLogin;
 	
 	public String getUserId() {
 		return userId;
 	}
-
-
 	public void setUserId(String userId) {
 		this.userId = userId;
 	}
-
-
 	public String getPassword() {
 		return password;
 	}
-
-
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
-
-	public Date getBirth() {
-		return birth;
-	}
-
-
-	public void setBirth(Date birth) {
-		this.birth = birth;
-	}
-
-
-	public String getInfo() {
-		return info;
-	}
-
-
-	public void setInfo(String info) {
-		this.info = info;
-	}
-
-
-	public String getNickname() {
-		return nickname;
-	}
-
-
-	public void setNickname(String nickname) {
-		this.nickname = nickname;
-	}
-
-
-	public Date getJoinDate() {
-		return joinDate;
-	}
-
-
-	public void setJoinDate(Date joinDate) {
-		this.joinDate = joinDate;
-	}
-
-
 	public String getEmail() {
 		return email;
 	}
-
-
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
-
-	public String getGrade() {
-		return grade;
+	public String getNickname() {
+		return nickname;
 	}
-
-
-	public void setGrade(String grade) {
-		this.grade = grade;
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
 	}
-
-	public int getIsHost() {
-		return isHost;
+	public String getTel() {
+		return tel;
 	}
-
-
-	public void setIsHost(int isHost) {
-		this.isHost = isHost;
+	public void setTel(String tel) {
+		this.tel = tel;
 	}
-
-
-	public int getIsLeave() {
-		return isLeave;
+	public String getAddress() {
+		return address;
 	}
-
-
-	public void setIsLeave(int isLeave) {
-		this.isLeave = isLeave;
+	public void setAddress(String address) {
+		this.address = address;
 	}
-
-
-
-	public int getPostCnt() {
-		return postCnt;
+	public Date getRegDate() {
+		return regDate;
 	}
-
-
-	public void setPostCnt(int postCnt) {
-		this.postCnt = postCnt;
+	public void setRegDate(Date regDate) {
+		this.regDate = regDate;
 	}
-
-
-	public int getReplyCnt() {
-		return replyCnt;
+	public String getInfo() {
+		return info;
 	}
-
-
-	public void setReplyCnt(int replyCnt) {
-		this.replyCnt = replyCnt;
+	public void setInfo(String info) {
+		this.info = info;
 	}
-	
-
-
-
+	public String getProfile() {
+		return profile;
+	}
+	public void setProfile(String profile) {
+		this.profile = profile;
+	}
+	public String getSocialLogin() {
+		return socialLogin;
+	}
+	public void setSocialLogin(String socialLogin) {
+		this.socialLogin = socialLogin;
+	}
 	@Override
 	public String toString() {
-		return "Member [userId=" + userId + ", password=" + password + ", birth=" + birth + ", info=" + info
-				+ ", nickname=" + nickname + ", joinDate=" + joinDate + ", email=" + email + ", grade=" + grade
-				+ ", isHost=" + isHost + ", isLeave=" + isLeave + "]";
+		return "Member [userId=" + userId + ", password=" + password + ", email=" + email + ", nickname=" + nickname
+				+ ", tel=" + tel + ", address=" + address + ", regDate=" + regDate + ", info=" + info + ", profile="
+				+ profile + ", socialLogin=" + socialLogin + "]";
 	}
-
-
-
-
-
-
 
 }

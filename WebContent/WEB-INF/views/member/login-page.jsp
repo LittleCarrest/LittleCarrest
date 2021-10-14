@@ -13,6 +13,7 @@
 <%@ include file="/WEB-INF/views/include/fixed-header.jsp" %>
 
   <section class="sec-login">
+  	<form action="/member/login" method="post">
     <div class="login-form">
       <div class="login-type">
         <h1>로그인</h1>
@@ -20,14 +21,14 @@
           <input type="text" placeholder="아이디를 입력하세요">
           <input type="password" placeholder="패스워드를 입력하세요">
         </div>
-        <a class="btn" href="/member/login">로그인</a>
+        <input type="submit" class="btn" value="로그인">
         <span class="or-text">또는</span>
         <a class="btn" href="/member/kakao-login">카카오톡 로그인</a>
         <div class="login-footer">
           <h3 class="wrap-find">
-	          <a href="/member/find-id">아이디 찾기</a>
-	          <span>or</span>
-	          <a href="/member/find-password">비밀번호 찾기</a>
+             <a href="/member/find-id">아이디 찾기</a>
+             <span>or</span>
+             <a href="/member/find-password">비밀번호 찾기</a>
           </h3>
           <p>
             리틀카레스트 처음이신가요? <a href="/member/join-page">회원가입</a>
@@ -35,6 +36,7 @@
         </div>
       </div>
     </div>  
+    </form>
   </section>
   <%@ include file="/WEB-INF/views/include/footer.jsp" %>
 

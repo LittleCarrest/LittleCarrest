@@ -68,7 +68,6 @@ public class AuthorizationFilter implements Filter {
 			if(httpRequest.getSession().getAttribute("authentication") == null) {
 				throw new HandleableException(ErrorCode.REDIRECT_LOGIN_PAGE);
 			}
-			hostAuthorize(httpRequest, httpResponse);
 			break;
 		case "upload":
 			if(httpRequest.getSession().getAttribute("authentication") == null) {
@@ -103,22 +102,6 @@ public class AuthorizationFilter implements Filter {
 //		if(!member.getUserId().equals(community.getUserId())) {
 //			throw new HandleableException(ErrorCode.UNAUTHORIZED_PAGE);
 //		}
-		
-	}
-
-
-
-	
-	
-	private void hostAuthorize(HttpServletRequest httpRequest, HttpServletResponse httpResponse) {
-		//로그인 시 session 객체에 authentication 속성을 부여하고 value값으로 member객체 담아옴.
-		Member member = (Member) httpRequest.getSession().getAttribute("authentication");
-		MemberService memberService = new MemberService();
-		
-		if(memberService.selectMemberById(member.getUserId()).getIsHost() != 0){
-			throw new HandleableException(ErrorCode.UNMATCHED_USER_AUTH_ERROR);
-		}
-		
 		
 	}
 
