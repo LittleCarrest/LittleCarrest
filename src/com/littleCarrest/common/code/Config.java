@@ -5,7 +5,7 @@ public enum Config {
 	//DOMAIN("http://www.littleCarrest.com"),
 	DOMAIN("http://localhost:7070"),
 	SMTP_AUTHENTICATION_ID("littlecarrest@gmail.com"),
-	SMTP_AUTHENTICATION_PASSWORD("rladbswjd2"),
+	SMTP_AUTHENTICATION_PASSWORD("gbarunpsivbprqlq"),
 	OFFICIAL_MAIL("littlecarrest@gmail.com"),
 	COMPANY_EMAIL("littlecarrest@gmail.com"),
 	//UPLOAD_PATH("C:\\CODE\\after\\upload\\"); 운영서버

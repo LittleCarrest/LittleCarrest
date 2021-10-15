@@ -145,7 +145,7 @@ public class MemberController extends HttpServlet {
 		memberService.authenticateEmail(member,persistToken);
 		
 		request.setAttribute("msg", "회원가입을 위한 이메일이 발송되었습니다.");
-		request.setAttribute("url", "/member/login-form");
+		request.setAttribute("url", "/member/login-page");
 		request.getRequestDispatcher("/common/result").forward(request, response);
 		
 	}
