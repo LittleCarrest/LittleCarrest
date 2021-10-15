@@ -53,13 +53,13 @@
   background-position: center left; */
   opacity: 0.8;
 }
-.btn:nth-of-type(1){
+.btn-login{
   background: #1ECAD3;
   color: #fff;
 
 }
-.btn:nth-of-type(2){
-  background: gold url(images/kakao-talk1.png) no-repeat center left 10px;
+.btn-kakao-login{
+  background: gold;
   
 }
 .btn:hover{
