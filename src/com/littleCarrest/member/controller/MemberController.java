@@ -1,6 +1,8 @@
 package com.littleCarrest.member.controller;
 
 import java.io.IOException;
+import java.util.UUID;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -118,7 +120,22 @@ public class MemberController extends HttpServlet {
 	}
 
 	private void join(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		String userId = request.getParameter("userId");
+		String password = request.getParameter("password");
+		String nickname = request.getParameter("nickname");
+		String email = request.getParameter("email");
+		
+		Member member = new Member();
+		member.setUserId(userId);
+		member.setPassword(password);
+		member.setNickname(nickname);
+		member.setEmail(email);
+		
+		String persistToken = UUID.randomUUID().toString();
+		request.getSession().setAttribute("persistUser", member);
+		request.getSession().setAttribute("persist-token", persistToken);
+		
+		
 		
 	}
 

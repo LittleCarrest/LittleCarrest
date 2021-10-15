@@ -51,8 +51,6 @@ public class MemberDao {
 		member.setPassword(rset.getString("password"));
 		member.setEmail(rset.getString("email"));
 		member.setNickname(rset.getString("nickname"));
-		member.setTel(rset.getString("tel"));
-		member.setAddress(rset.getString("address"));
 		member.setRegDate(rset.getDate("reg_date"));
 		member.setInfo(rset.getString("info"));
 		member.setProfile(rset.getString("profile"));
@@ -73,8 +71,6 @@ public class MemberDao {
 			case "password":member.setPassword(rset.getString("password"));break;
 			case "email":member.setEmail(rset.getString("email")); break;
 			case "nickname":member.setNickname(rset.getString("nickname")); break;
-			case "tel":member.setTel(rset.getString("tel"));break;
-			case "address":member.setAddress(rset.getString("address"));break;
 			case "reg_date":member.setRegDate(rset.getDate("reg_date"));break;
 			case "info":member.setInfo(rset.getString("info"));break;
 			case "profile":member.setProfile(rset.getString("profile"));break;

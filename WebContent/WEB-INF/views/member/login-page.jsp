@@ -35,7 +35,7 @@
           </p>
         </div>
       </div>
-    </div>  
+    </div>
     </form>
   </section>
   <%@ include file="/WEB-INF/views/include/footer.jsp" %>
