@@ -7,6 +7,7 @@ public enum Config {
 	SMTP_AUTHENTICATION_ID("littlecarrest@gmail.com"),
 	SMTP_AUTHENTICATION_PASSWORD("rladbswjd2"),
 	OFFICIAL_MAIL("littlecarrest@gmail.com"),
+	COMPANY_EMAIL("littlecarrest@gmail.com"),
 	//UPLOAD_PATH("C:\\CODE\\after\\upload\\"); 운영서버
 	UPLOAD_PATH("C:\\littlecarrest\\upload\\"); //개발서버
 	

@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.littleCarrest.member.model.dto.Member;
 import com.littleCarrest.member.model.service.MemberService;
@@ -100,7 +101,13 @@ public class MemberController extends HttpServlet {
 	}
 
 	private void joinImpl(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		HttpSession session = request.getSession();
+		memberService.insertMember((Member)session.getAttribute("persistUser"));
+		
+		//같은 persisUser값이 두 번 DB에 입력되지 않도록 사용자 정보와 인증을 만료시킴
+		session.removeAttribute("persistUser");
+		session.removeAttribute("persist-token");
+		response.sendRedirect("/member/login-form");
 		
 	}
 
@@ -135,7 +142,11 @@ public class MemberController extends HttpServlet {
 		request.getSession().setAttribute("persistUser", member);
 		request.getSession().setAttribute("persist-token", persistToken);
 		
+		memberService.authenticateEmail(member,persistToken);
 		
+		request.setAttribute("msg", "회원가입을 위한 이메일이 발송되었습니다.");
+		request.setAttribute("url", "/member/login-form");
+		request.getRequestDispatcher("/common/result").forward(request, response);
 		
 	}
 

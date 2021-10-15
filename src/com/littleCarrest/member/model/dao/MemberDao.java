@@ -143,7 +143,26 @@ public class MemberDao {
 		return res;
 	}
 
-
-
+	public int insertMember(Member member, Connection conn) {
+		int res = 0;		
+		PreparedStatement pstm = null;
+		
+		String query = "insert into member(user_id,password,email,nickname)"
+					 + " values(?,?,?,?) ";
+		try {
+			pstm = conn.prepareStatement(query);
+			pstm.setString(1, member.getUserId());
+			pstm.setString(2, member.getPassword());
+			pstm.setString(3, member.getEmail());
+			pstm.setString(4, member.getNickname());
+			res = pstm.executeUpdate();
+		} catch (SQLException e) {
+			throw new DataAccessException(e);
+		} finally {
+			template.close(pstm);
+		}
+		
+		return res;
+	}
 
 }
