@@ -2,7 +2,7 @@
 
 .con-sub03-guide-tip{
   margin-top: 50px;
-  
+  padding-bottom: 100px;
 }
 
 .mypage-profile {
@@ -124,6 +124,7 @@
      transition: 0.3s;
      outline: none;
      padding-left: 15px;
+     box-sizing: border-box;
  }
 
  .mt {

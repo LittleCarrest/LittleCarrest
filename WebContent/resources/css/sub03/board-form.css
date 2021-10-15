@@ -1,9 +1,73 @@
 @charset "UTF-8";
 
 .sec03-board-form{
-	margin-top: 20px; 
+	margin-top: 50px;
+	
 }
-.con-tit-board-form h1{
-	padding: 5px 0;
-	border-bottom: 1px solid #000;
+.con-tit-board-form{
+	
+}
+
+.tit-form{
+	width: 700px;
+	margin:auto;
+	border-bottom: 1px solid #ddd;
+	margin-bottom: 50px; 
+	display: flex;
+	justify-content: space-between;
+	line-height: 30px;
+}
+.btn_upload{
+	outline: none;
+	border: none;
+	background-color: lightcoral;
+	padding: 5px 8px;
+	color:#fff;
+	border-radius: 5px;
+	margin-bottom: 10px;
+	cursor: pointer;
+}
+.wrap-form{
+	/* background-color: #f9f9f9; */
+	padding: 15px 0;
+}
+.board-form{
+	width: 700px;
+	margin: auto;
+	display: flex;
+	justify-content: space-between;
+}
+.wrap-img{
+	width: 300px;
+	border: 1px solid #ddd;
+}
+.btn_img{
+	width: 100%;
+	height: 100%;
+}
+.fa-camera-retro{
+	font-size: 50px;
+	color: #aaa;
+}
+.txt-form h2{
+	padding: 15px 2px;	
+}
+.txt-form textarea, select {
+	width: 350px;
+	outline: none;
+	border: 1px solid #ddd;
+}
+.tag{
+	display: inline-block;
+	width:50px;
+	outline: none;
+	border: 1px solid #ddd;
+}
+
+.txt-form textarea:focus, .txt-form select:focus, .tag:focus {
+	box-shadow: 0 0 5px #1ECAD3 !important;
+}
+
+footer{
+	margin-top:calc(100vh - 800px);
 }

@@ -2,19 +2,20 @@ package com.littleCarrest.community.model.dto;
 
 import java.sql.Date;
 
+import com.littleCarrest.common.file.FileDTO;
+
 public class Community {
 	
 	private String bdIdx;
-	private String userId;
+	private String user_idx;
 	private String nickname;
-	private String title;
-	private String subject;
 	private String content;
 	private Date regDate;
-	private int viewCnt;
 	private int liked;
-	private String profileSavePath;
-	private String profileRenameFileName;
+	private String category;
+	private String tag_idx;
+	private int is_del;
+	private String picture;
 	
 	public String getBdIdx() {
 		return bdIdx;
@@ -22,29 +23,17 @@ public class Community {
 	public void setBdIdx(String bdIdx) {
 		this.bdIdx = bdIdx;
 	}
-	public String getUserId() {
-		return userId;
+	public String getUser_idx() {
+		return user_idx;
 	}
-	public void setUserId(String userId) {
-		this.userId = userId;
+	public void setUser_idx(String user_idx) {
+		this.user_idx = user_idx;
 	}
 	public String getNickname() {
 		return nickname;
 	}
 	public void setNickname(String nickname) {
 		this.nickname = nickname;
-	}
-	public String getTitle() {
-		return title;
-	}
-	public void setTitle(String title) {
-		this.title = title;
-	}
-	public String getSubject() {
-		return subject;
-	}
-	public void setSubject(String subject) {
-		this.subject = subject;
 	}
 	public String getContent() {
 		return content;
@@ -58,39 +47,49 @@ public class Community {
 	public void setRegDate(Date regDate) {
 		this.regDate = regDate;
 	}
-	public int getViewCnt() {
-		return viewCnt;
-	}
-	public void setViewCnt(int viewCnt) {
-		this.viewCnt = viewCnt;
-	}	
 	public int getLiked() {
 		return liked;
 	}
 	public void setLiked(int liked) {
 		this.liked = liked;
 	}
-	public String getProfileSavePath() {
-		return profileSavePath;
+	public String getCategory() {
+		return category;
 	}
-	public void setProfileSavePath(String profileSavePath) {
-		this.profileSavePath = profileSavePath;
+	public void setCategory(String category) {
+		this.category = category;
 	}
-	public String getProfileRenameFileName() {
-		return profileRenameFileName;
+	public String getTag_idx() {
+		return tag_idx;
 	}
-	public void setProfileRenameFileName(String profileRenameFileName) {
-		this.profileRenameFileName = profileRenameFileName;
+	public void setTag_idx(String tag_idx) {
+		this.tag_idx = tag_idx;
 	}
+	public int getIs_del() {
+		return is_del;
+	}
+	public void setIs_del(int is_del) {
+		this.is_del = is_del;
+	}
+	public String getPicture() {
+		return picture;
+	}
+	public void setPicture(FileDTO fileDTO) {
+		if(fileDTO.getSavePath() == null) {
+			this.picture = null;
+		}else {
+			this.picture = fileDTO.getSavePath() + fileDTO.getRenameFileName();
+
+		}
+	}
+	
 	@Override
 	public String toString() {
-		return "Community [bdIdx=" + bdIdx + ", userId=" + userId + ", nickname=" + nickname + ", title=" + title
-				+ ", subject=" + subject + ", content=" + content + ", regDate=" + regDate + ", viewCnt=" + viewCnt
-				+ ", liked=" + liked + ", profileSavePath=" + profileSavePath + ", profileRenameFileName="
-				+ profileRenameFileName + "]";
+		return "Community [bdIdx=" + bdIdx + ", user_idx=" + user_idx + ", nickname=" + nickname + ", content="
+				+ content + ", regDate=" + regDate + ", liked=" + liked + ", category=" + category + ", tag_idx="
+				+ tag_idx + ", is_del=" + is_del + ", picture=" + picture + "]";
 	}
 
 
-
-
+	
 }

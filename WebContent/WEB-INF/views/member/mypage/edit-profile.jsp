@@ -23,37 +23,37 @@
           <form action="" class="edit-image">
             <label for="img-file">Upload new Picture</label>
             <input type="file" id="img-file">
-          </form><div class=""><a href="#"></a></div>
+          </form>
         </div>
       </div>
     </div>
 
     <!-- edit-detail -->
     <div class="container con-sub03-guide-tip">
-      <form action="" method="POST">
+      <form action="/mypage/edit" method="POST">
         <div class="edit-name">
-          <span></h1>닉네임</span><span style="color: red;"> *</span>
+          <span>닉네임</span><span style="color: red;"> *</span>
         </div>
         <div class="edit-profile-detail">
-          <input type="text" placeholder="jung">
+          <input type="text" name="nickname" value="${authentication.nickname }">
         </div>
         <div class="edit-intro mt">
-          <span></h1>자기소개</span><span style="color: red;"> *</span>
+          <span>자기소개</span><span style="color: red;"> *</span>
         </div>
         <div class="edit-profile-detail">
-          <input type="text" placeholder="안녕하세요">
+          <input type="text" name="info" value="${authentication.info }">
         </div>
         <div class="edit-pass mt line">
-          <span></h1>새 비밀번호</span><span style="color: red;"> *</span>
+          <span>새 비밀번호</span><span style="color: red;" > *</span>
         </div>
         <div class="edit-profile-detail">
-          <input type="text">
+          <input type="text" name="password">
         </div>
         <div class="edit-pass mt">
-          <span></h1>새 비밀번호 확인</span><span style="color: red;"> *</span>
+          <span>새 비밀번호 확인</span><span style="color: red;"> *</span>
         </div>
         <div class="edit-profile-detail">
-          <input type="text">
+          <input type="text" name="chk-pw">
         </div>
         <div class="edit-button">
           <input type="submit" value="수정 완료">

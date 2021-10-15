@@ -15,6 +15,7 @@ import com.littleCarrest.common.code.ErrorCode;
 import com.littleCarrest.common.exception.HandleableException;
 import com.littleCarrest.member.validator.JoinForm;
 import com.littleCarrest.member.validator.ModifyForm;
+import com.littleCarrest.mypage.validator.MypageForm;
 
 public class ValidatorFilter implements Filter {
 
@@ -49,10 +50,14 @@ public class ValidatorFilter implements Filter {
 				case "member":
 					redirectURI = memberValidation(httpRequest, httpResponse, uriArr);
 					break;
+				case "mypage":
+					redirectURI = mypageValidation(httpRequest, httpResponse, uriArr);
+					break;
+					
 				case "community":
 					redirectURI = communityValidation(httpRequest, httpResponse, uriArr);
 					break;
-					
+
 				default:
 					break;
 			}
@@ -65,9 +70,22 @@ public class ValidatorFilter implements Filter {
 		chain.doFilter(request, response);
 	}
 
-	private String communityValidation(HttpServletRequest httpRequest, HttpServletResponse httpResponse,
-			String[] uriArr) {
-		// TODO Auto-generated method stub
+	private String mypageValidation(HttpServletRequest httpRequest, HttpServletResponse httpResponse, String[] uriArr) {
+		String redirectURI = null;
+		MypageForm mypageForm = new MypageForm(httpRequest);
+		
+		switch (uriArr[2]) {
+		case "edit": 
+			if(!mypageForm.test()) {  
+				redirectURI = "/member/join-page?err=1";	
+			}
+			break;		
+		}
+		return redirectURI;
+	}
+
+	private String communityValidation(HttpServletRequest httpRequest, HttpServletResponse httpResponse,String[] uriArr) {
+
 		return null;
 	}
 

@@ -31,7 +31,7 @@
         </div>
       </div>
       <div class="mypage-button">
-        <a href="#">Edit Profile</a>
+        <a href="/mypage/edit-profile">Edit Profile</a>
       </div>
     </div>
 

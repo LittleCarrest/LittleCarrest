@@ -12,14 +12,26 @@ public class MemberService {
 	private JDBCTemplate template = JDBCTemplate.getInstance();
 	
 	public Member selectMemberById(String userId) {
+		Connection conn = template.getConnection();
 		Member member = null;
 		
+		try {
+			/* member = memberDao.selectMemberById(userId, conn); */
+		} finally {
+			template.close(conn);
+		}
 		return member;
 	}
 
 	public Member selectMemberByNickname(String nickname) {
+		Connection conn = template.getConnection();
 		Member member = null;
-		return member;
+		try {
+			/* member = memberDao.selectByNickname(nickname, conn); */
+		} finally {
+			template.close(conn);	
+		}
+		return member;	
 	}
 
 	public Member memberAuthenticate(String userId, String password) {
