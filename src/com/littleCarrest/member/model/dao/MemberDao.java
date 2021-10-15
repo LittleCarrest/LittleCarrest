@@ -42,6 +42,55 @@ public class MemberDao {
 		  return member;
 	}
 	
+	//유진 10/15
+	public Member selectMemberById(String userId, Connection conn) {
+		Member member = null;			
+		PreparedStatement pstm = null;
+		ResultSet rset = null;
+		
+		String query = "select * from member where user_Id = ?";
+		
+		try {			
+			pstm = conn.prepareStatement(query);
+			pstm.setString(1, userId);
+			rset = pstm.executeQuery();
+			
+			if(rset.next()) {
+				member = convertRowToMember(rset);
+			}
+		} catch (SQLException e) {
+			throw new DataAccessException(e);
+		} finally {
+			template.close(rset, pstm);
+		}
+
+		return member;
+	}
+
+	//유진 10/15
+	public Member selectByNickname(String nickname, Connection conn) {
+		Member member = null;
+		PreparedStatement pstm = null;
+		ResultSet rset = null;
+		
+		String sql = "select * from member where nickname = ?";
+
+		try {
+			pstm = conn.prepareStatement(sql);
+			pstm.setString(1, nickname);
+			rset = pstm.executeQuery();
+			
+			if(rset.next()) {
+				member = convertRowToMember(rset);
+			}
+		} catch (SQLException e) {
+			throw new DataAccessException(e);
+		}finally {
+			template.close(rset, pstm);
+		}
+		
+		return member;
+	}
 	
 	private Member convertRowToMember(ResultSet rset) throws SQLException {
 		
@@ -93,5 +142,8 @@ public class MemberDao {
 		
 		return res;
 	}
+
+
+
 
 }

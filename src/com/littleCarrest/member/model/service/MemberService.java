@@ -16,18 +16,18 @@ public class MemberService {
 		Member member = null;
 		
 		try {
-			/* member = memberDao.selectMemberById(userId, conn); */
+			member = memberDao.selectMemberById(userId, conn);
 		} finally {
 			template.close(conn);
 		}
 		return member;
 	}
-
+	
 	public Member selectMemberByNickname(String nickname) {
 		Connection conn = template.getConnection();
 		Member member = null;
 		try {
-			/* member = memberDao.selectByNickname(nickname, conn); */
+			member = memberDao.selectByNickname(nickname, conn);
 		} finally {
 			template.close(conn);	
 		}
