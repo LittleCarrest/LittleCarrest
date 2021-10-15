@@ -37,14 +37,14 @@ public class MypageForm {
 		Member member = (Member) request.getSession().getAttribute("authentication");
 		String userId = member.getUserId();
 		
-		if(password.equals("") || !password.equals(memberService.selectMemberById(userId).getPassword())) {
-			failedAttribute.put("password",password);
-			isFailed = true;
+		//일반유저이면서 비밀번호 유지하는 경우
+		if((password.equals("") || password == null) &&  member.getSocialLogin().equals('N')) {
+			password = member.getPassword();
 		}
 		
 		//비밀번호가 영어, 숫자, 특수문자 조합의 8~15자의 문자열인지 확인
 		if(!Pattern.matches("(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[^a-zA-Zㄱ-힣0-9]).{8,15}", password)) {
-			failedAttribute.put("newPw",password);
+			failedAttribute.put("password",password);
 			isFailed = true;
 		}
 		
@@ -65,6 +65,8 @@ public class MypageForm {
 			isFailed = true;
 		}
 
+		request.setAttribute("password", password);
+		
 		if(isFailed) {
 			request.getSession().setAttribute("editValid", failedAttribute);	
 			request.getSession().setAttribute("editForm", this);	

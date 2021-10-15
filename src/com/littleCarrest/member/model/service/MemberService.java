@@ -3,6 +3,7 @@ package com.littleCarrest.member.model.service;
 import java.sql.Connection;
 
 import com.littleCarrest.common.db.JDBCTemplate;
+import com.littleCarrest.common.file.FileDTO;
 import com.littleCarrest.common.http.HttpConnector;
 import com.littleCarrest.common.http.RequestParams;
 import com.littleCarrest.common.mail.MailSender;
@@ -84,5 +85,50 @@ public class MemberService {
 		
 		return res;
 		
+	}
+	public FileDTO selectProfile(String userId) {
+		Connection conn = template.getConnection();
+		FileDTO profile = new FileDTO();
+		
+		try {
+			profile = memberDao.selectProfile(userId, conn);
+		}finally {
+			template.close(conn);	
+		}
+		return profile;
+	}
+
+	public void insertProfile(String userId, FileDTO fileDTO) {
+		Connection conn = template.getConnection();
+		try {
+			Member member = new Member();
+			memberDao.insertProfile(userId, fileDTO, conn);
+			member.setProfile(selectProfile(userId));
+			template.commit(conn);
+		} catch (Exception e) {
+			template.rollback(conn);
+		}finally {
+			template.close(conn);
+		}	
+		
+	}
+
+	public int updateProfile(String userId, FileDTO fileDTO) {
+		Connection conn = template.getConnection();
+		int res = 0;
+		
+		try {
+			Member member = new Member();
+			res = memberDao.updateProfile(userId,fileDTO, conn);	//file_info테이블에 프로필 업데이트 
+			if(res > 0) {
+				member.setProfile(selectProfile(userId));				//새로운 프로필 조회해 멤버 객체에 set
+			}
+			template.commit(conn);
+		} catch (Exception e) {
+			template.rollback(conn);
+		}finally {
+			template.close(conn);
+		}
+		return res;
 	}
 }

@@ -9,6 +9,7 @@ import java.util.Map;
 
 import com.littleCarrest.common.db.JDBCTemplate;
 import com.littleCarrest.common.exception.DataAccessException;
+import com.littleCarrest.common.file.FileDTO;
 import com.littleCarrest.member.model.dto.Member;
 
 public class MemberDao {
@@ -27,7 +28,7 @@ public class MemberDao {
 			pstm.setString(2, password);
 			rset = pstm.executeQuery();
 				
-			String[] fieldArr = {"user_id","password","email","nickname","tel","address","reg_date"
+			String[] fieldArr = {"user_idx","user_id","password","email","nickname","tel","address","reg_date"
 								,"info","profile","social_login"};
 			
 			if(rset.next()) {
@@ -91,6 +92,57 @@ public class MemberDao {
 		
 		return member;
 	}
+	//유진 10/15
+	public int updateMember(Member member, Connection conn) {
+		PreparedStatement pstm = null;
+		int res = 0;
+		
+		String sql = "update member set nickname = ? "
+				+ ", password = ? "
+				+ ", info = ? "
+				+ "where user_id = ?";
+		
+		try {
+			pstm = conn.prepareStatement(sql);
+			pstm.setString(1, member.getNickname());
+			pstm.setString(2, member.getPassword());
+			pstm.setString(3, member.getInfo());
+			pstm.setString(4, member.getUserId());	
+			res = pstm.executeUpdate();
+		} catch (SQLException e) {
+			throw new DataAccessException(e);
+		}finally {
+			template.close(pstm);
+		}
+		System.out.println(sql);
+		
+		return res;
+		
+	}
+	
+	public int updateSocailMember(Member member, Connection conn) {
+		PreparedStatement pstm = null;
+		int res = 0;
+		
+		String sql = "update member set nickname = ? "
+				+ ", info = ? "
+				+ "where user_id = ?";
+		
+		try {
+			pstm = conn.prepareStatement(sql);
+			pstm.setString(1, member.getNickname());
+			pstm.setString(3, member.getInfo());
+			pstm.setString(4, member.getUserId());
+			res = pstm.executeUpdate();
+		} catch (SQLException e) {
+			throw new DataAccessException(e);
+		}finally {
+			template.close(pstm);
+		}
+		
+		return res;
+		
+	}
 	
 	private Member convertRowToMember(ResultSet rset) throws SQLException {
 		
@@ -116,6 +168,7 @@ public class MemberDao {
 			String field = fieldArr[i].toLowerCase();
 			switch (field) {
 			
+			case "user_idx":member.setUserIdx(rset.getString("user_idx")); break;
 			case "user_id":member.setUserId(rset.getString("user_id")); break;
 			case "password":member.setPassword(rset.getString("password"));break;
 			case "email":member.setEmail(rset.getString("email")); break;
@@ -164,5 +217,90 @@ public class MemberDao {
 		
 		return res;
 	}
+
+	public void insertProfile(String userId, FileDTO fileDTO, Connection conn) {
+		PreparedStatement pstm = null;
+		
+		String sql = "insert into file_info "
+				+ "(fl_idx,type_idx,origin_file_name,rename_file_name,save_path) "
+				+ "values(sc_fl_idx.nextval,?,?,?,?)";
+
+		try {
+			pstm = conn.prepareStatement(sql);
+			pstm.setString(1, userId);
+			pstm.setString(2, fileDTO.getOriginFileName());
+			pstm.setString(3, fileDTO.getRenameFileName());
+			pstm.setString(4, fileDTO.getSavePath());
+			pstm.executeUpdate();
+			
+		} catch (SQLException e) {
+			throw new DataAccessException(e);
+		}finally {
+			template.close(pstm);
+		}
+		
+	}
+
+	public FileDTO selectProfile(String userId, Connection conn) {
+		PreparedStatement pstm = null;
+		ResultSet rset = null;
+		FileDTO profile = new FileDTO();
+		
+		String sql = "select rownum,type_idx, origin_file_name, rename_file_name, save_path "
+				+ "from (select type_idx, origin_file_name, rename_file_name, save_path "
+				+ "from file_info where type_idx = ? "
+				+ "order by reg_date desc) where rownum = 1";
+
+		try {
+			pstm = conn.prepareStatement(sql);
+			pstm.setString(1, userId);
+			rset = pstm.executeQuery();
+			
+			if(rset.next()) {
+				profile.setTypeIdx(rset.getString("type_idx"));
+				profile.setOriginFileName(rset.getString("origin_file_name"));
+				profile.setRenameFileName(rset.getString("rename_file_name"));
+				profile.setSavePath(rset.getString("save_path"));
+			}
+		} catch (SQLException e) {
+			throw new DataAccessException(e);
+		}finally {
+			template.close(rset, pstm);
+		}
+		
+		return profile;
+	}
+
+	public int updateProfile(String userId, FileDTO fileDTO, Connection conn) {
+		int res = 0;
+		PreparedStatement pstm = null;
+		
+		String sql = "update file_info set origin_file_name = ? "
+				+ ", rename_file_name = ?"
+				+ ", save_path = ? "
+				+ ", reg_date = sysdate "
+				+ "where type_idx = ?";
+		
+		try {
+			pstm = conn.prepareStatement(sql);
+			pstm.setString(1, fileDTO.getOriginFileName());
+			pstm.setString(2, fileDTO.getRenameFileName());
+			pstm.setString(3, fileDTO.getSavePath());
+			pstm.setString(4, userId);
+			res = pstm.executeUpdate();
+			
+		} catch (SQLException e) {
+			throw new DataAccessException(e);
+		}finally {
+			template.close(pstm);
+		}
+
+		
+		return res;
+	}
+
+
+
+
 
 }

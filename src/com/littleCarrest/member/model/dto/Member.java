@@ -2,9 +2,12 @@ package com.littleCarrest.member.model.dto;
 
 import java.sql.Date;
 
+import com.littleCarrest.common.file.FileDTO;
+
 
 public class Member {
 	
+	private String userIdx;
 	private String userId;
 	private String password;
 	private String email;
@@ -17,6 +20,17 @@ public class Member {
 	public Member() {
 		// TODO Auto-generated constructor stub
 	}
+
+	
+	public String getUserIdx() {
+		return userIdx;
+	}
+
+
+	public void setUserIdx(String userIdx) {
+		this.userIdx = userIdx;
+	}
+
 
 	public String getUserId() {
 		return userId;
@@ -69,9 +83,18 @@ public class Member {
 	public String getProfile() {
 		return profile;
 	}
-
+	
 	public void setProfile(String profile) {
 		this.profile = profile;
+	}
+
+	public void setProfile(FileDTO profile) {
+		if(profile.getSavePath() == null) {
+			this.profile = null;
+		}else {
+			this.profile = profile.getSavePath() + profile.getRenameFileName();
+
+		}
 	}
 
 	public String getSocialLogin() {
@@ -82,11 +105,14 @@ public class Member {
 		this.socialLogin = socialLogin;
 	}
 
+
 	@Override
 	public String toString() {
-		return "Member [userId=" + userId + ", password=" + password + ", email=" + email + ", nickname=" + nickname
-				+ ", regDate=" + regDate + ", info=" + info + ", profile=" + profile + ", socialLogin=" + socialLogin
-				+ "]";
+		return "Member [userIdx=" + userIdx + ", userId=" + userId + ", password=" + password + ", email=" + email
+				+ ", nickname=" + nickname + ", regDate=" + regDate + ", info=" + info + ", profile=" + profile
+				+ ", socialLogin=" + socialLogin + "]";
 	}
+
+	
 
 }

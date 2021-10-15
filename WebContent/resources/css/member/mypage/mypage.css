@@ -3,7 +3,7 @@
 /* 캠핑tip */
 .con-sub03-guide-tip{
   margin-top: 50px;
-  
+  margin-bottom: 100px;
 }
 .tit-sub03-guide-tip{}
 .tit-sub03-guide-tip h1,
@@ -102,11 +102,13 @@
 .mypage-button {
     width: 100%;
     display: flex;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #ddd;
 }
 
 .mypage-button a{
     display: inline-block;
-    width: 30%;
+    width: 100%;
     height: 40px;
     border-radius: 4px;
     text-align: center;

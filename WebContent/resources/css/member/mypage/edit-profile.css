@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-.con-sub03-guide-tip{
+.wrap-form{
   margin-top: 50px;
   padding-bottom: 100px;
 }
@@ -141,7 +141,26 @@ input:focus {
      background-color: #fff !important;
      box-shadow: 0 0 5px #1ECAD3 !important;
  }
-
+ .nickname{
+ 	display: flex;
+ 
+ }
+ .btn-chk-nick{
+ 	width: 100px;
+ 	background-color: lightcoral;
+ 	border-radius: .25em; 
+ 	color: #fff;
+ 	margin-left: 10px;
+ 	padding: 0;
+ 	margin-top: 10px;
+ 	font-size: inherit;
+ 	font-weight: 600;
+ }
+.btn-chk-nick:hover {
+    background-color:transparent;
+    border: 1px solid lightcoral;
+    color: lightcoral;
+}
  .edit-button input {
     width: 100%;
     height: 50px;
@@ -157,4 +176,9 @@ input:focus {
  .edit-button input:hover {
      background-color: #1ECAD3;
      color: #fff;
+ }
+ .alert_auth{
+ 	font-size: 13px;
+ 	color: crimson;
+ 	
  }

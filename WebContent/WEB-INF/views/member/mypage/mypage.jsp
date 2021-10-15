@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,16 +22,16 @@
         </div>
         <div class="profile-info">
           <div class="profile-name">
-            <h3>jung</h3>
+            <h3>${authentication.nickname}</h3>
           </div>
           <div class="profile-follow">
-            <span>팔로우</span> <span>10명</span> 
-            <span>팔로워</span> <span>10명</span>
+            <span>팔로우</span> <span>명</span> 
+            <span>팔로워</span> <span>${fn:length(follower)} 명</span>
           </div>
-          <div class="profile-intro"><p>안녕하세요 잘부탁드립니다.</p></div>
+          <div class="profile-intro"><p>${authentication.info }</p></div>
         </div>
       </div>
-      <div class="mypage-button">
+      <div class="container mypage-button">
         <a href="/mypage/edit-profile">Edit Profile</a>
       </div>
     </div>

@@ -80,6 +80,7 @@ public class FileUtil {
 					FilePart filePart = (FilePart) part;
 					fileDTO = createFileDTO(filePart);
 					filePart.writeTo(new File(getSavePath() + fileDTO.getRenameFileName())); //파일저장
+					System.out.println("fileUtil : " + fileDTO);
 				}
 			}
 					

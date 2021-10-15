@@ -1,11 +1,22 @@
 package com.littleCarrest.mypage.controller;
 
 import java.io.IOException;
+import java.util.List;
+import java.util.Map;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.littleCarrest.common.file.FileDTO;
+import com.littleCarrest.common.file.FileUtil;
+import com.littleCarrest.member.model.dto.Follower;
+import com.littleCarrest.member.model.dto.Member;
+import com.littleCarrest.member.model.service.MemberService;
+import com.littleCarrest.mypage.model.service.MypageService;
+
 
 /**
  * Servlet implementation class MypageController
@@ -13,6 +24,9 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/mypage/*")
 public class MypageController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	MemberService memberService = new MemberService();
+	MypageService mypageService = new MypageService();
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -38,6 +52,12 @@ public class MypageController extends HttpServlet {
 		case "edit":
 			  edit(request,response);
 			break;
+		case "upload-profile":
+			  uploadProfile(request,response);
+			break;
+		case "chk-nickname":
+			  chkNickname(request,response);
+			break;
 		default: /*throw new PageNotFoundException();*/
 			break;
 		}
@@ -45,17 +65,85 @@ public class MypageController extends HttpServlet {
 	
 	}
 
+	private void uploadProfile(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		FileUtil util = new FileUtil();
+		Map<String,FileDTO> param = util.profileUpload(request);
+		
+		Member member = (Member) request.getSession().getAttribute("authentication");
+		String userId = member.getUserId();	
+				
+		FileDTO fileDTO = param.get("com.littleCarrest.files");
+		
+		
+		
+		if(memberService.selectProfile(userId).getRenameFileName() == null) {
+			
+			System.out.println("컨트롤러");
+			
+			memberService.insertProfile(userId, fileDTO);
+		}else {
+			int updateProfile = memberService.updateProfile(userId, fileDTO);
+			
+			if(updateProfile == 0) {
+				request.setAttribute("msg", "프로필 등록에 실패하였습니다.");
+			}
+			request.setAttribute("msg", "프로필 등록에 성공하였습니다.");
+		}
+		member = (Member) request.getSession().getAttribute("authentication");
+		request.getSession().setAttribute("authentication", member);	//세션에 멤버객체 재등록(프로필 포함)
+		
+		request.setAttribute("url", "/mypage/home");
+		request.getRequestDispatcher("/common/result").forward(request, response);
+		
+	}
+
+	private void chkNickname(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String nickname = request.getParameter("nickname");
+		Member member = memberService.selectMemberByNickname(nickname);
+		if(member == null) {
+			response.getWriter().print("available");	//js에게 전달
+		}else {
+			response.getWriter().print("disable");
+		}
+	}
+
 	private void edit(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		Member member = (Member) request.getSession().getAttribute("authentication");
+		String userId = member.getUserId();
+		String password = (String) request.getAttribute("password");
+		
+		member.setUserId(userId);
+		member.setNickname(request.getParameter("nickname"));
+		member.setInfo(request.getParameter("info"));
+		member.setPassword(password);
+		
+		//System.out.println(member);
+		int res = mypageService.updateMember(member);
+		
+		if(res > 0) {
+			request.setAttribute("msg", "회원정보 수정을 완료하였습니다.");
+			request.setAttribute("url", "/mypage/edit-profile");
+		}else {
+			request.setAttribute("msg", "회원정보 수정에 실패하였습니다.");
+			request.setAttribute("back", "1");
+		}
+		request.getRequestDispatcher("/common/result").forward(request, response);
 		
 	}
 
 	private void editProfile(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		Member member = (Member) request.getSession().getAttribute("authentication");
+		request.getSession().setAttribute("authentication", member);
+
 		request.getRequestDispatcher("/member/mypage/edit-profile").forward(request, response);
 		
 	}
 
 	private void home(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		Member member = (Member) request.getSession().getAttribute("authentication"); 
+		List<Follower> followers = mypageService.selectFollower(member.getUserIdx());
+		
+		request.setAttribute("follower", followers);
 		request.getRequestDispatcher("/member/mypage/mypage").forward(request, response);
 		
 	}

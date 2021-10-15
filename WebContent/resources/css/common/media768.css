@@ -4,7 +4,12 @@
 @media screen and (min-width : 768px){
     
 /* 메인 테스트 */
-    
+
+/* mypage */
+#edit-profile-form{
+	width: 750px;
+	margin: auto;
+}    
 /* sec02 */
 .wrap-col-main-sec02{
     background: #fff;
@@ -189,9 +194,13 @@
     }
     
     .profile-inside {
-        width: 90%;
+        width: 50%;
+        
     }
 
+	.profile-image{
+		margin-right: 50px;
+	}
     .mypage-button a {
         width: 40%;
     }

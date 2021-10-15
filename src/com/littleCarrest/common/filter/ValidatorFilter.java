@@ -77,7 +77,7 @@ public class ValidatorFilter implements Filter {
 		switch (uriArr[2]) {
 		case "edit": 
 			if(!mypageForm.test()) {  
-				redirectURI = "/member/join-page?err=1";	
+				redirectURI = "/mypage/edit-profile?err=1";	
 			}
 			break;		
 		}
