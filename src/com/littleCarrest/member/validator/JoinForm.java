@@ -13,6 +13,7 @@ import com.littleCarrest.member.model.service.MemberService;
 public class JoinForm {
 	
 	private String userId;
+	private String userName;
 	private String password;
 	private String confirmPassword;
 	private String email;
@@ -26,6 +27,7 @@ public class JoinForm {
 	public JoinForm(ServletRequest request) {
 		this.request = (HttpServletRequest) request;
 		this.userId = request.getParameter("userId");
+		this.userName = request.getParameter("userName");
 		this.password = request.getParameter("password");
 		this.confirmPassword = request.getParameter("chkPwd");
 		this.email = request.getParameter("email");
@@ -98,6 +100,12 @@ public class JoinForm {
 
 	public String getBirth() {
 		return birth;
+	}
+
+	public String getUserName() {
+		return userName;
 	}	
+	
+	
 
 }

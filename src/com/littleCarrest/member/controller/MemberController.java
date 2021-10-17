@@ -66,6 +66,9 @@ public class MemberController extends HttpServlet {
 		case "id-check":
 			 checkId(request,response);
 			break;
+		case "nick-check":
+			 nickCheck(request,response);
+			break;
 		case "search-id":
 			searchId(request,response);
 			break;
@@ -81,6 +84,18 @@ public class MemberController extends HttpServlet {
 		}
 
 	}
+	private void nickCheck(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String nickname = request.getParameter("nickname");
+		Member member = memberService.selectMemberByNick(nickname);
+		
+		if(member == null) {
+			response.getWriter().print("available");
+		}else {
+			response.getWriter().print("disable");
+		}	
+		
+	}
+
 	private void searchPassword(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("hi world");
 	}
@@ -96,8 +111,14 @@ public class MemberController extends HttpServlet {
 	}
 
 	private void checkId(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		String userId = request.getParameter("userId");
+		Member member = memberService.selectMemberById(userId);
 		
+		if(member == null) {
+			response.getWriter().print("available");
+		}else {
+			response.getWriter().print("disable");
+		}
 	}
 
 	private void joinImpl(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -144,7 +144,7 @@ public class MemberDao {
 		
 	}
 	
-	private Member convertRowToMember(ResultSet rset) throws SQLException {
+	public Member convertRowToMember(ResultSet rset) throws SQLException {
 		
 		Member member = new Member();
 		
@@ -161,7 +161,7 @@ public class MemberDao {
 		
 	}
 	
-	private Member convertRowToMember(ResultSet rset, String[] fieldArr) throws SQLException {
+	public Member convertRowToMember(ResultSet rset, String[] fieldArr) throws SQLException {
 		Member member = new Member();
 		
 		for (int i = 0; i < fieldArr.length; i++) {
@@ -184,7 +184,7 @@ public class MemberDao {
 		return member;
 	}
 	
-	private Map<String,Object> convertRowToMap(ResultSet rset, String[] fieldArr) throws SQLException {
+	public Map<String,Object> convertRowToMap(ResultSet rset, String[] fieldArr) throws SQLException {
 		
 		Map<String,Object> res = new HashMap<String, Object>();
 		
@@ -298,6 +298,30 @@ public class MemberDao {
 
 		
 		return res;
+	}
+
+	public Member selectMemberByNick(String nickname, Connection conn) {
+		Member member = null;			
+		PreparedStatement pstm = null;
+		ResultSet rset = null;
+		
+		String query = "select * from member where NICKNAME = ?";
+		
+		try {			
+			pstm = conn.prepareStatement(query);
+			pstm.setString(1, nickname);
+			rset = pstm.executeQuery();
+			
+			if(rset.next()) {
+				member = convertRowToMember(rset);
+			}
+		} catch (SQLException e) {
+			throw new DataAccessException(e);
+		} finally {
+			template.close(rset, pstm);
+		}
+		
+		return member;
 	}
 
 
