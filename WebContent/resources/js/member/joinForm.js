@@ -6,6 +6,16 @@
 	   
 	   let confirmId = '';   //아이디 중복확인을 완료한 아이디 저장할 변수
 	   let confirmNick = "";
+	   let para = document.location.href.split("?");
+	   console.log(para)
+	   
+			if(para[1] == "err=1") {
+				let serviceCheck = document.querySelector('#chk1');
+		  		let privacyCheck = document.querySelector('#chk2');
+		  		console.log(serviceCheck)
+		  		serviceCheck.checked = true;
+		  		privacyCheck.checked = true;
+		  	}
 	   
 	   document.querySelector('#btnIdCheck').addEventListener('click',() => {
 		    
@@ -42,7 +52,7 @@
 		document.querySelector('#btnNickCheck').addEventListener('click', function(){
 		  
 		   let nickname = document.querySelector('#nickname').value;
-		   let idReg = /(?=.*[가-힝0-9])(?=.{2,10})/;
+		   let idReg = /^[\w\Wㄱ-ㅎㅏ-ㅣ가-힣]{2,20}$/;
 		   let spaceCheck = /\s/g;
 
 		   if(!nickname){
@@ -51,7 +61,7 @@
 		   }
 
 		   if(!idReg.test(nickname)) {
-		   	   document.querySelector('#checkNickname').innerHTML = '<i class="fas fa-exclamation-circle"></i> 닉네임은 한글 또는 숫자 2~10자로 설정해야합니다.';
+		   	   document.querySelector('#checkNickname').innerHTML = '<i class="fas fa-exclamation-circle"></i> 닉네임은 2~20자로 설정해야합니다.';
 			   return;
            } else {
 		   	   document.querySelector('#checkNickname').innerHTML = '';
@@ -87,9 +97,9 @@
 	   
 	   
 	   
-	   	document.querySelector('#frm-join').addEventListener('submit', function(e){
+	   	document.querySelector('#join').addEventListener('submit', function(e){
 	   		let userId = document.querySelector("#userId").value;
-	   		let userNick = document.querySelector('#userNick').value;
+	   		let nickname = document.querySelector('#nickname').value;
 	   		let password = document.querySelector('#password').value;
 	   		let passwordCheck = document.querySelector('#chkPwd').value;
 	   		let serviceCheck = document.querySelector('#chk1');
@@ -97,7 +107,7 @@
 		    let userName = document.querySelector('#userName').value;
 	   		
 	   		let pwReg = /(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[^a-zA-Zㄱ-힣0-9])(?=.{8,})/;
-	   		let regName = /(?=.*[a-zA-Zㄱ-힣0-9])(?=.{2,10})/;
+	   		let regName = /^[가-힣a-zA-Z]+$/;
 	   		
 	   		if(!(serviceCheck.checked && privacyCheck.checked)){
 			  alert('필수약관에 동의하지 않았습니다');
@@ -122,6 +132,12 @@
 	   		
 	   		if(confirmId != userId){
 	   			document.querySelector('#idCheck').innerHTML = '아이디 중복 검사를 하지 않았습니다.';
+	   			document.querySelector('#userId').focus();
+		   		e.preventDefault();	//기본이벤트 막기
+	   		}
+	   		
+	   		if(confirmNick != nickname){
+	   			document.querySelector('#checkNickname').innerHTML = '닉네임 중복 검사를 하지 않았습니다.';
 	   			document.querySelector('#userId').focus();
 		   		e.preventDefault();	//기본이벤트 막기
 	   		}

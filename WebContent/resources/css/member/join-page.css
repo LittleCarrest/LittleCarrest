@@ -9,8 +9,16 @@
     display: none; /* Chrome, Safari, Opera*/
 }
 
-body {
+.form-body {
+	display:flex;
+	justify-content:center;
 	width: 100%;
+}
+
+@media screem and(min-width: 375px) {
+	.form-body {
+		display:none;
+	}
 }
 
 .con-join-form{
@@ -97,7 +105,6 @@ input[type=checkbox]{
 
 footer{
   position: absolute;
-  transform:tr ;
   margin-top:140px;
   top: 1400px;
   width: 100%;
