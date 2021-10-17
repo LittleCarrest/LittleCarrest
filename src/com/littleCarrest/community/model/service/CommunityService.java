@@ -54,4 +54,17 @@ public class CommunityService {
 		return camperList;
 	}
 
+	public Member selectMemberByIdx(String userIdx) {
+		Connection conn = template.getConnection();
+		Member member = null;
+		
+		try {
+			member = communityDao.selectMemberByIdx(userIdx,conn);
+		} finally {
+			template.close(conn);
+		}
+		
+		return member;
+	}
+
 }

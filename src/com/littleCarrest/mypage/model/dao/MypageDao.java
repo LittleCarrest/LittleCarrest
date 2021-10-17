@@ -10,6 +10,7 @@ import java.util.List;
 import com.littleCarrest.common.db.JDBCTemplate;
 import com.littleCarrest.common.exception.DataAccessException;
 import com.littleCarrest.member.model.dto.Follower;
+import com.littleCarrest.member.model.dto.Following;
 
 
 public class MypageDao {
@@ -43,4 +44,30 @@ public class MypageDao {
 		return followerList;
 	}
 
+	public List<Following> selectFollowing(String userIdx, Connection conn) {
+		List<Following> followingList = new ArrayList<Following>();
+		PreparedStatement pstm = null;
+		ResultSet rset = null;
+		
+		String query = "select following_idx,following_id from following where user_idx = ?";
+		
+		try {			
+			pstm = conn.prepareStatement(query);
+			pstm.setString(1, userIdx);
+			rset = pstm.executeQuery();
+			
+			while(rset.next()) {
+				Following following = new Following();
+				following.setFollowingIdx(rset.getString("following_idx"));
+				following.setFollowingId(rset.getString("following_id"));
+				followingList.add(following);
+			}
+		} catch (SQLException e) {
+			throw new DataAccessException(e);
+		} finally {
+			template.close(rset, pstm);
+		}
+
+		return followingList;
+	}
 }

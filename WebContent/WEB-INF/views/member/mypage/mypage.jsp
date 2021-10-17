@@ -25,7 +25,7 @@
             <h3>${authentication.nickname}</h3>
           </div>
           <div class="profile-follow">
-            <span>팔로우</span> <span>명</span> 
+            <span>팔로우</span> <span>${fn:length(following)} 명</span> 
             <span>팔로워</span> <span>${fn:length(follower)} 명</span>
           </div>
           <div class="profile-intro"><p>${authentication.info }</p></div>

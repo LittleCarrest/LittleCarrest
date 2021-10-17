@@ -19,7 +19,7 @@
       </div>
       <ul class="tit-sub03-camper-tag">
       <c:forEach items="${campers}" var="camper">
-      	<li><a href="/community/user"># ${camper}</a></li>
+      	<li><a href="/community/user-page?user=${camper.userIdx}"># ${camper.nickname}</a></li>
       </c:forEach>
 
       </ul>

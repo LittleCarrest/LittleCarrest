@@ -22,17 +22,14 @@
         </div>
         <div class="profile-info">
           <div class="profile-name">
-            <h3>${authentication.nickname}</h3>
+            <h3>${user.nickname}</h3>
           </div>
           <div class="profile-follow">
-            <span>팔로우</span> <span>명</span> 
+            <span>팔로우</span> <span>${fn:length(following)} 명</span> 
             <span>팔로워</span> <span>${fn:length(follower)} 명</span>
           </div>
-          <div class="profile-intro"><p>${authentication.info }</p></div>
+          <div class="profile-intro"><p>${user.info }</p></div>
         </div>
-      </div>
-      <div class="container mypage-button">
-        <a href="/mypage/edit-profile">Edit Profile</a>
       </div>
     </div>
 

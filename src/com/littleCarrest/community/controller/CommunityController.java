@@ -15,7 +15,9 @@ import com.littleCarrest.common.file.FileUtil;
 import com.littleCarrest.common.file.MultiPartParams;
 import com.littleCarrest.community.model.dto.Community;
 import com.littleCarrest.community.model.service.CommunityService;
+import com.littleCarrest.member.model.dto.Follower;
 import com.littleCarrest.member.model.dto.Member;
+import com.littleCarrest.mypage.model.service.MypageService;
 
 
 /**
@@ -26,6 +28,7 @@ public class CommunityController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	private CommunityService communityService = new CommunityService();
+	private MypageService mypageService = new MypageService();
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -45,6 +48,9 @@ public class CommunityController extends HttpServlet {
 		case "camper":	
 			camper(request,response);
 			break;
+		case "user-page":	
+			userPage(request,response);
+			break;
 		case "guide":	
 			guide(request,response);
 			break;
@@ -57,6 +63,19 @@ public class CommunityController extends HttpServlet {
 		default: /*throw new PageNotFoundException();*/
 			break;
 		}
+	}
+
+	private void userPage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String userIdx = request.getParameter("user");
+		Member member = communityService.selectMemberByIdx(userIdx);
+		Map<String,Object> follow = mypageService.selectFollower(member.getUserIdx());
+		
+		request.setAttribute("user", member);
+		request.setAttribute("follower", follow.get("follower"));
+		request.setAttribute("following", follow.get("following"));
+		
+		request.getRequestDispatcher("/sub03/user-page").forward(request, response);
+		
 	}
 
 	private void upload(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -103,9 +122,7 @@ public class CommunityController extends HttpServlet {
 
 	private void camper(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Member member =  (Member) request.getSession().getAttribute("authentication");
-		//List<String> campers = communityService.selectCamperTag(member.getUserId());
 		List<Member> campers = communityService.selectBestCamper();
-		System.out.println(campers);
 		request.setAttribute("campers", campers);
 		request.getRequestDispatcher("/sub03/camper").forward(request, response);
 		

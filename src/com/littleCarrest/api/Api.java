@@ -20,7 +20,7 @@ public class Api {
 		String key = "vb7VRvR6GWpXJT1EaIIcYMLIE2wH%2FSLTxeJLj2OZ%2BezJUNWB20DGIYmMKJWFy56abCDff5P21JYKLDslp%2FIKLg%3D%3D";
 		int pageNum = 1;
 		
-		for(pageNum = 1; pageNum < 275; pageNum++) {
+		for(pageNum = 143; pageNum < 275; pageNum++) {
 			String urlCode = "http://api.visitkorea.or.kr/openapi/service/rest/GoCamping/basedList"
 					+ "?ServiceKey=" + key + "&pageNo=" + pageNum + "&numOfRows=10&MobileOS=ETC&MobileApp=LittleCarrest";
 			
@@ -63,6 +63,7 @@ public class Api {
 	                    	line_intro = xpp.getText();
 	                    }else if(tag.equals("intro")){
 	                    	intro = xpp.getText();
+	                        intro.replaceAll("&apos;", "");
 	                    }else if(tag.equals("manageSttus")){
 	                    	status = xpp.getText();
 	                    }else if(tag.equals("addr1")){
@@ -98,7 +99,6 @@ public class Api {
                           camping.setTel(tel);
                           camping.setHomepage(homepage);
                           camping.setLocation(location);
-
 
                           System.out.println(camping);
                           System.out.println("============================================================================");

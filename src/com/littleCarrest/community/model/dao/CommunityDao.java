@@ -86,10 +86,12 @@ public class CommunityDao {
 			pstm = conn.prepareStatement(sql);
 			rset = pstm.executeQuery();
 			
+			String[] fieldArr = {"user_idx","user_id","nickname","info","profile"};
+			
 			while (rset.next()) {
 				Member camper = new Member();
-				//camper = memberDao
-				
+				camper = memberDao.convertRowToMember(rset,fieldArr);
+				camperList.add(camper);
 			}
 		} catch (SQLException e) {
 			throw new DataAccessException(e);
@@ -97,6 +99,31 @@ public class CommunityDao {
 			template.close(rset,pstm);
 		}
 		return camperList;
+	}
+
+	public Member selectMemberByIdx(String userIdx, Connection conn) {
+		PreparedStatement pstm = null;
+		ResultSet rset = null;
+		Member member = new Member();
+		MemberDao memberDao = new MemberDao();
+		
+		String sql = "select * from member where user_idx = ?";
+		
+		try {
+			pstm = conn.prepareStatement(sql);
+			pstm.setString(1, userIdx);
+			rset = pstm.executeQuery();
+			
+			if(rset.next()) {
+				member = memberDao.convertRowToMember(rset);
+			}
+		} catch (SQLException e) {
+			throw new DataAccessException(e);
+		}finally {
+			template.close(rset,pstm);
+		}
+		
+		return member;
 	}
 
 }
