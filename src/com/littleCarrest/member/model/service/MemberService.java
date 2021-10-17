@@ -144,4 +144,9 @@ public class MemberService {
 		
 		return member;
 	}
+
+	public void insertkakaoMember(Member kakaomember) {
+		// TODO Auto-generated method stub
+		
+	}
 }

@@ -1,6 +1,7 @@
 package com.littleCarrest.member.controller;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.UUID;
 
 import javax.servlet.ServletException;
@@ -133,18 +134,46 @@ public class MemberController extends HttpServlet {
 	}
 
 	private void kakaoJoinPage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		
+		 request.setAttribute("kakaoId", request.getParameter("userId"));
+	     request.getRequestDispatcher("/member/kakao-join").forward(request, response);
 	}
 
 	private void kakaoJoin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		 String userId = request.getParameter("kakaoId");
+	      
+	      String nickname = request.getParameter("nickname");
+	      String year = request.getParameter("birth");
+	      String month = request.getParameter("month");
+	      String day = request.getParameter("day");
+	      String info = request.getParameter("information");
+	      
+	      String birth = year + "-" + month + "-" + day;
+
+	      Member kakaomember = new Member();
+	      kakaomember.setUserId(userId);
+	      kakaomember.setNickname(nickname);
+	      kakaomember.setInfo(info);
+	      
+	      memberService.insertkakaoMember(kakaomember);   
+
+	      request.getRequestDispatcher("/index").forward(request, response);      
 		
 	}
 
 	private void kakaoLogin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		
+		 String userId = request.getParameter("userId");
+         
+	      //존재하면 로그인 성공
+	      Member member = memberService.selectMemberById(userId);
+	      if(member == null || member.getUserId().equals("")) {
+	         //멤버테이블에서 아이디를 조회해서 존재하지 않으면 계속 진행
+	         request.setAttribute("kakaoId", userId);
+	         response.getWriter().print("kakaoJoin");
+	         return;
+	      }
+	      
+	      request.getSession().setAttribute("authentication", member);
+	      response.getWriter().print("kakaoLogin");
 	}
 
 	private void join(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
