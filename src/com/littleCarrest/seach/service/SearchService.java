@@ -3,7 +3,6 @@ package com.littleCarrest.seach.service;
 import java.sql.Connection;
 
 import com.littleCarrest.common.db.JDBCTemplate;
-import com.littleCarrest.common.exception.DataAccessException;
 import com.littleCarrest.seach.model.dao.SearchDao;
 import com.littleCarrest.seach.model.dto.CampingSearch;
 
