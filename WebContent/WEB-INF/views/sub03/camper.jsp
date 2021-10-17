@@ -18,16 +18,9 @@
         <h1>리틀카레스트 #차박캠퍼</h1>
       </div>
       <ul class="tit-sub03-camper-tag">
-        <li><a href="#">@오늘도_나는간다</a></li>
-        <li><a href="#">@jungyk</a></li>
-        <li><a href="#">@jamyungyy</a></li>
-        <li><a href="#">@yujintt</a></li>
-        <li><a href="#">@prochabakk</a></li>
-        <li><a href="#">@letgo</a></li>
-        <li><a href="#">@letgo</a></li>
-        <li><a href="#">@letgo</a></li>
-        <li><a href="#">@letgo</a></li>
-        <li><a href="#">@letgo</a></li>
+      <c:forEach items="${campers}" var="camper">
+      	<li><a href="/community/user-page?user=${camper.userIdx}"># ${camper.nickname}</a></li>
+      </c:forEach>
 
       </ul>
     </div>

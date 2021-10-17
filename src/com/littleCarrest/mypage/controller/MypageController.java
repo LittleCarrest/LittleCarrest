@@ -141,9 +141,11 @@ public class MypageController extends HttpServlet {
 
 	private void home(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Member member = (Member) request.getSession().getAttribute("authentication"); 
-		List<Follower> followers = mypageService.selectFollower(member.getUserIdx());
+		Map<String,Object> follow = mypageService.selectFollower(member.getUserIdx());
 		
-		request.setAttribute("follower", followers);
+		
+		request.setAttribute("follower", follow.get("follower"));
+		request.setAttribute("following", follow.get("following"));
 		request.getRequestDispatcher("/member/mypage/mypage").forward(request, response);
 		
 	}
