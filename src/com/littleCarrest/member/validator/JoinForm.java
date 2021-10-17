@@ -61,6 +61,11 @@ public class JoinForm {
 			isFailed = true;
 		}
 		
+		if(userName.trim().isEmpty()) {
+			failedAttrubute.put("userName",userName);
+			isFailed = true;
+		}
+		
 		//이메일 검증 : '@가 포함되어 있는지 + '.'(마침표)뒤에 세글자(com/net..)인지 확인
 		
 		//생년월일 검증

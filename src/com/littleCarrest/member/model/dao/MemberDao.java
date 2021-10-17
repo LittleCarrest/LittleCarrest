@@ -28,7 +28,7 @@ public class MemberDao {
 			pstm.setString(2, password);
 			rset = pstm.executeQuery();
 				
-			String[] fieldArr = {"user_idx","user_id","password","email","nickname","tel","address","reg_date"
+			String[] fieldArr = {"user_idx","user_id","password","email","nickname","reg_date"
 								,"info","profile","social_login"};
 			
 			if(rset.next()) {

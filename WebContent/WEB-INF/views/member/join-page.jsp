@@ -12,6 +12,7 @@
 
 <body>
 <%@ include file="/WEB-INF/views/include/fixed-header.jsp" %>
+<div class="form-body">
 <section class="container con-join-form">
 
  <form class="join-page" name="login", id="frm-join" action="/member/join" method="post">
@@ -202,19 +203,18 @@
           <button class="btn" id="btnIdCheck">중복확인</button>
  	    <h1 class="valid-msg" id="idCheck" style="text-align: left; margin-top: 7px;">
         	<c:if test="${not empty param.err and not empty joinValid.userid}">
-        		이미 존재하는 아이디 입니다.
        		</c:if>
         </h1>
         
         <h3>이름</h3>
        <input type="text" id="userName" name="userName" size="10" placeholder="이름을 입력하세요" 
-     		<c:if test="${not empty param.err and empty joinValid.userId}">
+     		<c:if test="${not empty param.err and empty joinValid.userName}">
  				value="${joinForm.userName}"
             </c:if>
              required/>
         <h1 class="valid-msg" id="NameDif" style="text-align: left; margin-top: 7px;">
-        	<c:if test="${not empty param.err and not empty joinValid.userid}">
-        		이미 존재하는 아이디 입니다.
+        	<c:if test="${not empty param.err and not empty joinValid.userName}">
+        		입력하지 않았거나 공백입니다.
        		</c:if>
         </h1>    
  	</div>
@@ -252,11 +252,14 @@
   <div>
   
       <h3>닉네임</h3>
-      <input type="text" name="nickname" id="nickname" placeholder="닉네임을 입력하세요"  required />
+      <input type="text" name="nickname" id="nickname" placeholder="닉네임을 입력하세요"  required 
+      <c:if test="${not empty param.err and empty joinValid.nickname}">
+ 				value="${joinForm.nickname}"
+      </c:if>/>
       <button type="button" class="btn" id="btnNickCheck">닉네임확인</button>
        <h1 class="valid-msg" id="checkNickname" style="text-align: left; margin-top: 7px;">
         	<c:if test="${not empty param.err and not empty joinValid.nickname}">
-        		이미 존재하는 닉네임 입니다.
+        	이미 존재하는 아이디 이거나 입력하지 않았습니다.
        		</c:if>
        </h1>
   </div>
@@ -275,10 +278,11 @@
 
       <input id="join" type="submit" value="가입하기" />
    </div>
+  </div>
  </form>       
  
+<script type="text/javascript" src="/resources/js/member/joinForm.js" ></script>
 </section>
 <%@ include file="/WEB-INF/views/include/footer.jsp" %>
-<script type="text/javascript" src="/resources/js/member/joinForm.js" />
 </body>
 </html>
