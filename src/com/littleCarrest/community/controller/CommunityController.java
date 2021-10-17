@@ -102,6 +102,11 @@ public class CommunityController extends HttpServlet {
 	}
 
 	private void camper(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		Member member =  (Member) request.getSession().getAttribute("authentication");
+		//List<String> campers = communityService.selectCamperTag(member.getUserId());
+		List<Member> campers = communityService.selectBestCamper();
+		System.out.println(campers);
+		request.setAttribute("campers", campers);
 		request.getRequestDispatcher("/sub03/camper").forward(request, response);
 		
 	}
