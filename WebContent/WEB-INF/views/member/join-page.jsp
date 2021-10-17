@@ -21,7 +21,7 @@
 
    <h2 class="tit-agree"> ☞ 서비스 이용약관</h2>
     <div class="agree">
-        <div tabindex="0"> 
+        <div> 
        제1장 총칙<br><br>
        <br>제1조 (목적)<br>
         이 약관은 홈페이지 리틀카레스트이 제공하는 모든 서비스(이하 "서비스"라 합니다)를 이용함에 있어 이용자와 "리틀카레스트"간의 권리·의무 및 책임사항과 기타 필요한 사항을 정하는 데 목적이 있습니다.<br>
@@ -169,7 +169,7 @@
     <br>
     <h2 class="tit-agree"> ☞ 개인정보 수집·이용 동의</h2>
     <div class="agree">
-        <div tabindex="0">
+        <div>
       <br>개인정보보호정책<br>
      <br>리틀카레스트의 이용을 위해 수집한 귀하의 정보를 관리함에 있어서 「개인정보보호법」에서 규정하고 있는 책임과 의무를 준수하고 제공자가 동의한 내용 외 다른 목적으로는 활용하지 않음을 알려드립니다.<br>
       - 개인정보 수집이용 목적 : 회원가입 및 본인인증,기타 서비스 제공 등<br>
@@ -189,63 +189,77 @@
 
     
     <br><br>
+    <div class="input-div">
     <div>
        <h3>아이디</h3>
        <input type="text" id="userId" name="userId" size="10" placeholder="아이디를 입력하세요" 
      		<c:if test="${not empty param.err and empty joinValid.userId}">
- 					value="${joinForm.userId}"
-                </c:if>
-                 required/>
+ 				value="${joinForm.userId}"
+            </c:if>
+       required/>
         
 
-          <button class="btn" id="idcheck">중복확인</button>
- 	    <h1 class="valid-msg" id="id-check" style="text-align: left;">
-        		<c:if test="${not empty param.err and not empty joinValid.userid}">
+          <button class="btn" id="btnIdCheck">중복확인</button>
+ 	    <h1 class="valid-msg" id="idCheck" style="text-align: left; margin-top: 7px;">
+        	<c:if test="${not empty param.err and not empty joinValid.userid}">
         		이미 존재하는 아이디 입니다.
-       		 </c:if>
+       		</c:if>
         </h1>
+        
+        <h3>이름</h3>
+       <input type="text" id="userName" name="userName" size="10" placeholder="이름을 입력하세요" 
+     		<c:if test="${not empty param.err and empty joinValid.userId}">
+ 				value="${joinForm.userName}"
+            </c:if>
+             required/>
+        <h1 class="valid-msg" id="NameDif" style="text-align: left; margin-top: 7px;">
+        	<c:if test="${not empty param.err and not empty joinValid.userid}">
+        		이미 존재하는 아이디 입니다.
+       		</c:if>
+        </h1>    
  	</div>
 
 
    <div>
       <h3>비밀번호</h3>
       <input type="password" id="password" name="password" placeholder="비밀번호를 입력하세요."
-      <c:if test="${not empty param.err and empty joinValid.password}">
+      	<c:if test="${not empty param.err and empty joinValid.password}">
  					value="${joinForm.password}"
-                </c:if>
+    	</c:if>
        required/>
       <div>     
         <c:if test="${not empty param.err and not empty joinValid.password}">
-        <span class="valid-msg">
+        <span class="valid-msg" id="passwordReg">
         	영어,숫자,특수문자 조합의 8글자 이상입니다.
         </span>
         </c:if>
       </div>
 
    </div>
+   
    <div>
       <h3>비밀번호확인</h3>
       <input type="password" id="chkPwd" name="chkPwd" required placeholder="비밀번호를 입력하세요."/>
-		<div>
+	  <div>
 	        <c:if test="${not empty param.err and not empty joinValid.confirmPassword}">
-	        <span class="valid-msg">
+	        <span class="valid-msg" id="passwordDif">
 	        	비밀번호가 일치하지 않습니다.
 	        </span>    	
 	        </c:if>
 	   </div>
   </div>
+  
   <div>
+  
       <h3>닉네임</h3>
-      <input type="text" name="nickname" id="nickname"  required />
-      <button class="btn" id="checkNickname">닉네임확인</button>
-       <div>
-	       <c:if test="${not empty param.err and not empty joinValid.nickname}">
-	       <span class="valid-msg">
-		        이미 존재하는 닉네임 입니다.
-		   </span>
-	       </c:if>
-       </div>      
-   </div>
+      <input type="text" name="nickname" id="nickname" placeholder="닉네임을 입력하세요"  required />
+      <button type="button" class="btn" id="btnNickCheck">닉네임확인</button>
+       <h1 class="valid-msg" id="checkNickname" style="text-align: left; margin-top: 7px;">
+        	<c:if test="${not empty param.err and not empty joinValid.nickname}">
+        		이미 존재하는 닉네임 입니다.
+       		</c:if>
+       </h1>
+  </div>
 
    <div>
       <h3>이메일</h3>
@@ -255,56 +269,16 @@
       <input type="email" id="email" name="email" placeholder="이메일을 입력하세요." 
       	<c:if test="${not empty param.err and empty joinValid.email}">
  					value="${joinForm.email}"
-                </c:if>
+        </c:if>
       required />      
    </div>
 
-      <button id="join" type="submit" onclick="fn-check()">가입하기</button>
-
+      <input id="join" type="submit" value="가입하기" />
+   </div>
  </form>       
  
 </section>
 <%@ include file="/WEB-INF/views/include/footer.jsp" %>
-<script type="text/javascript" src="/resources/js/member/joinForm.js">
-     
-     
-     function fn_check() {
-    	 if(document.login.chk1.checked == false ||
-    		document.login.chk2.checked == false) {
-    		 alert("약관에 동의해주세요")
- 			return false; 	
-	
-     }
-       location = "http://localhost:7070";
-      
-     }
-     
-     
-     
-     
-     $(function () {
-    	 chk1_CheckedChanged();	 
-     });
-     
-     //체크박스 체크 선택 또는 해제시 상태 확인 업데이트
-     $("#chk1").chage(function() {
-    	 chk1_CheckedChanged();
-     }); 
-     
-     function chk1_CheckedChanged() {
- 		if($("#chk1").prop("checked")){
-			closole.log("체크");	
-			$("#join").prop("disabled", false);
-		}
-		else{
-			console.log("언체크");ㅣ
-			$("#join").prop("disabled", true);
-			
-		}		
-	}
-
-     
-     
-</script>
+<script type="text/javascript" src="/resources/js/member/joinForm.js" />
 </body>
 </html>

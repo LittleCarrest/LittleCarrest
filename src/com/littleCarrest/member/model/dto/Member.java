@@ -8,6 +8,7 @@ import com.littleCarrest.common.file.FileDTO;
 public class Member {
 	
 	private String userIdx;
+	private String userName;
 	private String userId;
 	private String password;
 	private String email;
@@ -104,15 +105,26 @@ public class Member {
 	public void setSocialLogin(String socialLogin) {
 		this.socialLogin = socialLogin;
 	}
+	
+	
+
+
+	public String getUserName() {
+		return userName;
+	}
+
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
 
 
 	@Override
 	public String toString() {
-		return "Member [userIdx=" + userIdx + ", userId=" + userId + ", password=" + password + ", email=" + email
-				+ ", nickname=" + nickname + ", regDate=" + regDate + ", info=" + info + ", profile=" + profile
-				+ ", socialLogin=" + socialLogin + "]";
+		return "Member [userIdx=" + userIdx + ", userName=" + userName + ", userId=" + userId + ", password=" + password
+				+ ", email=" + email + ", nickname=" + nickname + ", regDate=" + regDate + ", info=" + info
+				+ ", profile=" + profile + ", socialLogin=" + socialLogin + "]";
 	}
 
-	
 
 }

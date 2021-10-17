@@ -131,4 +131,17 @@ public class MemberService {
 		}
 		return res;
 	}
+
+	public Member selectMemberByNick(String nickname) {
+		Connection conn = template.getConnection();
+		Member member = null;
+		
+		try {
+			member = memberDao.selectMemberByNick(nickname, conn);
+		} finally {
+			template.close(conn);
+		}
+		
+		return member;
+	}
 }

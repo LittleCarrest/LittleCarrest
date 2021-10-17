@@ -66,6 +66,9 @@ public class MemberController extends HttpServlet {
 		case "id-check":
 			 checkId(request,response);
 			break;
+		case "nick-check":
+			 nickCheck(request,response);
+			break;
 		case "search-id":
 			searchId(request,response);
 			break;
@@ -81,6 +84,18 @@ public class MemberController extends HttpServlet {
 		}
 
 	}
+	private void nickCheck(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String nickname = request.getParameter("nickname");
+		Member member = memberService.selectMemberByNick(nickname);
+		
+		if(member == null) {
+			response.getWriter().print("available");
+		}else {
+			response.getWriter().print("disable");
+		}	
+		
+	}
+
 	private void searchPassword(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("hi world");
 	}
@@ -96,8 +111,14 @@ public class MemberController extends HttpServlet {
 	}
 
 	private void checkId(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		String userId = request.getParameter("userId");
+		Member member = memberService.selectMemberById(userId);
 		
+		if(member == null) {
+			response.getWriter().print("available");
+		}else {
+			response.getWriter().print("disable");
+		}
 	}
 
 	private void joinImpl(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -107,7 +128,7 @@ public class MemberController extends HttpServlet {
 		//같은 persisUser값이 두 번 DB에 입력되지 않도록 사용자 정보와 인증을 만료시킴
 		session.removeAttribute("persistUser");
 		session.removeAttribute("persist-token");
-		response.sendRedirect("/member/login-form");
+		response.sendRedirect("/member/login-page");
 		
 	}
 
@@ -131,12 +152,14 @@ public class MemberController extends HttpServlet {
 		String password = request.getParameter("password");
 		String nickname = request.getParameter("nickname");
 		String email = request.getParameter("email");
+		String name = request.getParameter("userName");
 		
 		Member member = new Member();
 		member.setUserId(userId);
 		member.setPassword(password);
 		member.setNickname(nickname);
 		member.setEmail(email);
+		member.setUserName(name);
 		
 		String persistToken = UUID.randomUUID().toString();
 		request.getSession().setAttribute("persistUser", member);
@@ -166,7 +189,7 @@ public class MemberController extends HttpServlet {
 		
 		Member member = memberService.memberAuthenticate(userId,password);
 		
-		if(member == null) {
+		if(member.getUserId() == null) {
 			response.sendRedirect("/member/login-form?err=1");
 			return;
 		}

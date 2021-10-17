@@ -144,7 +144,7 @@ public class MemberDao {
 		
 	}
 	
-	private Member convertRowToMember(ResultSet rset) throws SQLException {
+	public Member convertRowToMember(ResultSet rset) throws SQLException {
 		
 		Member member = new Member();
 		
@@ -161,7 +161,7 @@ public class MemberDao {
 		
 	}
 	
-	private Member convertRowToMember(ResultSet rset, String[] fieldArr) throws SQLException {
+	public Member convertRowToMember(ResultSet rset, String[] fieldArr) throws SQLException {
 		Member member = new Member();
 		
 		for (int i = 0; i < fieldArr.length; i++) {
@@ -184,7 +184,7 @@ public class MemberDao {
 		return member;
 	}
 	
-	private Map<String,Object> convertRowToMap(ResultSet rset, String[] fieldArr) throws SQLException {
+	public Map<String,Object> convertRowToMap(ResultSet rset, String[] fieldArr) throws SQLException {
 		
 		Map<String,Object> res = new HashMap<String, Object>();
 		
@@ -200,14 +200,15 @@ public class MemberDao {
 		int res = 0;		
 		PreparedStatement pstm = null;
 		
-		String query = "insert into member(user_id,password,email,nickname)"
-					 + " values(?,?,?,?) ";
+		String query = "insert into member(user_idx,user_name,user_id,password,email,nickname)"
+					 + " values(sc_mem_idx.nextval,?,?,?,?,?) ";
 		try {
 			pstm = conn.prepareStatement(query);
-			pstm.setString(1, member.getUserId());
-			pstm.setString(2, member.getPassword());
-			pstm.setString(3, member.getEmail());
-			pstm.setString(4, member.getNickname());
+			pstm.setString(1, member.getUserName());
+			pstm.setString(2, member.getUserId());
+			pstm.setString(3, member.getPassword());
+			pstm.setString(4, member.getEmail());
+			pstm.setString(5, member.getNickname());
 			res = pstm.executeUpdate();
 		} catch (SQLException e) {
 			throw new DataAccessException(e);
@@ -297,6 +298,30 @@ public class MemberDao {
 
 		
 		return res;
+	}
+
+	public Member selectMemberByNick(String nickname, Connection conn) {
+		Member member = null;			
+		PreparedStatement pstm = null;
+		ResultSet rset = null;
+		
+		String query = "select * from member where NICKNAME = ?";
+		
+		try {			
+			pstm = conn.prepareStatement(query);
+			pstm.setString(1, nickname);
+			rset = pstm.executeQuery();
+			
+			if(rset.next()) {
+				member = convertRowToMember(rset);
+			}
+		} catch (SQLException e) {
+			throw new DataAccessException(e);
+		} finally {
+			template.close(rset, pstm);
+		}
+		
+		return member;
 	}
 
 
