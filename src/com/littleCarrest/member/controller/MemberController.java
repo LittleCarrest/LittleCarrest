@@ -107,7 +107,7 @@ public class MemberController extends HttpServlet {
 		//같은 persisUser값이 두 번 DB에 입력되지 않도록 사용자 정보와 인증을 만료시킴
 		session.removeAttribute("persistUser");
 		session.removeAttribute("persist-token");
-		response.sendRedirect("/member/login-form");
+		response.sendRedirect("/member/login-page");
 		
 	}
 
@@ -131,12 +131,14 @@ public class MemberController extends HttpServlet {
 		String password = request.getParameter("password");
 		String nickname = request.getParameter("nickname");
 		String email = request.getParameter("email");
+		String name = request.getParameter("userName");
 		
 		Member member = new Member();
 		member.setUserId(userId);
 		member.setPassword(password);
 		member.setNickname(nickname);
 		member.setEmail(email);
+		member.setUserName(name);
 		
 		String persistToken = UUID.randomUUID().toString();
 		request.getSession().setAttribute("persistUser", member);
@@ -166,7 +168,7 @@ public class MemberController extends HttpServlet {
 		
 		Member member = memberService.memberAuthenticate(userId,password);
 		
-		if(member == null) {
+		if(member.getUserId() == null) {
 			response.sendRedirect("/member/login-form?err=1");
 			return;
 		}

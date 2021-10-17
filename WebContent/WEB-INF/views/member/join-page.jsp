@@ -204,6 +204,12 @@
         		이미 존재하는 아이디 입니다.
        		 </c:if>
         </h1>
+        <h3>이름</h3>
+       <input type="text" id="userName" name="userName" size="10" placeholder="이름을 입력하세요" 
+     		<c:if test="${not empty param.err and empty joinValid.userId}">
+ 					value="${joinForm.userId}"
+                </c:if>
+                 required/>
  	</div>
 
 
@@ -279,9 +285,6 @@
       
      }
      
-     
-     
-     
      $(function () {
     	 chk1_CheckedChanged();	 
      });
@@ -299,11 +302,9 @@
 		else{
 			console.log("언체크");ㅣ
 			$("#join").prop("disabled", true);
-			
-		}		
+		}
+ 		
 	}
-
-     
      
 </script>
 </body>

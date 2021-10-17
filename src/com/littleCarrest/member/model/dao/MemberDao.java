@@ -200,14 +200,15 @@ public class MemberDao {
 		int res = 0;		
 		PreparedStatement pstm = null;
 		
-		String query = "insert into member(user_id,password,email,nickname)"
-					 + " values(?,?,?,?) ";
+		String query = "insert into member(user_idx,user_name,user_id,password,email,nickname)"
+					 + " values(sc_mem_idx.nextval,?,?,?,?,?) ";
 		try {
 			pstm = conn.prepareStatement(query);
-			pstm.setString(1, member.getUserId());
-			pstm.setString(2, member.getPassword());
-			pstm.setString(3, member.getEmail());
-			pstm.setString(4, member.getNickname());
+			pstm.setString(1, member.getUserName());
+			pstm.setString(2, member.getUserId());
+			pstm.setString(3, member.getPassword());
+			pstm.setString(4, member.getEmail());
+			pstm.setString(5, member.getNickname());
 			res = pstm.executeUpdate();
 		} catch (SQLException e) {
 			throw new DataAccessException(e);
