@@ -28,7 +28,7 @@ public class MemberDao {
 			pstm.setString(2, password);
 			rset = pstm.executeQuery();
 				
-			String[] fieldArr = {"user_idx","user_id","password","email","nickname","reg_date"
+			String[] fieldArr = {"user_idx","user_id","user_name","password","email","nickname","reg_date"
 								,"info","profile","social_login"};
 			
 			if(rset.next()) {
@@ -147,8 +147,9 @@ public class MemberDao {
 	public Member convertRowToMember(ResultSet rset) throws SQLException {
 		
 		Member member = new Member();
-		
+		member.setUserIdx(rset.getString("user_idx")); 
 		member.setUserId(rset.getString("user_id")); 
+		member.setUserName(rset.getString("user_name")); 
 		member.setPassword(rset.getString("password"));
 		member.setEmail(rset.getString("email"));
 		member.setNickname(rset.getString("nickname"));
@@ -170,6 +171,7 @@ public class MemberDao {
 			
 			case "user_idx":member.setUserIdx(rset.getString("user_idx")); break;
 			case "user_id":member.setUserId(rset.getString("user_id")); break;
+			case "user_name":member.setUserName(rset.getString("user_name")); break;
 			case "password":member.setPassword(rset.getString("password"));break;
 			case "email":member.setEmail(rset.getString("email")); break;
 			case "nickname":member.setNickname(rset.getString("nickname")); break;

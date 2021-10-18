@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -16,9 +16,18 @@
         autoplay muted loop poster="/resources/img/main/poster.jpg">
       </video>
     </div>
+    <c:set value="${authentication.userName }" var="username"></c:set>
     <div class="title">
       <h5>리틀카레스트가 <b>추천</b>하는</h5>
-      <h3><span>재</span><span>명</span>만의 <b>REST</b></h3>
+      <h3>
+      <c:if test="${not empty authentication}">
+	      <span>${fn:substring(username, 1,2)}</span><span>${fn:substring(username, 2, 3)}</span>
+	      만의 <b>REST</b>   
+      </c:if>
+      <c:if test="${empty authentication}">
+	      <span>당</span><span>신</span> 만의 <b>REST</b>   
+      </c:if>
+	  </h3>   
     </div>
   </section>
   <!-- ----------------------------sec02 rec-fullCourse-->
