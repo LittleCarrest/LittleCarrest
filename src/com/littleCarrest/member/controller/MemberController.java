@@ -147,8 +147,6 @@ public class MemberController extends HttpServlet {
 	      String day = request.getParameter("day");
 	      String info = request.getParameter("information");
 	      
-	      String birth = year + "-" + month + "-" + day;
-
 	      Member kakaomember = new Member();
 	      kakaomember.setUserId(userId);
 	      kakaomember.setNickname(nickname);
@@ -218,8 +216,8 @@ public class MemberController extends HttpServlet {
 		
 		Member member = memberService.memberAuthenticate(userId,password);
 		
-		if(member.getUserId() == null) {
-			response.sendRedirect("/member/login-form?err=1");
+		if(member == null) {
+			response.sendRedirect("/member/login-page?err=1");
 			return;
 		}
 		

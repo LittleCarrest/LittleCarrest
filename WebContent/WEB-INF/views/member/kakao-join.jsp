@@ -192,6 +192,20 @@
     <br><br>
     <div class="input-div">
     <div>
+       <h3>아이디</h3>
+       <input type="text" id="userId" name="userId" size="10" placeholder="아이디를 입력하세요" 
+     		<c:if test="${not empty param.err and empty joinValid.userId}">
+ 				value="${joinForm.userId}"
+            </c:if>
+       required/>
+        
+
+          <button class="btn" id="btnIdCheck">중복확인</button>
+ 	    <h1 class="valid-msg" id="idCheck" style="text-align: left; margin-top: 7px;">
+        	<c:if test="${not empty param.err and not empty joinValid.userid}">
+       		</c:if>
+        </h1>
+        
         <h3>이름</h3>
        <input type="text" id="userName" name="userName" size="10" placeholder="이름을 입력하세요" 
      		<c:if test="${not empty param.err and empty joinValid.userName}">
@@ -205,7 +219,38 @@
         </h1>    
  	</div>
 
+
+   <div>
+      <h3>비밀번호</h3>
+      <input type="password" id="password" name="password" placeholder="비밀번호를 입력하세요."
+      	<c:if test="${not empty param.err and empty joinValid.password}">
+ 					value="${joinForm.password}"
+    	</c:if>
+       required/>
+      <div>     
+        <c:if test="${not empty param.err and not empty joinValid.password}">
+        <span class="valid-msg" id="passwordReg">
+        	영어,숫자,특수문자 조합의 8글자 이상입니다.
+        </span>
+        </c:if>
+      </div>
+
+   </div>
+   
+   <div>
+      <h3>비밀번호확인</h3>
+      <input type="password" id="chkPwd" name="chkPwd" required placeholder="비밀번호를 입력하세요."/>
+	  <div>
+	        <c:if test="${not empty param.err and not empty joinValid.confirmPassword}">
+	        <span class="valid-msg" id="passwordDif">
+	        	비밀번호가 일치하지 않습니다.
+	        </span>    	
+	        </c:if>
+	   </div>
+  </div>
+  
   <div>
+  
       <h3>닉네임</h3>
       <input type="text" name="nickname" id="nickname" placeholder="닉네임을 입력하세요"  required 
       <c:if test="${not empty param.err and empty joinValid.nickname}">
@@ -218,6 +263,18 @@
        		</c:if>
        </h1>
   </div>
+
+   <div>
+      <h3>이메일</h3>
+      <c:if test="true">
+         <span></span>
+      </c:if>
+      <input type="email" id="email" name="email" placeholder="이메일을 입력하세요." 
+      	<c:if test="${not empty param.err and empty joinValid.email}">
+ 					value="${joinForm.email}"
+        </c:if>
+      required />      
+   </div>
 
       <input id="join" type="submit" value="가입하기" />
    </div>

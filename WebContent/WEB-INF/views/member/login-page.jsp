@@ -23,7 +23,13 @@
         </div>
         <input type="submit" class="btn btn-login" value="로그인">
         <span class="or-text">또는</span>
-        <a class="btn btn-kakao-login" href="/member/kakao-login">카카오톡 로그인</a>
+        <a class="btn btn-kakao-login" href="javascript:loginFormWithKakao();">카카오톡 로그인</a>
+        <c:if test="${not empty param.err}">
+							<div class="error_message" style="padding-left:15px;  line-height: 20px; color: red;">
+                                                  아이디 또는 비밀번호가 잘못 입력 되었습니다.<br>
+                            <strong>아이디</strong>와 <strong>비밀번호</strong>를 정확히 입력해 주세요.
+                </div>
+        </c:if>
         <div class="login-footer">
           <h3 class="wrap-find">
              <a href="/member/find-id">아이디 찾기</a>
@@ -39,6 +45,7 @@
     </form>
   </section>
   <%@ include file="/WEB-INF/views/include/footer.jsp" %>
+  <script type="text/javascript" src="/resources/js/kakaoLogin/kakaoLogin.js"></script> 
 
 </body>
 </html>

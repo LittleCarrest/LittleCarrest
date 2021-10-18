@@ -1,5 +1,10 @@
-Kakao.init('b48910cb5f06aa478cc2184431f97be9');
+Kakao.init('4b3e810de4fd8bbbaf51c2a0f4efe69d');
+Kakao.isInitialized();
+
+console.log(Kakao.isInitialized()); 
+
 function loginFormWithKakao() {
+	
     Kakao.Auth.loginForm({
              success : function(authObj) {
                 Kakao.Auth.login({
@@ -50,3 +55,25 @@ function loginFormWithKakao() {
              },
           })
  }
+ 
+  function pageChange() {
+        setTimeout(() => {
+            location.href='/index';    
+        }, 500);
+        
+      }
+
+   function kakaoLogout() {
+        if (Kakao.Auth.getAccessToken()) {
+          Kakao.API.request({
+            url: '/v1/user/unlink',
+            success: function (response) {
+                console.log(response)
+            },
+            fail: function (error) {
+              console.log(error)
+            },
+          })
+          Kakao.Auth.setAccessToken(undefined)
+        }
+      }  

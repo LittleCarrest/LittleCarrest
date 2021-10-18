@@ -13,6 +13,7 @@
 <link rel="stylesheet" href="${contextPath}/resources/css/common/reset.css">
 <link rel="stylesheet" href="/resources/css/common/fixed-header.css">
 <link rel="stylesheet" href="/resources/css/common/footer.css">
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 
 <!-- jQuery CDN -->
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
