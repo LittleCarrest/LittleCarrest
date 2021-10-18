@@ -1,21 +1,21 @@
-package com.littleCarrest.seach.service;
+package com.littleCarrest.tour.service;
 
 import java.sql.Connection;
 
 import com.littleCarrest.common.db.JDBCTemplate;
-import com.littleCarrest.seach.model.dao.SearchDao;
-import com.littleCarrest.seach.model.dto.CampingSearch;
+import com.littleCarrest.tour.model.dao.TourDao;
+import com.littleCarrest.tour.model.dto.TourDto;
 
-public class SearchService {
+public class TourService {
 	
-	private SearchDao searchDao = new SearchDao();
+	private TourDao tourDao = new TourDao();
 	private JDBCTemplate template = JDBCTemplate.getInstance();
 
-	   public void insertCamping(CampingSearch camping) {
+	   public void insertTour(TourDto tour) {
 		      Connection conn = template.getConnection();
 		      
 		      try {
-		    	  searchDao.insertCamping(camping, conn);
+		    	  tourDao.insertTour(tour, conn);
 		    	  template.commit(conn);
 		      } catch (Exception e) {
 		         template.rollback(conn);

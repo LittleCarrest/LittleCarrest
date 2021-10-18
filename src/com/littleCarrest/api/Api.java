@@ -17,10 +17,10 @@ public class Api {
 		CampingSearch camping = new CampingSearch();
 		SearchService searchservice = new SearchService();
 		
-		String key = "vb7VRvR6GWpXJT1EaIIcYMLIE2wH%2FSLTxeJLj2OZ%2BezJUNWB20DGIYmMKJWFy56abCDff5P21JYKLDslp%2FIKLg%3D%3D";
+		String key = "	vb7VRvR6GWpXJT1EaIIcYMLIE2wH%2FSLTxeJLj2OZ%2BezJUNWB20DGIYmMKJWFy56abCDff5P21JYKLDslp%2FIKLg%3D%3D";
 		int pageNum = 1;
 		
-		for(pageNum = 143; pageNum < 275; pageNum++) {
+		for(pageNum = 1; pageNum < 275; pageNum++) {
 			String urlCode = "http://api.visitkorea.or.kr/openapi/service/rest/GoCamping/basedList"
 					+ "?ServiceKey=" + key + "&pageNo=" + pageNum + "&numOfRows=10&MobileOS=ETC&MobileApp=LittleCarrest";
 			
@@ -50,7 +50,6 @@ public class Api {
 			String homepage = null;
 			String location = null;
 			
-			
 			while(event_type != XmlPullParser.END_DOCUMENT) {
 				if(event_type == XmlPullParser.START_TAG) {
 					tag = xpp.getName();
@@ -61,9 +60,19 @@ public class Api {
 	                    	cp_name = xpp.getText();
 	                    }else if(tag.equals("lineIntro")){
 	                    	line_intro = xpp.getText();
+//	                    	if(xpp.getText()!=null) {
+//	                    		line_intro = xpp.getText();
+//	                    	}else {
+//	                    		line_intro = "null";
+//	                    	}
 	                    }else if(tag.equals("intro")){
 	                    	intro = xpp.getText();
-	                        intro.replaceAll("&apos;", "");
+//	                    	if(xpp.getText()!=null) {
+//	                    		intro = xpp.getText();
+//	                    	}else {
+//	                    		intro = "null";
+//	                    	}
+//	                        intro.replaceAll("&apos;", "");
 	                    }else if(tag.equals("manageSttus")){
 	                    	status = xpp.getText();
 	                    }else if(tag.equals("addr1")){
@@ -88,6 +97,7 @@ public class Api {
                     if (tag.equals("item")) {
                       System.out.println("pageNum : "+ pageNum + "\n");
                       		
+                      	  camping.setCpIdx(cp_idx);
                           camping.setCpName(cp_name);
                           camping.setLineIntro(line_intro);
                           camping.setIntro(intro);
@@ -104,15 +114,11 @@ public class Api {
                           System.out.println("============================================================================");
                                                      
                           searchservice.insertCamping(camping);
-
                       } 
                   }
-				
                   event_type = xpp.next();
-                  
-              } 
-			
-          }
+              } // while 문
+          } // 전체 page for 문
      }
      
       public static void main(String[] args) throws IOException, XmlPullParserException {
