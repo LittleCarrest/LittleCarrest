@@ -119,7 +119,7 @@ public class ValidatorFilter implements Filter {
 			}break;
 		case "kakao-join":
 			if(!kakaoJoinForm.test()) {
-				redirectURI = "/member/kakao-join";
+				redirectURI = "/member/kakao-join-page?err=1";
 			}break;
 		default:
 			break;

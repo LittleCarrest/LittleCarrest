@@ -151,6 +151,7 @@ public class MemberController extends HttpServlet {
 	      memberService.insertMember(kakaomember);
 	      memberService.insertkakaoMember(kakaomember);
 
+	      request.getSession().setAttribute("authentication", kakaomember);
 	      request.getRequestDispatcher("/index").forward(request, response);      
 	}
 

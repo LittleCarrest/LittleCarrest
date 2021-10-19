@@ -194,9 +194,15 @@
     <div>
        <h3>아이디</h3>
        <input type="text" id="userId" name="kakaoId" size="10"
- 				value="${kakaoId}" style="width: 100%;" readonly/>
+				<c:if test="${empty param.err }">
+				value="${kakaoId}"
+				</c:if>
+ 				<c:if test="${not empty param.err and empty joinValid.kakaoId}">
+ 				value="${joinForm.kakaoId}"
+            	</c:if>
+ 				style="width: 100%;" readonly/>
  				
-        <h3>이름</h3>
+       <h3>이름</h3>
        <input type="text" id="userName" name="userName" size="10" placeholder="이름을 입력하세요" 
      		<c:if test="${not empty param.err and empty joinValid.userName}">
  				value="${joinForm.userName}"
@@ -206,30 +212,30 @@
         	<c:if test="${not empty param.err and not empty joinValid.userName}">
         		입력하지 않았거나 공백입니다.
        		</c:if>
+       		
         </h1>    
  	</div>
 
   <div>
       <h3>닉네임</h3>
       <input type="text" name="nickname" id="nickname" placeholder="닉네임을 입력하세요"  required 
-      <c:if test="${not empty param.err and empty joinValid.nickname}">
- 				value="${joinForm.nickname}"
-      </c:if>/>
+	      <c:if test="${not empty param.err and empty joinValid.nickname}">
+	 				value="${joinForm.nickname}"
+	      </c:if>/>
       <button type="button" class="btn" id="btnNickCheck">닉네임확인</button>
        <h1 class="valid-msg" id="checkNickname" style="text-align: left; margin-top: 7px;">
-        	<c:if test="${not empty param.err and not empty joinValid.nickname}">
+          <c:if test="${not empty param.err and not empty joinValid.nickname}">
         	이미 존재하는 아이디 이거나 입력하지 않았습니다.
-       		</c:if>
+       	  </c:if>
        </h1>
   </div>
 
       <input id="join" type="submit" value="가입하기" />
    </div>
-  </div>
- </form>       
- 
-<script type="text/javascript" src="/resources/js/member/joinForm.js" ></script>
+ </form>
 </section>
+  </div>
+<script type="text/javascript" src="/resources/js/member/kakaoJoinForm.js" ></script>
 <%@ include file="/WEB-INF/views/include/footer.jsp" %>
 </body>
 </html>

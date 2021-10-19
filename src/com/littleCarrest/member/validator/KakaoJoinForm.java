@@ -13,6 +13,8 @@ import com.littleCarrest.member.model.service.MemberService;
 public class KakaoJoinForm {
 	
 	private String nickname;
+	private String userName;
+	private String kakaoId;
 	private HttpServletRequest request;	
 	private MemberService memberService = new MemberService();
 	private Map<String,String> failedAttrubute =  new HashMap<String,String>();
@@ -20,13 +22,19 @@ public class KakaoJoinForm {
 	public KakaoJoinForm(ServletRequest request) {
 		this.request = (HttpServletRequest) request;
 		this.nickname = request.getParameter("nickname");
+		this.userName = request.getParameter("userName");
+		this.kakaoId = request.getParameter("kakaoId");
 	}
 	
 	public boolean test() {
 		boolean isFailed = false;
 		
-		//닉네임 검증 : 사용자가 입력한 닉네임이 DB에 이미 존재하는지 확인 (위 아이디 검증과 유사)
-		if(nickname.equals("") || memberService.selectMemberByNickname(nickname) != null) {
+		if(userName.trim().isEmpty()) {
+			failedAttrubute.put("userName",userName);
+			isFailed = true;
+		}
+		
+		if(memberService.selectMemberByNickname(nickname) != null || nickname.trim().isEmpty()) {
 			failedAttrubute.put("nickname",nickname);
 			isFailed = true;
 		}
@@ -34,6 +42,7 @@ public class KakaoJoinForm {
 		if(isFailed) {
 			request.getSession().setAttribute("joinValid", failedAttrubute);	//joinFailed에 검증실패한 값 저장
 			request.getSession().setAttribute("joinForm", this);	//사용자 입력 파라미터값 재사용 위함
+			System.out.println(this.kakaoId);
 			return false;
 		}else {
 			request.getSession().removeAttribute("joinForm");
@@ -45,6 +54,14 @@ public class KakaoJoinForm {
 	public String getNickname() {
 		return nickname;
 	}
+	
+	public String getUserName() {
+		return userName;
+	}	
+	
+	public String getKakaoId() {
+		return kakaoId;
+	}	
 	
 
 }
