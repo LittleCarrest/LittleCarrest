@@ -70,12 +70,18 @@ public class MemberController extends HttpServlet {
 		case "nick-check":
 			 nickCheck(request,response);
 			break;
-		case "search-id":
-			searchId(request,response);
+		case "search-id-page":
+			searchIdPage(request,response);
 			break;
 		case "match-id":
 			matchId(request,response);
 			break;			
+		case "search-password-page":
+			searchPasswordPage(request,response);
+			break;
+		case "search-id":
+			searchId(request,response);
+			break;
 		case "search-password":
 			searchPassword(request,response);
 			break;
@@ -85,6 +91,39 @@ public class MemberController extends HttpServlet {
 		}
 
 	}
+	private void searchPassword(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void searchId(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+		String userName = request.getParameter("userName");
+		String email = request.getParameter("email");
+		
+		Member member = memberService.searchById(userName,email);
+		
+		if(member == null) {
+			response.sendRedirect("/member/search-id-page?err=1");
+			return;
+		}
+		
+		String originId = member.getUserId();
+		String maskingId = "";
+		
+		if(originId.length() < 3) {
+			maskingId = originId.replaceAll("(?<=.{1}).", "*");
+		} else {
+			maskingId = originId.replaceAll("(?<=.{2}).", "*");
+		}
+		
+		member.setUserId(maskingId);
+		System.out.println(maskingId);
+		
+		request.setAttribute("member", member);
+		request.getRequestDispatcher("/member/search-id").forward(request, response);
+		
+	}
+
 	private void nickCheck(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String nickname = request.getParameter("nickname");
 		Member member = memberService.selectMemberByNick(nickname);
@@ -97,8 +136,8 @@ public class MemberController extends HttpServlet {
 		
 	}
 
-	private void searchPassword(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("hi world");
+	private void searchPasswordPage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.getRequestDispatcher("/member/search-password").forward(request, response);
 	}
 
 	private void matchId(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -106,9 +145,8 @@ public class MemberController extends HttpServlet {
 		
 	}
 
-	private void searchId(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		
+	private void searchIdPage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.getRequestDispatcher("/member/search-id").forward(request, response);
 	}
 
 	private void checkId(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -166,4 +166,17 @@ public class MemberService {
 		return res;
 		
 	}
+
+	public Member searchById(String userName, String email) {
+		Connection conn = template.getConnection();
+		Member member = null;
+		
+		try {
+			member = memberDao.searchById(userName,email,conn);
+		} finally {
+			template.close(conn);
+		}
+
+		return member;
+	}
 }

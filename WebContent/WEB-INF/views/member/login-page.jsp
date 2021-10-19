@@ -32,9 +32,9 @@
         </c:if>
         <div class="login-footer">
           <h3 class="wrap-find">
-             <a href="/member/find-id">아이디 찾기</a>
+             <a href="/member/search-id-page">아이디 찾기</a>
              <span>or</span>
-             <a href="/member/find-password">비밀번호 찾기</a>
+             <a href="/member/search-password-page">비밀번호 찾기</a>
           </h3>
           <p>
             리틀카레스트 처음이신가요? <a href="/member/join-page">회원가입</a>

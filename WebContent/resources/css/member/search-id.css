@@ -1,0 +1,83 @@
+@charset "UTF-8";
+
+
+.id-search{
+  position: absolute;
+  top: 90px;
+  width: 100%;
+  height: calc(100vh - 90px);
+
+  /* box-sizing: border-box; */
+}
+.search-form{
+  width: 360px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.search-type h1{
+  margin-top: 0;
+  padding: 20px;
+  font-size: 25px;
+  text-align: center;
+  font-weight: normal;
+}
+
+.search-type p {
+	margin-bottom: 20px;
+    font-size: 15px;
+    text-align: center;
+}
+
+.common-login input{
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  outline: none;
+  border: 1px solid #aaa;
+  border-radius: 3px;
+  padding-left: 15px;
+}
+.common-login input::placeholder{
+  opacity: 1;
+  transition: 0.3s;
+}
+.common-login input:focus::placeholder{
+  opacity: 0;
+}
+.btn{
+  display: block;
+  text-align: center;
+  padding: 15px;
+  border-radius: 3px;
+  margin-bottom: 10px;
+/*   background-image: url(images/kakao-talk.png);
+  background-repeat: no-repeat;
+  background-position: center left; */
+  opacity: 0.8;
+}
+.btn-login{
+  background: #1ECAD3;
+  color: #fff;
+
+}
+
+.btn:hover{
+  opacity: 1;
+}
+
+footer{
+  position: absolute;
+  top: 100vh;
+  width: 100%;
+}
+
+/* 211014 정현직 */
+
+input[type="submit"] {
+  border: none;
+  width: 100%;
+}
