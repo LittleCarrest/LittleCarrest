@@ -8,7 +8,7 @@ function loginFormWithKakao() {
     Kakao.Auth.loginForm({
              success : function(authObj) {
                 Kakao.Auth.login({
-                         scope : 'profile_nickname,account_email,gender',
+                         scope : 'profile_nickname',
                          success : function(e) {
                             console.dir(e)
                             Kakao.API.request({

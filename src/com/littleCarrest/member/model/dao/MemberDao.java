@@ -326,6 +326,28 @@ public class MemberDao {
 		return member;
 	}
 
+	public int kakaoinsert(Member kakaomember, Connection conn) {
+		
+		int res = 0;		
+		PreparedStatement pstm = null;
+		
+		String query = "insert into social_member(user_idx,kakao_id)"
+					 + " values(sc_mem_idx.currval,?) ";
+		
+		try {
+			pstm = conn.prepareStatement(query);
+			pstm.setString(1, kakaomember.getUserId());
+			res = pstm.executeUpdate();
+		} catch (SQLException e) {
+			throw new DataAccessException(e);
+		} finally {
+			template.close(pstm);
+		}
+		
+		return res;
+		
+	}
+
 
 
 

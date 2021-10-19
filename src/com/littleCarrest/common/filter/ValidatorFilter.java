@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.littleCarrest.common.code.ErrorCode;
 import com.littleCarrest.common.exception.HandleableException;
 import com.littleCarrest.member.validator.JoinForm;
+import com.littleCarrest.member.validator.KakaoJoinForm;
 import com.littleCarrest.member.validator.ModifyForm;
 import com.littleCarrest.mypage.validator.MypageForm;
 
@@ -93,8 +94,9 @@ public class ValidatorFilter implements Filter {
 
 	private String memberValidation(HttpServletRequest httpRequest, HttpServletResponse httpResponse, String[] uriArr) {
 		String redirectURI = null;
-		JoinForm joinForm = new JoinForm(httpRequest);;
+		JoinForm joinForm = new JoinForm(httpRequest);
 		ModifyForm modifyForm = new ModifyForm(httpRequest);
+		KakaoJoinForm kakaoJoinForm = new KakaoJoinForm(httpRequest);
 		
 		switch (uriArr[2]) {
 		case "join":
@@ -102,21 +104,22 @@ public class ValidatorFilter implements Filter {
 			if(password == null) {
 				redirectURI = "/index";
 			}
-			
 			if(!joinForm.test()) {  
-				redirectURI = "/member/join-page?err=1";	
+				redirectURI = "/member/join-page?err=1";
 			}break;
-
 		case "join-impl":
 			String persistToken = httpRequest.getParameter("persist-token");	
 			if(!persistToken.equals(httpRequest.getSession().getAttribute("persist-token"))) {	
 				throw new HandleableException(ErrorCode.AUTHENTICATION_FAILED_ERROR);
 			}
 			break;
-
 		case "modify":
 			if(!modifyForm.test()) {
 				redirectURI = "/member/modify-page?err=1";
+			}break;
+		case "kakao-join":
+			if(!kakaoJoinForm.test()) {
+				redirectURI = "/member/kakao-join";
 			}break;
 		default:
 			break;
@@ -132,3 +135,4 @@ public class ValidatorFilter implements Filter {
 	}
 
 }
+

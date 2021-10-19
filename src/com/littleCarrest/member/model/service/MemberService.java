@@ -145,8 +145,25 @@ public class MemberService {
 		return member;
 	}
 
-	public void insertkakaoMember(Member kakaomember) {
-		// TODO Auto-generated method stub
+	public int insertkakaoMember(Member kakaomember) {
+		
+		Connection conn = template.getConnection();
+		int res = 0;
+		
+		try {
+			//회원가입처리
+			res = memberDao.kakaoinsert(kakaomember, conn);
+			//방금 가입한 회원의 아이디로 정보를 다시 조회			
+			Member m = memberDao.selectMemberById(kakaomember.getUserId(), conn);
+			template.commit(conn);
+		} catch (Exception e) {
+			template.rollback(conn);
+			throw e;
+		}finally {
+			template.close(conn);
+		}
+		
+		return res;
 		
 	}
 }

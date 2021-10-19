@@ -139,23 +139,19 @@ public class MemberController extends HttpServlet {
 	}
 
 	private void kakaoJoin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		 String userId = request.getParameter("kakaoId");
-	      
+		  String userId = request.getParameter("kakaoId");
 	      String nickname = request.getParameter("nickname");
-	      String year = request.getParameter("birth");
-	      String month = request.getParameter("month");
-	      String day = request.getParameter("day");
-	      String info = request.getParameter("information");
+	      String userName = request.getParameter("userName");
 	      
 	      Member kakaomember = new Member();
 	      kakaomember.setUserId(userId);
 	      kakaomember.setNickname(nickname);
-	      kakaomember.setInfo(info);
+	      kakaomember.setUserName(userName);
 	      
-	      memberService.insertkakaoMember(kakaomember);   
+	      memberService.insertMember(kakaomember);
+	      memberService.insertkakaoMember(kakaomember);
 
 	      request.getRequestDispatcher("/index").forward(request, response);      
-		
 	}
 
 	private void kakaoLogin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
