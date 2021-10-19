@@ -1,4 +1,4 @@
-package com.littleCarrest.api;
+package com.littleCarrest.api.camping;
 
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
