@@ -1,0 +1,68 @@
+
+input{
+  outline: none;
+  border:1px solid #ccc;
+}
+input::placeholder{
+  font-size: 13px;
+  opacity: 1;
+  transition: 0.3s;
+}
+input:focus::placeholder{
+  opacity: 0;
+}
+
+.join-page{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrap-join{
+  width: 300px;
+  margin-top: 30px;
+}
+.join-title{}
+.join-title h1{
+  text-align: center;
+  font-size: 22px;
+  padding: 15px;
+}
+.wrap-join>div{
+  width: 100%;
+  margin: auto;
+  margin-bottom: 10px;
+}
+
+.wrap-join input{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 8px;
+  font-size: 14px;
+  /* margin: 8px 0 10px 0; */
+}
+#password{
+  margin-bottom: 0;
+}
+label{
+  font-size: 13px;
+  display: block;
+  padding: 15px 0 8px 0;
+}
+input[type=file]{
+  border: none;
+}
+#file-upload-button{
+  border-radius: 50%;
+  background-color: #fff;
+}
+
+button[type=submit]{
+  background-color: var(--point-color);
+  color: #fff;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 50px;
+  margin-top: 30px;
+  display: block;
+}
