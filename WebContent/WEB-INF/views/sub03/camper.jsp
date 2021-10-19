@@ -30,9 +30,9 @@
         <h3>리틀카레스트 인기팔로워 TOP10<a href="/community/board-form" id="btn_write">글쓰기</a></h3>
       </div>
       <article class="wrap-col-sub03-best-camper">
-        <!-- <span class="userId">@jungyk</span> -->
         <div class="col-sub03-bc open-modal">
-          <a class="col-sub03-bc-item" href="#">
+          <span class="userId">@jungyk</span>
+          <a class="col-sub03-bc-item" href="#">	<%-- /community/camper/detail?bdIdx=${camperBoard.bdIdx } --%>
             <img class="col-sub03-bc-img" src="/resources/img/sub03/차박가이드_ex.jpg" alt="">
           </a>
         </div>
@@ -139,6 +139,17 @@
     </div>
   </div>
   <div class="overlay"></div>
+  
+  <script type="text/javascript">
+  
+/*   
+ * document.querySelector('.col-sub03-bc').addEventListener('click',() => {
+	 document.querySelector('.modal').display='flex'; 
+  });
+   */
+  
+  </script>
+  
   <script src="/resources/js/common/popup.js"></script>
 </body>
 </html>

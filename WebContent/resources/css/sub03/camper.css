@@ -70,7 +70,16 @@
   overflow: hidden;
 }
 .col-sub03-bc{
-
+	position: relative;
+}
+.userId{
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: 8px;
+	z-index: 1;
+	color: #fff;
+	text-shadow: 0 0 2px #c0c0c0;
 }
 
 .col-sub03-bc-item{
@@ -112,7 +121,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
-  /* display: none; */
+  display: none;
   font-size: 11px;
 }
 .modal-inner{
