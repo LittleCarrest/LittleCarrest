@@ -1,4 +1,4 @@
-package com.littleCarrest.tour.controller;
+package com.littleCarrest.festival.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -10,14 +10,14 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class TourController
  */
-@WebServlet("/tour/*")
-public class TourController extends HttpServlet {
+@WebServlet("/festival/*")
+public class FestivalController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public TourController() {
+    public FestivalController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,8 +29,8 @@ public class TourController extends HttpServlet {
 		String[] uriArr = request.getRequestURI().split("/");
 		
 		switch (uriArr[uriArr.length-1]) {
-		case "site":	
-			site(request,response);
+		case "home":	
+			festival(request,response);
 			break;
 		case "detail":	
 			festivalDetail(request,response);
@@ -51,10 +51,6 @@ public class TourController extends HttpServlet {
 		
 	}
 
-	private void site(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/sub02/tour-site").forward(request, response);
-		
-	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
