@@ -28,8 +28,7 @@ public class MypageService {
 				return res;
 			}
 			res = memberDao.updateMember(member,conn);
-			System.out.println(res);
-			
+			template.commit(conn);
 		} catch (Exception e) {
 			template.rollback(conn);
 		}finally {

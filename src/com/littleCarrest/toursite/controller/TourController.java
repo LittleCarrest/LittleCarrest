@@ -1,4 +1,4 @@
-package com.littleCarrest.tour.controller;
+package com.littleCarrest.toursite.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class TourController
  */
-@WebServlet("/tour/*")
+@WebServlet("/toursite/*")
 public class TourController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -29,11 +29,8 @@ public class TourController extends HttpServlet {
 		String[] uriArr = request.getRequestURI().split("/");
 		
 		switch (uriArr[uriArr.length-1]) {
-		case "site":	
-			site(request,response);
-			break;
-		case "festival":	
-			festival(request,response);
+		case "home":	
+			home(request,response);
 			break;
 		case "detail":	
 			festivalDetail(request,response);
@@ -49,12 +46,8 @@ public class TourController extends HttpServlet {
 		
 	}
 
-	private void festival(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/sub02/tour-festival").forward(request, response);
-		
-	}
 
-	private void site(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	private void home(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getRequestDispatcher("/sub02/tour-site").forward(request, response);
 		
 	}

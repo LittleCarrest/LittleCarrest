@@ -64,35 +64,36 @@ public class MypageController extends HttpServlet {
 	
 	
 	}
-
+	//프로필 이미지 등록
 	private void uploadProfile(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		FileUtil util = new FileUtil();
 		Map<String,FileDTO> param = util.profileUpload(request);
+		
+		System.out.println(param);
 		
 		Member member = (Member) request.getSession().getAttribute("authentication");
 		String userId = member.getUserId();	
 				
 		FileDTO fileDTO = param.get("com.littleCarrest.files");
 		
-		
-		
 		if(memberService.selectProfile(userId).getRenameFileName() == null) {
 			
 			System.out.println("컨트롤러");
-			
 			memberService.insertProfile(userId, fileDTO);
 		}else {
 			int updateProfile = memberService.updateProfile(userId, fileDTO);
 			
 			if(updateProfile == 0) {
 				request.setAttribute("msg", "프로필 등록에 실패하였습니다.");
+				request.setAttribute("url", "/mypage/edit-profile");
 			}
 			request.setAttribute("msg", "프로필 등록에 성공하였습니다.");
+			request.setAttribute("url", "/mypage/home");
 		}
 		member = (Member) request.getSession().getAttribute("authentication");
 		request.getSession().setAttribute("authentication", member);	//세션에 멤버객체 재등록(프로필 포함)
 		
-		request.setAttribute("url", "/mypage/home");
+		request.setAttribute("url", "/mypage/edit-profile");	//일단 테스트용! 성공하면 지울 것
 		request.getRequestDispatcher("/common/result").forward(request, response);
 		
 	}
@@ -106,8 +107,9 @@ public class MypageController extends HttpServlet {
 			response.getWriter().print("disable");
 		}
 	}
-
+	//회원정보수정(아이디, 패스워드, 닉네임, 자기소개)
 	private void edit(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		Member member = (Member) request.getSession().getAttribute("authentication");
 		String userId = member.getUserId();
 		String password = (String) request.getAttribute("password");
@@ -117,7 +119,6 @@ public class MypageController extends HttpServlet {
 		member.setInfo(request.getParameter("info"));
 		member.setPassword(password);
 		
-		//System.out.println(member);
 		int res = mypageService.updateMember(member);
 		
 		if(res > 0) {
