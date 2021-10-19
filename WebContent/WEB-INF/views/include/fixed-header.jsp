@@ -35,7 +35,7 @@
       <div class="wrap-gnb-menu">
         <ul class="gnb-menu">
           <li id="gnb-search" data-gnb='01'><a href="/search/camping" class="gnb-main">차박검색</a></li>
-          <li id="gnb-tourInfo" data-gnb='02'><a href="/tour/site" class="gnb-main">관광정보</a></li>
+          <li id="gnb-tourInfo" data-gnb='02'><a href="/toursite/home" class="gnb-main">관광정보</a></li>
           <li id="gnb-community" data-gnb='03'><a href="/community/camper" class="gnb-main">커뮤니티</a></li>
         </ul>
       </div>
@@ -45,8 +45,8 @@
           <li><a href="/search/full-course">풀코스추천</a></li>
         </ul>
         <ul class="sub-menu tourInfo" data-gnb='02'>
-          <li><a href="/tour/festival">지역별 축제</a></li>
-          <li><a href="/tour/site">지역별 명소</a></li>
+          <li><a href="/festival/home">지역별 축제</a></li>
+          <li><a href="/toursite/home">지역별 명소</a></li>
         </ul>
         <ul class="sub-menu community" data-gnb='03'>
           <li><a href="/community/camper">#차박캠퍼</a></li>

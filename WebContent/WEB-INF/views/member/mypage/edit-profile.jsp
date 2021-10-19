@@ -35,7 +35,7 @@
 
     <!-- edit-detail -->
     <div class="container wrap-form">
-      <form id="edit-profile-form" action="/mypage/edit" method="POST">
+      <form name="edit_form" id="edit-profile-form" action="/mypage/edit" method="POST">
         <div class="edit-name">
           <span>닉네임</span><span style="color: red;"> *</span>
         </div>
@@ -59,7 +59,7 @@
         </div>
         <div class="edit-profile-detail">
           <input type="text" name="password" id="password">
-          <em id="alert_nick" class="alert_auth">
+          <em id="alert_password" class="alert_auth">
           	<c:if test="${not empty param.err and not empty editValid.password}">
           		영문,숫자,특수문자 포함 8~15자를 입력하세요.
           	</c:if>
@@ -134,16 +134,19 @@ document.querySelector('#btn-edit').addEventListener('click',(e) => {
 	  let nickname = document.querySelector('#nickname').value;
 	  let password = document.querySelector('#password').value;
 	  let confirmPw = document.querySelector('#chk-pw').value;
-	  console.dir(confirmNick);
+	  console.dir('' + confirmNick);
 
 	  /* 사용자 닉네임이 기존 닉네임과 동일하다면 중복검사 패스 */
 	  /* null인 경우에도 닉네임 변경의도가 없음으로 간주하고 중복검사 패스 */
-	  if(nickname != null && !nickname.equals(`${authentication.nickname}`) && confirmNick == null){	  
+	  if(nickname != null && nickname != '${authentication.nickname}' && confirmNick == ''){	  
 		  console.dir(confirmNick);
 		  document.querySelector('#alert_nick').innerHTML = '닉네임 중복 검사를 하지 않았습니다.';
 		  document.querySelector('#alert_nick').focus();
 		    		
+	  }else{
+		  document.edit_form.submit();
 	  }
+	  
 
 });
 /* 
