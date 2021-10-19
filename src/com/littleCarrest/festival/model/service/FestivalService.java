@@ -11,7 +11,7 @@ public class FestivalService {
 	private FestivalDao festivalDao = new FestivalDao();
 	private JDBCTemplate template = JDBCTemplate.getInstance();
 
-	   public void insertTour(FestivalDto tour) {
+	   public void insertFestival(FestivalDto tour) {
 		      Connection conn = template.getConnection();
 		      
 		      try {

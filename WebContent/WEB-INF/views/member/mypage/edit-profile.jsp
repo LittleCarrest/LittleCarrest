@@ -58,7 +58,7 @@
           <span>새 비밀번호</span><span style="color: red;" > *</span>
         </div>
         <div class="edit-profile-detail">
-          <input type="text" name="password">
+          <input type="text" name="password" id="password">
           <em id="alert_nick" class="alert_auth">
           	<c:if test="${not empty param.err and not empty editValid.password}">
           		영문,숫자,특수문자 포함 8~15자를 입력하세요.
@@ -69,7 +69,7 @@
           <span>새 비밀번호 확인</span><span style="color: red;"> *</span>
         </div>
         <div class="edit-profile-detail">
-          <input type="text" name="chk-pw">
+          <input type="text" name="chk-pw" id="chk-pw">
           <em id="alert_nick" class="alert_auth">
           	<c:if test="${not empty param.err and not empty editValid.confirmPw}">
           		비밀번호가 일치하지 않습니다
@@ -128,23 +128,21 @@ document.querySelector('.btn-chk-nick').addEventListener('click', ()=>{
 });
 
 
-document.querySelector('#btn-edit').addEventListener('submit',(e) => {
+document.querySelector('#btn-edit').addEventListener('click',(e) => {
 
+		e.preventDefault();	
 	  let nickname = document.querySelector('#nickname').value;
-	  let originPw = document.querySelector('#password').value;
-	  let newPw = document.querySelector('#new_pw').value;
-	  let confirmPw = document.querySelector('#new_pw_confirm').value;
-	  
+	  let password = document.querySelector('#password').value;
+	  let confirmPw = document.querySelector('#chk-pw').value;
+	  console.dir(confirmNick);
 
 	  /* 사용자 닉네임이 기존 닉네임과 동일하다면 중복검사 패스 */
 	  /* null인 경우에도 닉네임 변경의도가 없음으로 간주하고 중복검사 패스 */
-	  /* if(nickname != ${authentication.nickname} && confirmNick != nickname){ */
-
-	  if(nickname != null && !nickname.equals('${authentication.nickname}') && confirmNick != nickname){	  
+	  if(nickname != null && !nickname.equals(`${authentication.nickname}`) && confirmNick == null){	  
 		  console.dir(confirmNick);
 		  document.querySelector('#alert_nick').innerHTML = '닉네임 중복 검사를 하지 않았습니다.';
 		  document.querySelector('#alert_nick').focus();
-		  e.preventDefault();	  		
+		    		
 	  }
 
 });
@@ -156,8 +154,9 @@ document.querySelector('.profile_img').addEventListener('click', function (e) {
 });
    */
    
-document.querySelector('#img-file').addEventListener('change', () => {
+document.querySelector('#img-file').addEventListener('change', (e) => {
 	document.img.submit();
+	e.preventDefault();	 
 });
 
   

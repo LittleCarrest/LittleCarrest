@@ -30,7 +30,7 @@ public class FestivalController extends HttpServlet {
 		
 		switch (uriArr[uriArr.length-1]) {
 		case "home":	
-			festival(request,response);
+			home(request,response);
 			break;
 		case "detail":	
 			festivalDetail(request,response);
@@ -46,7 +46,7 @@ public class FestivalController extends HttpServlet {
 		
 	}
 
-	private void festival(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	private void home(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getRequestDispatcher("/sub02/tour-festival").forward(request, response);
 		
 	}

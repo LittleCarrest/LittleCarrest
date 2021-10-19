@@ -114,7 +114,6 @@ public class MemberDao {
 		}finally {
 			template.close(pstm);
 		}
-		System.out.println(sql);
 		
 		return res;
 		

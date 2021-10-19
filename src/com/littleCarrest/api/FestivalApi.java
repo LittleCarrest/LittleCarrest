@@ -11,11 +11,11 @@ import org.xmlpull.v1.XmlPullParserFactory;
 import com.littleCarrest.festival.model.dto.FestivalDto;
 import com.littleCarrest.festival.model.service.FestivalService;
 
-public class EventApi {
+public class FestivalApi {
 
 	public void api() throws XmlPullParserException, IOException{
 		FestivalDto event = new FestivalDto();
-		FestivalService eventservice = new FestivalService();
+		FestivalService festivalService = new FestivalService();
 		
 		String key = "	vb7VRvR6GWpXJT1EaIIcYMLIE2wH%2FSLTxeJLj2OZ%2BezJUNWB20DGIYmMKJWFy56abCDff5P21JYKLDslp%2FIKLg%3D%3D";
 		int pageNum = 1;
@@ -91,7 +91,7 @@ public class EventApi {
                       System.out.println(event);
                       System.out.println("============================================================================");
                                                      
-                      eventservice.insertTour(event);
+                      festivalService.insertFestival(event);
                       } 
                   }
                   event_type = xpp.next();
@@ -101,7 +101,7 @@ public class EventApi {
      
       public static void main(String[] args) throws IOException, XmlPullParserException {
          
-         EventApi api = new EventApi();
+         FestivalApi api = new FestivalApi();
          api.api();
       }
       
