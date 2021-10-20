@@ -98,19 +98,21 @@ public class MemberService {
 		return profile;
 	}
 
-	public void insertProfile(String userId, FileDTO fileDTO) {
+	public int insertProfile(String userId, FileDTO fileDTO) {
 		Connection conn = template.getConnection();
+		int res = 0;
+		
 		try {
-			Member member = new Member();
 			memberDao.insertProfile(userId, fileDTO, conn);
-			member.setProfile(selectProfile(userId));
+			res = memberDao.updateMemberProfile(userId, fileDTO, conn);
+			
 			template.commit(conn);
 		} catch (Exception e) {
 			template.rollback(conn);
 		}finally {
 			template.close(conn);
 		}	
-		
+		return res;
 	}
 
 	public int updateProfile(String userId, FileDTO fileDTO) {
@@ -118,11 +120,9 @@ public class MemberService {
 		int res = 0;
 		
 		try {
-			Member member = new Member();
 			res = memberDao.updateProfile(userId,fileDTO, conn);	//file_info테이블에 프로필 업데이트 
-			if(res > 0) {
-				member.setProfile(selectProfile(userId));				//새로운 프로필 조회해 멤버 객체에 set
-			}
+			memberDao.updateMemberProfile(userId,fileDTO, conn);	
+
 			template.commit(conn);
 		} catch (Exception e) {
 			template.rollback(conn);

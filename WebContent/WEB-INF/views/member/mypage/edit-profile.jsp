@@ -27,7 +27,7 @@
         <div class="info-edit-button">
           <form action="/mypage/upload-profile" name="img" class="edit-image" method="POST" enctype="multipart/form-data">
             <label class="profile_img" for="img-file">Upload new Picture</label>
-            <input type="file" id="img-file">
+            <input type="file" name="file" id="img-file">
           </form>
         </div>
       </div>
@@ -158,10 +158,33 @@ document.querySelector('.profile_img').addEventListener('click', function (e) {
    */
    
 document.querySelector('#img-file').addEventListener('change', (e) => {
-	document.img.submit();
-	e.preventDefault();	 
+	
+	//e.preventDefault();	 
+	console.dir(document.getElementById('img-file'));
+	let files = document.getElementById('img-file').files;
+	
+	for (let file of files) {
+		if(validFileType(file)){
+			document.getElementById('target_img').src = URL.createObjectURL(file);
+			document.img.submit();
+		}
+	}
+	
 });
-
+   
+let fileTypes = [
+   "image/gif",
+   "image/jpeg",
+   "image/pjpeg",
+   "image/png",
+   "image/tiff",
+   "image/webp",
+   "image/x-icon"
+ ];
+ 
+function validFileType(file) {
+   return fileTypes.includes(file.type);
+ }
   
 </script>
 </body>

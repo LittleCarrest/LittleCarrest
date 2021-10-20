@@ -69,7 +69,7 @@ public class MypageController extends HttpServlet {
 		FileUtil util = new FileUtil();
 		Map<String,FileDTO> param = util.profileUpload(request);
 		
-		System.out.println(param);
+		System.out.println("param : " + param);
 		
 		Member member = (Member) request.getSession().getAttribute("authentication");
 		String userId = member.getUserId();	
@@ -77,9 +77,13 @@ public class MypageController extends HttpServlet {
 		FileDTO fileDTO = param.get("com.littleCarrest.files");
 		
 		if(memberService.selectProfile(userId).getRenameFileName() == null) {
+			int res = memberService.insertProfile(userId, fileDTO);
 			
-			System.out.println("컨트롤러");
-			memberService.insertProfile(userId, fileDTO);
+			if(res == 0) {
+				request.setAttribute("msg", "프로필 등록에 실패하였습니다.");
+				request.setAttribute("url", "/mypage/edit-profile");
+			}
+		
 		}else {
 			int updateProfile = memberService.updateProfile(userId, fileDTO);
 			
@@ -87,13 +91,15 @@ public class MypageController extends HttpServlet {
 				request.setAttribute("msg", "프로필 등록에 실패하였습니다.");
 				request.setAttribute("url", "/mypage/edit-profile");
 			}
-			request.setAttribute("msg", "프로필 등록에 성공하였습니다.");
-			request.setAttribute("url", "/mypage/home");
+
 		}
-		member = (Member) request.getSession().getAttribute("authentication");
+
+		member = memberService.selectMemberById(userId);
 		request.getSession().setAttribute("authentication", member);	//세션에 멤버객체 재등록(프로필 포함)
 		
-		request.setAttribute("url", "/mypage/edit-profile");	//일단 테스트용! 성공하면 지울 것
+		request.setAttribute("msg", "프로필 등록에 성공하였습니다.");
+		request.setAttribute("url", "/mypage/home");
+		
 		request.getRequestDispatcher("/common/result").forward(request, response);
 		
 	}

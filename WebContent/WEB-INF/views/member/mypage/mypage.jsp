@@ -18,7 +18,12 @@
     <div class="mypage-profile">
       <div class="profile-inside">
         <div class="profile-image">
-          <img src="/resources/img/user.png" alt="">
+          <c:if test="${not empty authentication and not empty authentication.profile}">
+          	<img id="target_img" src="http://localhost:7070/file/${authentication.profile}">
+          </c:if>
+          <c:if test="${not empty authentication and empty authentication.profile}">
+            <img id="target_img" src="/resources/img/user.png">
+          </c:if> 
         </div>
         <div class="profile-info">
           <div class="profile-name">

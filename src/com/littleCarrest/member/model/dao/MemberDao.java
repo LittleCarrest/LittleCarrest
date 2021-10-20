@@ -242,6 +242,7 @@ public class MemberDao {
 		}
 		
 	}
+	
 
 	public FileDTO selectProfile(String userId, Connection conn) {
 		PreparedStatement pstm = null;
@@ -299,6 +300,27 @@ public class MemberDao {
 
 		
 		return res;
+	}
+	
+
+	public int updateMemberProfile(String userId, FileDTO fileDTO, Connection conn) {
+		int res = 0;
+		PreparedStatement pstm = null;
+		
+		String sql = "update member set profile = ? where user_id = ?";
+		try {
+			pstm = conn.prepareStatement(sql);
+			pstm.setString(1, fileDTO.getSavePath() + fileDTO.getRenameFileName());
+			pstm.setString(2, userId);
+			res = pstm.executeUpdate();
+		} catch (SQLException e) {
+			throw new DataAccessException(e);
+		}finally {
+			template.close(pstm);
+		}
+		
+		return res;
+		
 	}
 
 	public Member selectMemberByNick(String nickname, Connection conn) {
@@ -371,6 +393,9 @@ public class MemberDao {
 		
 		return member;
 	}
+
+
+
 
 
 
