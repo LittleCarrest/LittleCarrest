@@ -1,4 +1,4 @@
-package com.littleCarrest.seach.controller;
+package com.littleCarrest.camping.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -11,13 +11,13 @@ import javax.servlet.http.HttpServletResponse;
  * Servlet implementation class SearchController
  */
 @WebServlet("/search/*")
-public class SearchController extends HttpServlet {
+public class CampingController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SearchController() {
+    public CampingController() {
         super();
         // TODO Auto-generated constructor stub
     }

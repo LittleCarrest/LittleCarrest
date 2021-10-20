@@ -1,14 +1,14 @@
-package com.littleCarrest.seach.model.dao;
+package com.littleCarrest.camping.model.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+import com.littleCarrest.camping.model.dto.CampingSearch;
 import com.littleCarrest.common.db.JDBCTemplate;
 import com.littleCarrest.common.exception.DataAccessException;
-import com.littleCarrest.seach.model.dto.CampingSearch;
 
-public class SearchDao {
+public class CampingDao {
 
 	private JDBCTemplate template = JDBCTemplate.getInstance();
 	

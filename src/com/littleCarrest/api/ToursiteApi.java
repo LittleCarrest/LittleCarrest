@@ -94,7 +94,7 @@ public class ToursiteApi {
                       System.out.println(toursite);
                       System.out.println("============================================================================");
                                                      
-                  //toursiteService.insertToursite(toursite);
+                  toursiteService.insertToursite(toursite);
                       } 
                   }
                   event_type = xpp.next();

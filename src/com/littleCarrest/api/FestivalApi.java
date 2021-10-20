@@ -20,7 +20,7 @@ public class FestivalApi {
 		String key = "	vb7VRvR6GWpXJT1EaIIcYMLIE2wH%2FSLTxeJLj2OZ%2BezJUNWB20DGIYmMKJWFy56abCDff5P21JYKLDslp%2FIKLg%3D%3D";
 		int pageNum = 1;
 		
-		for(pageNum = 1; pageNum < 83; pageNum++) {
+		for(pageNum = 1; pageNum < 10; pageNum++) {
 			String urlCode = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/searchFestival"
 					+ "?ServiceKey=" + key + "&numOfRows=10"+ "&pageNo=" + pageNum 
 					+ "&MobileOS=ETC&MobileApp=LittleCarrest&arrange=A&listYN=Y";
@@ -91,7 +91,7 @@ public class FestivalApi {
                       System.out.println(event);
                       System.out.println("============================================================================");
                                                      
-                  //festivalService.insertFestival(event);
+                  festivalService.insertFestival(event);
                       } 
                   }
                   event_type = xpp.next();

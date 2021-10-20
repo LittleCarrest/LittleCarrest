@@ -1,14 +1,15 @@
-package com.littleCarrest.seach.service;
+package com.littleCarrest.camping.model.service;
+
 
 import java.sql.Connection;
 
+import com.littleCarrest.camping.model.dao.CampingDao;
+import com.littleCarrest.camping.model.dto.CampingSearch;
 import com.littleCarrest.common.db.JDBCTemplate;
-import com.littleCarrest.seach.model.dao.SearchDao;
-import com.littleCarrest.seach.model.dto.CampingSearch;
 
-public class SearchService {
+public class CampingService {
 	
-	private SearchDao searchDao = new SearchDao();
+	private CampingDao searchDao = new CampingDao();
 	private JDBCTemplate template = JDBCTemplate.getInstance();
 
 	   public void insertCamping(CampingSearch camping) {
