@@ -73,7 +73,8 @@ public class ToursiteApi {
 	                    	booktour = xpp.getText();
 	                    }else if(tag.equals("contentid")){
 	                    	typeid = xpp.getText();
-	                    }else if (event_type == XmlPullParser.END_TAG) {
+	                    }
+	               }else if (event_type == XmlPullParser.END_TAG) {
 					tag = xpp.getName();
                     
                     if (tag.equals("item")) {
@@ -100,7 +101,7 @@ public class ToursiteApi {
               } // while 문
 			} // 전체 page for 문
      }
-	}
+	
      
       public static void main(String[] args) throws IOException, XmlPullParserException {
          
