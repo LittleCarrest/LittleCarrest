@@ -91,7 +91,7 @@ public class FestivalApi {
                       System.out.println(event);
                       System.out.println("============================================================================");
                                                      
-                      festivalService.insertFestival(event);
+                  festivalService.insertFestival(event);
                       } 
                   }
                   event_type = xpp.next();

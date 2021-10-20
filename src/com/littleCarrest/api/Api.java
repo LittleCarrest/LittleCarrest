@@ -20,7 +20,7 @@ public class Api {
 		String key = "	vb7VRvR6GWpXJT1EaIIcYMLIE2wH%2FSLTxeJLj2OZ%2BezJUNWB20DGIYmMKJWFy56abCDff5P21JYKLDslp%2FIKLg%3D%3D";
 		int pageNum = 1;
 		
-		for(pageNum = 1; pageNum < 275; pageNum++) {
+		for(pageNum = 1; pageNum < 15; pageNum++) {
 			String urlCode = "http://api.visitkorea.or.kr/openapi/service/rest/GoCamping/basedList"
 					+ "?ServiceKey=" + key + "&pageNo=" + pageNum + "&numOfRows=10&MobileOS=ETC&MobileApp=LittleCarrest";
 			
