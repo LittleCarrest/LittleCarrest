@@ -89,12 +89,6 @@
   
 
 let confirmNick = '';
- 
-let changeValue = (obj) => {
- document.img.submit();
-
-}
-
 
 
 document.querySelector('.btn-chk-nick').addEventListener('click', ()=>{

@@ -83,7 +83,6 @@ public class CommunityController extends HttpServlet {
 
 		FileUtil util = new FileUtil();
 		MultiPartParams multiPartParams = util.fileUpload(request);
-		System.out.println("multiPartParams : " + multiPartParams);
 		String content = multiPartParams.getParameter("content");
 		String category = multiPartParams.getParameter("category");
 		
@@ -92,7 +91,7 @@ public class CommunityController extends HttpServlet {
 
 		System.out.println(category);
 		System.out.println(content);
-		System.out.println("file" + fileDTOs);
+		System.out.println("file : " + fileDTOs);
 		
 		Community community = new Community();
 		//community.setNickname(member.getNickname());

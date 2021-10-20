@@ -51,8 +51,6 @@ public class FileUtil {
 				}else if(part.isParam()) {
 					ParamPart paramPart = (ParamPart) part;
 					setParameterMap(paramPart, res);
-					System.out.println("paramPart: " + paramPart);
-					System.out.println("res: " + res);
 				}
 			}
 			System.out.println(fileDTOs);
