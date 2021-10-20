@@ -71,7 +71,7 @@ public class FestivalApi {
 	                    }else if(tag.equals("addr1")){
 	                    	address = xpp.getText();
 	                    }
-						}else if (event_type == XmlPullParser.END_TAG) {
+				}else if (event_type == XmlPullParser.END_TAG) {
 					tag = xpp.getName();
                     
                     
@@ -91,7 +91,7 @@ public class FestivalApi {
                       System.out.println(event);
                       System.out.println("============================================================================");
                                                      
-                  festivalService.insertFestival(event);
+                  //festivalService.insertFestival(event);
                       } 
                   }
                   event_type = xpp.next();

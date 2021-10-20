@@ -17,10 +17,10 @@ public class ToursiteApi {
 		Toursite toursite = new Toursite();
 		ToursiteService toursiteService = new ToursiteService();
 		
-		String key = "	vb7VRvR6GWpXJT1EaIIcYMLIE2wH%2FSLTxeJLj2OZ%2BezJUNWB20DGIYmMKJWFy56abCDff5P21JYKLDslp%2FIKLg%3D%3D";
+		String key = "vb7VRvR6GWpXJT1EaIIcYMLIE2wH%2FSLTxeJLj2OZ%2BezJUNWB20DGIYmMKJWFy56abCDff5P21JYKLDslp%2FIKLg%3D%3D";
 		int pageNum = 1;
 		
-		for(pageNum = 1; pageNum < 3; pageNum++) {
+		for(pageNum = 1; pageNum < 10; pageNum++) {
 			String urlCode = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaBasedList"
 					+ "?ServiceKey=" + key + "&pageNo=" + pageNum + "&numOfRows=10"
 					+ "&MobileApp=LittleCarrest&MobileOS=ETC&arrange=A&contentTypeId=12&listYN=Y";
@@ -93,7 +93,7 @@ public class ToursiteApi {
                       System.out.println(toursite);
                       System.out.println("============================================================================");
                                                      
-                  toursiteService.insertToursite(toursite);
+                  //toursiteService.insertToursite(toursite);
                       } 
                   }
                   event_type = xpp.next();
