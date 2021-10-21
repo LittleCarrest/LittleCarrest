@@ -50,6 +50,19 @@
         width: 50%;
     }
     
+    /* 211021 */
+     .main-inner-text {
+        flex-direction: column;
+    }
+
+    .main-inner-text h1 {
+        margin-bottom: 6px;
+    }
+
+    .season-sub-row {
+        grid-template-columns: repeat(1,1fr);
+    }
+    
 
     
 }

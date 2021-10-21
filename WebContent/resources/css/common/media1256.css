@@ -27,5 +27,9 @@
         grid-template-columns: repeat(5,1fr);
     }
     
+    /* 211021 */
+    .season-sub-row {
+        grid-template-columns: repeat(3,1fr);
+    }
 
 }
