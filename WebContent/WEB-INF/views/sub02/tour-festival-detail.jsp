@@ -51,6 +51,7 @@
     <!-- edit-detail -->
     
     <%@ include file="/WEB-INF/views/include/footer.jsp" %>
+    </section>
 
 </body>
 </html>

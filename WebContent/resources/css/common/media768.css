@@ -301,5 +301,18 @@
         display: none;
     }
     
+    /* 211021 */
+    
+    .main-inner-text {
+        flex-direction: row;
+    }
+
+    .main-inner-text h1 {
+        margin-bottom: 0px;
+    }
+
+    .season-sub-row {
+        grid-template-columns: repeat(2,1fr);
+    }
     
 }
