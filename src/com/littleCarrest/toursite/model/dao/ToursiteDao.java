@@ -16,20 +16,17 @@ public class ToursiteDao {
 		
 		PreparedStatement pstm = null;
 	
-		String query = "insert into toursite(toursite_idx, addr, addr_spe, name, tel, image, mapx, mapy, booktour, typeid)"
+		String query = "insert into toursite(content_id, addr, name, image, mapx, mapy)"
 				
-					 + " values(sc_cc_idx.nextval,?,?,?,?,?,?,?,?,?) ";
+					 + " values(?,?,?,?,?,?) ";
 		try {
 			pstm = conn.prepareStatement(query);
-			pstm.setString(1, tour.getAddr());
-			pstm.setString(2, tour.getAddrSpe());
+			pstm.setString(1, tour.getContentId());
+			pstm.setString(2, tour.getAddr());
 			pstm.setString(3, tour.getName());
-			pstm.setString(4, tour.getTel());
-			pstm.setString(5, tour.getImage());
-			pstm.setString(6, tour.getMapx());
-			pstm.setString(7, tour.getMapy());
-			pstm.setString(8, tour.getBooktour());
-			pstm.setString(9, tour.getTypeid());
+			pstm.setString(4, tour.getImage());
+			pstm.setString(5, tour.getMapx());
+			pstm.setString(6, tour.getMapy());
 			pstm.executeQuery();
 			
 		} catch (SQLException e) {
@@ -38,4 +35,31 @@ public class ToursiteDao {
 			template.close(pstm);
 		}
 }
+	
+public void insertToursiteSub(Toursite tour, Connection conn) {
+		
+		PreparedStatement pstm = null;
+	
+		String query = "insert into toursite(content_id, addr, name, image, mapx, mapy)"
+				
+					 + " values(?,?,?,?,?,?) ";
+		try {
+			pstm = conn.prepareStatement(query);
+			pstm.setString(1, tour.getContentId());
+			pstm.setString(2, tour.getAddr());
+			pstm.setString(3, tour.getName());
+			pstm.setString(4, tour.getImage());
+			pstm.setString(5, tour.getMapx());
+			pstm.setString(6, tour.getMapy());
+			pstm.executeQuery();
+			
+		} catch (SQLException e) {
+			throw new DataAccessException(e);
+		} finally {
+			template.close(pstm);
+		}
+}
+
+	
+	
 }

@@ -20,7 +20,7 @@ public class ToursiteApi {
 		String key = "vb7VRvR6GWpXJT1EaIIcYMLIE2wH%2FSLTxeJLj2OZ%2BezJUNWB20DGIYmMKJWFy56abCDff5P21JYKLDslp%2FIKLg%3D%3D";
 		int pageNum = 1;
 		
-		for(pageNum = 1; pageNum < 10; pageNum++) {
+		for(pageNum = 1; pageNum < 100; pageNum++) {
 			String urlCode = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaBasedList"
 					+ "?ServiceKey=" + key + "&pageNo=" + pageNum + "&numOfRows=10"
 					+ "&MobileApp=LittleCarrest&MobileOS=ETC&arrange=A&contentTypeId=12&listYN=Y";
@@ -38,41 +38,30 @@ public class ToursiteApi {
 			int event_type = xpp.getEventType();
 			
 			String tag = null;
-			String toursite_idx = null;
+			String content_id = null;
 			String addr= null;
-			String addr_spe = null;
 			String name = null;
-			String tel= null;
 			String image = null;
 			String mapx = null;
 			String mapy = null;
-			String booktour = null;
-			String typeid = null;
+			
 			
 			while(event_type != XmlPullParser.END_DOCUMENT) {
 				if(event_type == XmlPullParser.START_TAG) {
 					tag = xpp.getName();
 				}else if(event_type == XmlPullParser.TEXT) {
 						if(tag.equals("contentid")){
-							toursite_idx = xpp.getText();
+							content_id = xpp.getText();
 	                    }else if(tag.equals("addr1")){
 	                    	addr = xpp.getText();
-	                    }else if(tag.equals("addr2")){
-	                    	addr_spe = xpp.getText();
 	                    }else if(tag.equals("title")){
 	                    	name = xpp.getText();
-	                    }else if(tag.equals("tel")){
-	                    	tel = xpp.getText();
 	                    }else if(tag.equals("firstimage")){
 	                    	image = xpp.getText();
 	                    }else if(tag.equals("mapx")){
 	                    	mapx = xpp.getText();
 	                    }else if(tag.equals("mapy")){
 	                    	mapy = xpp.getText();
-	                    }else if(tag.equals("booktour")){
-	                    	booktour = xpp.getText();
-	                    }else if(tag.equals("contentid")){
-	                    	typeid = xpp.getText();
 	                    }
 	               }else if (event_type == XmlPullParser.END_TAG) {
 					tag = xpp.getName();
@@ -80,16 +69,13 @@ public class ToursiteApi {
                     if (tag.equals("item")) {
                       System.out.println("pageNum : "+ pageNum + "\n");
                       		
-                      toursite.setToursiteIdx(toursite_idx);
+                      toursite.setContentId(content_id);
                       toursite.setAddr(addr);
-                      toursite.setAddrSpe(addr_spe);
                       toursite.setName(name);
-                      toursite.setTel(tel);
                       toursite.setImage(image);
                       toursite.setMapx(mapx);
                       toursite.setMapy(mapy);
-                      toursite.setBooktour(booktour);
-                      toursite.setTypeid(typeid);
+                      
 
                       System.out.println(toursite);
                       System.out.println("============================================================================");
@@ -101,7 +87,6 @@ public class ToursiteApi {
               } // while 문
 			} // 전체 page for 문
      }
-	
      
       public static void main(String[] args) throws IOException, XmlPullParserException {
          

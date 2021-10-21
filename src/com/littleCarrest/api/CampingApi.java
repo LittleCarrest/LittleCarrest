@@ -21,7 +21,7 @@ public class CampingApi {
 		int pageNum = 1;
 		
 		for(pageNum = 1; pageNum < 10; pageNum++) {
-			String urlCode = "http://api.visitkorea.or.kr/openapi/service/rest/GoCamping/basedList"
+			String urlCode = "http://api.visitkorea.or.kr/openapi/service/rest/GoCamping/locationBasedList"
 					+ "?ServiceKey=" + key + "&pageNo=" + pageNum + "&numOfRows=10"
 					+ "&MobileOS=ETC&MobileApp=LittleCarrest";
 			
@@ -36,7 +36,6 @@ public class CampingApi {
 			xpp.setInput(bs, "utf-8");
 			
 			int event_type = xpp.getEventType();
-			
 			String tag = null;
 			String cp_idx = null;
 			String cp_name= null;
@@ -85,7 +84,7 @@ public class CampingApi {
                     
                     if (tag.equals("item")) {
                       System.out.println("pageNum : "+ pageNum + "\n");
-                      		
+                      
                       campingsearch.setCpIdx(cp_idx);
                       campingsearch.setCpName(cp_name);
                       campingsearch.setLineIntro(line_intro);
@@ -101,8 +100,8 @@ public class CampingApi {
 
                       System.out.println(campingsearch);
                       System.out.println("============================================================================");
-                      
-                  campingService.insertCamping(campingsearch);
+  
+                      campingService.insertCamping(campingsearch);
                       } 
                   }
                   event_type = xpp.next();
