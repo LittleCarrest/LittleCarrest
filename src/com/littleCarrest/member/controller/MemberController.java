@@ -92,7 +92,26 @@ public class MemberController extends HttpServlet {
 
 	}
 	private void searchPassword(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
+		String userId = request.getParameter("userId");
+		String email = request.getParameter("email");
+		
+		System.out.println(userId);
+		System.out.println(email);
+		
+		Member member = memberService.searchByPass(userId,email);
+		
+		if(member == null) {
+			response.sendRedirect("/member/search-password-page?err=1");
+			return;
+		}
+		
+		String randomPass = memberService.changePass(userId,email);
+		memberService.searchPassEmail(member,randomPass);
+		
+		request.setAttribute("msg", "패스워드를 찾기 위한 이메일이 발송되었습니다.");
+		request.setAttribute("url", "/member/login-page");
+		request.getRequestDispatcher("/common/result").forward(request, response);
 		
 	}
 

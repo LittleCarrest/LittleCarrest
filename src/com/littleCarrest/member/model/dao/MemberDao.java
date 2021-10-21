@@ -1,9 +1,11 @@
 package com.littleCarrest.member.model.dao;
 
+import java.security.SecureRandom;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -392,6 +394,75 @@ public class MemberDao {
 		}
 		
 		return member;
+	}
+
+	public String changePass(String userId, String email, Connection conn) {
+		
+		PreparedStatement pstm = null;
+		String randompass = getRamdomPassword(10);
+		String query = "update member set password = ? where user_id = ? and email = ?";
+		
+		try {
+			pstm = conn.prepareStatement(query);
+			pstm.setString(1, randompass);
+			pstm.setString(2, userId);
+			pstm.setString(3, email);
+			pstm.executeUpdate();
+		} catch (SQLException e) {
+			throw new DataAccessException(e);
+		}finally {
+			template.close(pstm);
+		}
+		
+		return randompass;
+		
+	}
+
+	private String getRamdomPassword(int size) {
+		
+		char[] charSet = new char[] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T'
+				, 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x'
+				, 'y', 'z', '!', '@', '#', '$', '%', '^', '&' }; 
+		StringBuffer sb = new StringBuffer(); 
+		SecureRandom sr = new SecureRandom(); 
+		
+		sr.setSeed(new Date().getTime()); 
+		int idx = 0; int len = charSet.length; 
+		for (int i=0; i<size; i++) 
+		{ 
+		idx = sr.nextInt(len);
+		sb.append(charSet[idx]); 
+		} 
+		
+		return sb.toString(); 
+		
+	}
+
+	public Member searchByPass(String userId, String email, Connection conn) {
+		
+		Member member = null;			
+		PreparedStatement pstm = null;
+		ResultSet rset = null;
+		
+		String query = "select * from member where user_id = ? and email = ?";
+		
+		try {			
+			pstm = conn.prepareStatement(query);
+			pstm.setString(1, userId);
+			pstm.setString(2, email);
+			rset = pstm.executeQuery();
+			
+			if(rset.next()) {
+				member = convertRowToMember(rset);
+			}
+		} catch (SQLException e) {
+			throw new DataAccessException(e);
+		} finally {
+			template.close(rset, pstm);
+		}
+		
+		return member;
+		
 	}
 
 
