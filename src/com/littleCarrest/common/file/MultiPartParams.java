@@ -20,14 +20,15 @@ public class MultiPartParams {
 		return (String) params.get(name).get(0);
 	}
 	
-	public String[] getParameterValues(String name) {
+	public List<String> getParameterValues(String name) {
 		
 		if(name.equals("com.littleCarrest.files")) {
 			throw new RuntimeException("com.littleCarrest.files는 사용할 수 없는 파라미터 명입니다.");
 		}
 		
 		List<String> res = params.get(name);
-		return res.toArray(new String[res.size()]);
+		//return res.toArray(new String[res.size()]);
+		return res;
 	}
 
 	public List<FileDTO> getFilesInfo(){

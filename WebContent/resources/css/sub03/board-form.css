@@ -66,6 +66,7 @@
 	width:50px;
 	outline: none;
 	border: 1px solid #ddd;
+	margin-right:10px;
 }
 
 .txt-form textarea:focus, .txt-form select:focus, .tag:focus {

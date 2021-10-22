@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.util.List;
 
 import com.littleCarrest.common.db.JDBCTemplate;
+import com.littleCarrest.common.file.FileDTO;
 import com.littleCarrest.community.model.dao.CommunityDao;
 import com.littleCarrest.community.model.dto.Community;
 import com.littleCarrest.member.model.dto.Member;
@@ -18,15 +19,27 @@ public class CommunityService {
 		return null;
 	}
 
-	public void insertBoardCamper(Community community) {
-		// TODO Auto-generated method stub
+	public void insertBoard(Community community, List<FileDTO> fileDTOs, List<String> tags) {
+		Connection conn = template.getConnection();
+		try {
+			communityDao.insertBoard(community, conn);
+			
+			for (FileDTO fileDTO : fileDTOs) {
+				communityDao.insertFile(community,fileDTO, conn);
+			}
+			for (String tag : tags) {
+				communityDao.insertHasgtag(tag, conn);
+			}
+			
+			template.commit(conn);
+		} catch (Exception e) {
+			template.rollback(conn);
+		}finally {
+			template.close(conn);
+		}
 		
 	}
 
-	public void insertBoardGuide(Community community) {
-		// TODO Auto-generated method stub
-		
-	}
 
 	public List<String> selectCamperTag(String userId) {
 		Connection conn = template.getConnection();

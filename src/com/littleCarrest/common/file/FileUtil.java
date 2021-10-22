@@ -38,7 +38,6 @@ public class FileUtil {
 			Part part = null;
 			
 			while((part = parser.readNextPart()) != null) {
-				System.out.println(part.isFile());
 				if(part.isFile()) {
 					FilePart filePart = (FilePart) part;
 					
@@ -53,7 +52,6 @@ public class FileUtil {
 					setParameterMap(paramPart, res);
 				}
 			}
-			System.out.println(fileDTOs);
 			res.put("com.littleCarrest.files",fileDTOs);
 			
 		} catch (IOException e) {

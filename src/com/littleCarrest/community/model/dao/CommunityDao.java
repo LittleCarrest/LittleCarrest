@@ -9,6 +9,8 @@ import java.util.List;
 
 import com.littleCarrest.common.db.JDBCTemplate;
 import com.littleCarrest.common.exception.DataAccessException;
+import com.littleCarrest.common.file.FileDTO;
+import com.littleCarrest.community.model.dto.Community;
 import com.littleCarrest.member.model.dao.MemberDao;
 import com.littleCarrest.member.model.dto.Member;
 
@@ -125,5 +127,67 @@ public class CommunityDao {
 		
 		return member;
 	}
+
+	public void insertBoard(Community community, Connection conn) {
+		PreparedStatement pstm = null;
+		String sql = "insert into community (bd_idx, user_idx,category,nickname,content) "
+				+ "values(sc_bd_idx.nextval,?,?,?,?)";
+		try {
+			pstm = conn.prepareStatement(sql);
+			pstm.setString(1, community.getUserIdx());
+			pstm.setString(2, community.getCategory());
+			pstm.setString(3, community.getNickname());
+			pstm.setString(4, community.getContent());
+			pstm.executeUpdate();
+			
+		} catch (SQLException e) {
+			throw new DataAccessException(e);
+		}finally {
+			template.close(pstm);
+		}
+	}
+
+	public void insertFile(Community community, FileDTO fileDTO, Connection conn) {
+		PreparedStatement pstm = null;
+		
+		String sql = "insert into file_info "
+				+ "(fl_idx,type_idx,origin_file_name,rename_file_name,save_path) "
+				+ "values(sc_fl_idx.nextval,sc_bd_idx.currval,?,?,?)";
+
+		try {
+			pstm = conn.prepareStatement(sql);
+			pstm.setString(1, fileDTO.getOriginFileName());
+			pstm.setString(2, fileDTO.getRenameFileName());
+			pstm.setString(3, fileDTO.getSavePath());
+			pstm.executeUpdate();
+			
+		} catch (SQLException e) {
+			throw new DataAccessException(e);
+		}finally {
+			template.close(pstm);
+		}
+		
+	}
+
+	public void insertHasgtag(String tag, Connection conn) {
+PreparedStatement pstm = null;
+		
+		String sql = "insert into hashtag "
+				+ "(tag_idx,bd_idx,content) "
+				+ "values(sc_tag_idx.nextval,sc_bd_idx.currval,?)";
+
+		try {
+			pstm = conn.prepareStatement(sql);
+			pstm.setString(1, tag);
+			pstm.executeUpdate();
+			
+		} catch (SQLException e) {
+			throw new DataAccessException(e);
+		}finally {
+			template.close(pstm);
+		}
+		
+	}
+
 
 }
