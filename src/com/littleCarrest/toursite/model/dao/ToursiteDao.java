@@ -57,6 +57,11 @@ public void insertToursiteSub(ToursiteSub tour, Connection conn) {
 		}
 }
 
+public void selectContentId() {
+	// TODO Auto-generated method stub
+	
+}
+
 	
 	
 }

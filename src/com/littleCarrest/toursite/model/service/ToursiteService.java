@@ -1,6 +1,7 @@
 package com.littleCarrest.toursite.model.service;
 
 import java.sql.Connection;
+import java.util.List;
 
 import com.littleCarrest.common.db.JDBCTemplate;
 import com.littleCarrest.toursite.model.dao.ToursiteDao;
@@ -37,4 +38,9 @@ public class ToursiteService {
 		         template.close(conn);
 		      }
 		   }
+
+	public List<String> selectContentId() {
+		toursiteDao.selectContentId();
+		return null;
+	}
 }
