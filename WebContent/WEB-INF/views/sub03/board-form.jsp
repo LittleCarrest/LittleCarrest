@@ -12,10 +12,10 @@
 <body>
 <%@ include file="/WEB-INF/views/include/fixed-header.jsp" %>
 <section class="sec03-board-form">
-	<form action="/community/upload" name="form" method="post" class="container con-tit-board-form" enctype="multipart/form-data">
+	<form action="/community/upload" name="form" method="post" class="container con-tit-board-form" enctype="multipart/form-data" id="frm_board">
 		<h1 class="tit-form">커뮤니티 글쓰기<button type="submit" class="btn_upload">업로드하기</button></h1>	
+		<input id="file" type="file" name="file" style="opacity: 0;">
 		<div class="container wrap-form">
-			<input id="file" type="file" name="file" style="opacity: 0;">
 			<div class="board-form" >
 				<div class="wrap-img">
 					<button id="btn"class="btn_img" type="button"><i class="fas fa-camera-retro"></i></button>	
@@ -30,6 +30,7 @@
 					<textarea name="content" rows="10" cols="40"></textarea>	
 					<h2>해시태그</h2>
 					<input class="tag" name="tag" type="text" placeholder="#키워드">
+					<button class="close">&times;</button>
 				</div>		
 			</div>
 		</div>
@@ -38,17 +39,55 @@
 </section>
 <script type="text/javascript">
 
-document.querySelectorAll('.input[type="text"]').forEach( input => {
-	input.addEventListener('keydown',e => {
-		
-		  if (e.keyCode === 13) {
-		    e.preventDefault();
-		    document.querySelector('.txt-form').lastChild.addEventListener('change',addElement(e));
-			
-		  };
-	})
+document.querySelector('#frm_board').addEventListener('submit', e =>{
+	e.preventDefault();
+});
+
+
+document.querySelector('.tag').addEventListener('keydown',e => {
+	  if (e.keyCode === 13) {
+			e.preventDefault();
+			addElement();
+	  };
+	  
 })
 
+document.querySelector('.tag').addEventListener('input',e => {
+	e.target.style.boxSizing='content-box';
+});
+
+
+let addElement = () => {
+	console.dir('실행');
+	let tagInput = document.createElement("input");
+	tagInput.type = 'text';
+	tagInput.className = 'tag';
+	tagInput.name = 'tag';
+	tagInput.placeholder = '#키워드';
+	
+	let btn = document.createElement("button");
+	btn.className = 'close';
+	btn.innerHTML = "×";
+	
+	if(document.querySelectorAll('.tag').length == 5){
+		alert('더이상 태그를 입력하실 수 없습니다.');
+		return;
+	}
+	tagInput.addEventListener('change', addElement);	/* 새로생긴 요소에 change 이벤트발생시 */
+	
+	$('.txt-form:last-child').append(tagInput);
+	$('.txt-form:last-child').append(btn);
+	
+	btn.addEventListener('click', () => {
+		btn.style.display='none';
+		btn.previousElementSibling.style.display='none';
+	})
+};
+
+document.querySelector('.close').addEventListener('click',(e) => {
+	e.target.previousElementSibling.style.display='none';
+	e.target.style.display='none';
+})
 
 
 document.querySelector('.btn_img').addEventListener('click', () => {
@@ -88,32 +127,11 @@ let validFileType = (file) => {
    return fileTypes.includes(file.type);
  }
  
-let addElement = (e) => {
-	let tagInput = document.createElement("input");
-	tagInput.type = 'text';
-	tagInput.className = 'tag';
-	tagInput.name = 'tag';
-	tagInput.placeholder = '#키워드';
-	$(e).after(tagInput);
-	/* $('.txt-form').append($(e)); */
-}
-
-document.querySelector('.tag').addEventListener('change', e => {
-
-	document.querySelectorAll('.tag').forEach(e => {
-		e.addEventListener('change',addElement(e));
-	})
-	
-});
 
 
 
 
 
-/* document.querySelector('.tag').addEventListener('input', e => {
-	
-})
- */
 </script>
 </body>
 </html>

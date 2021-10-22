@@ -37,6 +37,8 @@
         grid-template-columns: 1fr 1fr;
         justify-content: space-around;
     }
+    
+
     /* mypage */
     .mypage-profile {
         margin-top: 0;
