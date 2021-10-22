@@ -64,6 +64,22 @@ public class HttpConnector {
 		return datas;
 	}
 	
+	public JsonElement getAsJson(String url) {
+		
+		String responseBody = "";
+		JsonElement datas = null;
+		
+		try {
+			HttpURLConnection conn = getConnection(url, "GET");
+			responseBody = getResponseBody(conn);
+			datas = gson.fromJson(responseBody, JsonElement.class);
+			
+		} catch (IOException e) {
+			throw new HandleableException(ErrorCode.HTTP_CONNECT_ERROR,e);
+		}
+		return datas;
+	}
+	
 	public String post(String url,Map<String,String> headers, String body) {
 		
 		String responseBody = "";

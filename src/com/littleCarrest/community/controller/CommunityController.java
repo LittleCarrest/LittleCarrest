@@ -85,25 +85,33 @@ public class CommunityController extends HttpServlet {
 		MultiPartParams multiPartParams = util.fileUpload(request);
 		String content = multiPartParams.getParameter("content");
 		String category = multiPartParams.getParameter("category");
+		List<String> tags = multiPartParams.getParameterValues("tag");
+//		System.out.println(tag);
+//		for (String string : tag) {
+//			System.out.println(string);
+//		}
 		
 		List<FileDTO> fileDTOs = multiPartParams.getFilesInfo();
 		
-
-		System.out.println(category);
-		System.out.println(content);
-		System.out.println("file : " + fileDTOs);
-		
 		Community community = new Community();
-		//community.setNickname(member.getNickname());
+		community.setUserIdx(member.getUserIdx());
+		community.setNickname(member.getNickname());
 		community.setContent(content);
-		//community.setPicture(fileDTO);
+		community.setCategory(category);
+		//System.out.println(community);
+		
+		if(category == null) {
+			request.setAttribute("msg", "카테고리를 선택하세요");
+			request.setAttribute("back", "1");
+			request.getRequestDispatcher("common/result");
+		}
+		
+		communityService.insertBoard(community, fileDTOs, tags);
 		
 		if(category.equals("g")) {
-			communityService.insertBoardCamper(community);
-			response.sendRedirect("/community/camper");
-		}else {
-			communityService.insertBoardGuide(community);
 			response.sendRedirect("/community/guide");
+		}else {
+			response.sendRedirect("/community/camper");
 		}
 		
 		
