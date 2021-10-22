@@ -64,4 +64,21 @@ public class FestivalService {
 		
 		return festivalOfSpring;
 	}
+
+	public List<FestivalDto> selectFestivalOfSummer() {
+		List<FestivalDto> festivalOfSummer = new ArrayList<FestivalDto>();
+		
+		 Connection conn = template.getConnection();
+	      
+	      try {
+	    	  festivalOfSummer = festivalDao.selectFestivalOfSummer(conn);
+	    	 template.commit(conn);
+	      } catch (Exception e) {
+	         template.rollback(conn);
+	      }finally {
+	         template.close(conn);
+	      }
+		
+		return festivalOfSummer;
+	}
 }

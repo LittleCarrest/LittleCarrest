@@ -9,6 +9,11 @@
 <%@ include file="/WEB-INF/views/include/mediaquery.jsp" %>
 <script defer src="/resources/js/include/header.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.8/slick.css" integrity="sha512-inhNdg7IzfSAH94H3l6CthSX4Jw+1zhesq/N7JZ01ZyMvbGvOh2d7+j1fuEHA57TMdGDJXJ48SsXKhx4iIOkBQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script type="text/javascript">
+	
+	
+	
+</script>
 </head>
 <body>
 <%@ include file="/WEB-INF/views/include/fixed-header.jsp" %>
@@ -38,20 +43,20 @@
       <div class="season-tabs">
         <div class="season-button">
           <ul>
-            <li class="spring"><a href="#">봄</a></li>
-            <li class="summer"><a href="#">여름</a></li>
-            <li class="fall"><a href="#">가을</a></li>
-            <li class="winter"><a href="#">겨울</a></li>
+            <li class="spring"><a >봄</a></li>
+            <li class="summer"><a >여름</a></li>
+            <li class="fall"><a >가을</a></li>
+            <li class="winter"><a >겨울</a></li>
           </ul>
         </div>
         <div class="season-main">
           <div class="season-main-inner">
             <div class="main-inner-text">
-              <h1>아침고요수목원 봄나들이 봄꽃축제</h1>
-              <p>04.10~05.19 <span class="no-drag"> ｜ </span> 경기 가평군</p>
+              <h1 id="springTitle"></h1>
+              <p id="dateLocation"></p>
             </div>
             <div class="season-main-img">
-              <img src="" alt="">
+              <img id="titleImage" src="" alt="">
             </div>
           </div>
         </div>
@@ -59,16 +64,16 @@
           <div class="season-sub-wrap">
             <div class="season-sub-row">
               <div class="season-sub-col">
-                <p>영월 붉은메밀 축제 <span>경기 파주시</span></p>
-                <img src="https://picsum.photos/300/200?random=2">
+                <p id="seasonFe01">영월 붉은메밀 축제 </p>
+                <img id="seasonImage01" src="https://picsum.photos/300/200?random=2">
               </div>
               <div class="season-sub-col">
-                <p>영월 붉은메밀 축제<span>경기 파주시</span></p>
-                <img src="https://picsum.photos/300/200?random=2">
+                <p id="seasonFe02">영월 붉은메밀 축제</p>
+                <img id="seasonImage02" src="https://picsum.photos/300/200?random=2">
               </div>
               <div class="season-sub-col">
-                <p>영월 붉은메밀 축제<span>경기 파주시</span></p>
-                <img src="https://picsum.photos/300/200?random=2">
+                <p id="seasonFe03">영월 붉은메밀 축제</p>
+                <img id="seasonImage03" src="https://picsum.photos/300/200?random=2">
               </div>
             </div>
           </div>
@@ -87,30 +92,154 @@
 <script>
 
            $(document).ready(function(){
-            $('.carousel').slick({
-            slidesToShow: 3,
-            dots:false,
-            centerMode: true,
-            prevArrow: $('.festival-prev-button'),
-            nextArrow: $('.festival-after-button'),
-            responsive: [ // 반응형 웹 구현 옵션
-              {  
-                breakpoint: 960, //화면 사이즈 960px
-                settings: {
-                  //위에 옵션이 디폴트 , 여기에 추가하면 그걸로 변경
-                  slidesToShow:2
-                } 
-              },
-              { 
-                breakpoint: 768, //화면 사이즈 768px
-                settings: {	
-                  //위에 옵션이 디폴트 , 여기에 추가하면 그걸로 변경
-                  slidesToShow:1
-                } 
-              }
-            ]
+	            $('.carousel').slick({
+	            slidesToShow: 3,
+	            dots:false,
+	            centerMode: true,
+	            prevArrow: $('.festival-prev-button'),
+	            nextArrow: $('.festival-after-button'),
+	            responsive: [ // 반응형 웹 구현 옵션
+	              {  
+	                breakpoint: 960, //화면 사이즈 960px
+	                settings: {
+	                  //위에 옵션이 디폴트 , 여기에 추가하면 그걸로 변경
+	                  slidesToShow:2
+	                } 
+	              },
+	              { 
+	                breakpoint: 768, //화면 사이즈 768px
+	                settings: {	
+	                  //위에 옵션이 디폴트 , 여기에 추가하면 그걸로 변경
+	                  slidesToShow:1
+	                } 
+	              }
+	            ]
+	            });
+	            
+	            $.ajax({
+	            	type:'get',
+	            	astnc:true,
+	            	url:'./fetival/home/spring',
+	            	success:(data) => {
+	            		var springData = JSON.parse(data);
+	            		
+	            		function parse(str) {
+	                	    var y = str.substr(0, 4);
+	                	    var m = str.substr(4, 2);
+	                	    var d = str.substr(6, 2);
+	                	    return m+"."+d;
+	                	}
+	            		
+	            		var startDate = parse(springData.spring[0].startDate)
+	            		var endDate = parse(springData.spring[0].endDate)
+	            		$('#dateLocation').append(startDate+"~"+endDate + "<span class='no-drag'> ｜ </span>" + springData.spring[0].address);
+	            		
+	            		$('#springTitle').text(springData.spring[0].name);
+	            		$('#seasonFe01').text(springData.spring[1].name);
+	            		$('#seasonFe01').append("<span>"+springData.spring[1].address +"<span>");
+	            		$('#seasonFe02').text(springData.spring[2].name);
+	            		$('#seasonFe02').append("<span>"+springData.spring[2].address +"<span>");
+	            		$('#seasonFe03').text(springData.spring[3].name);
+	            		$('#seasonFe03').append("<span>"+springData.spring[3].address +"<span>");
+	            		$("#titleImage").attr("src", springData.spring[0].image);
+	            		$("#seasonImage01").attr("src", springData.spring[1].image);
+	            		$("#seasonImage02").attr("src", springData.spring[2].image);
+	            		$("#seasonImage03").attr("src", springData.spring[3].image);
+	            		
+	            		
+	            	},
+	            	error:() => {
+	            		alert('error');
+	            	}
+	            });
             });
-            });
+         
+           $('.spring').click(()=> {
+          	 
+        	   $.ajax({
+	            	type:'get',
+	            	astnc:true,
+	            	url:'./fetival/home/spring',
+	            	success:(data) => {
+	            		var springData = JSON.parse(data);
+	            		
+	            		function parse(str) {
+	                	    var y = str.substr(0, 4);
+	                	    var m = str.substr(4, 2);
+	                	    var d = str.substr(6, 2);
+	                	    return m+"."+d;
+	                	}
+	            		
+	            		var startDate = parse(springData.spring[0].startDate)
+	            		var endDate = parse(springData.spring[0].endDate)
+	            		$('#dateLocation').text("");
+	            		$('#dateLocation').append(startDate+"~"+endDate + "<span class='no-drag'> ｜ </span>" + springData.spring[0].address);
+	            		
+	            		$('#springTitle').text(springData.spring[0].name);
+	            		$('#seasonFe01').text(springData.spring[1].name);
+	            		$('#seasonFe01').append("<span>"+springData.spring[1].address +"<span>");
+	            		$('#seasonFe02').text(springData.spring[2].name);
+	            		$('#seasonFe02').append("<span>"+springData.spring[2].address +"<span>");
+	            		$('#seasonFe03').text(springData.spring[3].name);
+	            		$('#seasonFe03').append("<span>"+springData.spring[3].address +"<span>");
+	            		$("#titleImage").attr("src", springData.spring[0].image);
+	            		$("#seasonImage01").attr("src", springData.spring[1].image);
+	            		$("#seasonImage02").attr("src", springData.spring[2].image);
+	            		$("#seasonImage03").attr("src", springData.spring[3].image);
+	            		
+	            	},
+	            	error:() => {
+	            		alert('error');
+	            	}
+	            });
+        	   
+           })
+           
+           
+           $('.summer').click(()=> {
+        	 
+        	   $.ajax({
+	            	type:'get',
+	            	astnc:true,
+	            	url:'./fetival/home/summer',
+	            	success:(data) => {
+	            		var springData = JSON.parse(data);
+	            		
+	            		function parse(str) {
+	                	    var y = str.substr(0, 4);
+	                	    var m = str.substr(4, 2);
+	                	    var d = str.substr(6, 2);
+	                	    return m+"."+d;
+	                	}
+	            		
+	            		var startDate = parse(springData.spring[0].startDate)
+	            		var endDate = parse(springData.spring[0].endDate)
+	            		$('#dateLocation').text("");
+	            		$('#dateLocation').append(startDate+"~"+endDate + "<span class='no-drag'> ｜ </span>" + springData.spring[0].address);
+	            		
+	            		$('#springTitle').text(springData.spring[0].name);
+	            		$('#seasonFe01').text(springData.spring[1].name);
+	            		$('#seasonFe01').append("<span>"+springData.spring[1].address +"<span>");
+	            		$('#seasonFe02').text(springData.spring[2].name);
+	            		$('#seasonFe02').append("<span>"+springData.spring[2].address +"<span>");
+	            		$('#seasonFe03').text(springData.spring[3].name);
+	            		$('#seasonFe03').append("<span>"+springData.spring[3].address +"<span>");
+	            		$("#titleImage").attr("src", springData.spring[0].image);
+	            		$("#seasonImage01").attr("src", springData.spring[1].image);
+	            		$("#seasonImage02").attr("src", springData.spring[2].image);
+	            		$("#seasonImage03").attr("src", springData.spring[3].image);
+	            		
+	            	},
+	            	error:() => {
+	            		alert('error');
+	            	}
+	            });
+        	   
+           })
+           
+           
+           
+
  
 </script>
 

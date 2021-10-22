@@ -2,6 +2,7 @@ package com.littleCarrest.festival.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -47,13 +48,51 @@ public class FestivalController extends HttpServlet {
 		case "spring":	
 			spring(request,response);
 			break;
+		case "summer":	
+			summer(request,response);
+			break;
 
 		default: /*throw new PageNotFoundException();*/
 			break;
 		}
 	}
 
+	private void summer(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		request.setCharacterEncoding("utf-8");
+		response.setContentType("text/html;charset=utf-8");
+		
+		List<FestivalDto> festivalOfSummers = new ArrayList<FestivalDto>();
+		festivalOfSummers = festivalService.selectFestivalOfSummer();
+		
+		for (FestivalDto festivalDto : festivalOfSummers) {
+			System.out.println(festivalDto.toString());
+		}
+		
+		StringBuffer result = new StringBuffer();
+		result.append("{\"spring\":");
+		result.append("[");
+		
+		for(int i = 0; i < festivalOfSummers.size(); i++) {
+			Gson gson = new Gson();
+			String json = gson.toJson(festivalOfSummers.get(i));
+			if(i < festivalOfSummers.size()-1) {
+				result.append(json+",");
+			} else {
+				result.append(json);
+			}
+		}
+		result.append("]}");
+		
+		response.getWriter().write(result.toString());
+		
+	}
+
 	private void spring(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		request.setCharacterEncoding("utf-8");
+		response.setContentType("text/html;charset=utf-8");
+		
 		List<FestivalDto> festivalOfSprings = new ArrayList<FestivalDto>();
 		festivalOfSprings = festivalService.selectFestivalOfSpring();
 		
@@ -61,13 +100,24 @@ public class FestivalController extends HttpServlet {
 			System.out.println(festivalDto.toString());
 		}
 		
-		for (FestivalDto festivalDto : festivalOfSprings) {
+		StringBuffer result = new StringBuffer();
+		result.append("{\"spring\":");
+		result.append("[");
+		
+		System.out.println(festivalOfSprings.size());
+		
+		for(int i = 0; i < festivalOfSprings.size(); i++) {
 			Gson gson = new Gson();
-			String Json = gson.toJson(festivalDto);
-			response.getWriter();
+			String json = gson.toJson(festivalOfSprings.get(i));
+			if(i < festivalOfSprings.size()-1) {
+				result.append(json+",");
+			} else {
+				result.append(json);
+			}
 		}
+		result.append("]}");
 		
-		
+		response.getWriter().write(result.toString());
 		
 	}
 
@@ -80,21 +130,9 @@ public class FestivalController extends HttpServlet {
 	private void home(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		FestivalDto festivalOfMonth = new FestivalDto();
-		FestivalDto festivalOfSeason = new FestivalDto();
 		
 		List<FestivalDto> festivalOfMonths = new ArrayList<FestivalDto>();
-		
-		List<FestivalDto> festivalOfSpring = new ArrayList<FestivalDto>();
-		List<FestivalDto> festivalOfSummer = new ArrayList<FestivalDto>();
-		List<FestivalDto> festivalOfFall = new ArrayList<FestivalDto>();
-		List<FestivalDto> festivalOfWinter = new ArrayList<FestivalDto>();
-		
 		festivalOfMonths = festivalService.selectFestivalOfMonths();
-		
-		festivalOfSpring = festivalService.selectFestivalOfSeasons();
-		festivalOfSummer = festivalService.selectFestivalOfSeasons();
-		festivalOfFall = festivalService.selectFestivalOfSeasons();
-		festivalOfWinter = festivalService.selectFestivalOfSeasons();
 		
 		request.setAttribute("festivalOfMonths", festivalOfMonths);
 		request.getRequestDispatcher("/sub02/tour-festival").forward(request, response);

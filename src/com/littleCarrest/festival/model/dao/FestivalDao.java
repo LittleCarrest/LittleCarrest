@@ -123,6 +123,42 @@ public class FestivalDao {
 		return festivalOfSpring;
 	}
 
+	public List<FestivalDto> selectFestivalOfSummer(Connection conn) {
+		
+		List<FestivalDto> festivalOfSummer = new ArrayList<FestivalDto>();
+		PreparedStatement pstm = null;
+		ResultSet rset = null;
+		
+		String sql = "select * from(select * from festival where startdate > 20210701 and enddate < 20210930 order by dbms_random.value)where rownum <= 4";
+				
+		try {
+			pstm = conn.prepareStatement(sql);
+			rset = pstm.executeQuery();
 	
+			while(rset.next()) {
+				
+				FestivalDto festival = new FestivalDto();
+				festival.setName(rset.getString("name"));
+				festival.setStartDate(rset.getString("startdate"));
+				festival.setEndDate(rset.getString("enddate"));
+				festival.setTel(rset.getString("tel"));
+				festival.setMapx(rset.getString("mapx"));
+				festival.setMapy(rset.getString("mapy"));
+				festival.setImage(rset.getString("image"));
+				festival.setAddress(rset.getString("address"));
+				
+				festivalOfSummer.add(festival);
+				
+			}
+			
+		} catch (SQLException e) {
+			throw new DataAccessException(e);
+		}finally {
+			template.close(rset, pstm);
+		}
+		
+		return festivalOfSummer;
+		
+	}
 	
 }
