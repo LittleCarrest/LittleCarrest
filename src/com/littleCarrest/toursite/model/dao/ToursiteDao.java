@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import com.littleCarrest.common.db.JDBCTemplate;
 import com.littleCarrest.common.exception.DataAccessException;
 import com.littleCarrest.toursite.model.dto.Toursite;
+import com.littleCarrest.toursite.model.dto.ToursiteSub;
 
 public class ToursiteDao {
 
@@ -36,21 +37,17 @@ public class ToursiteDao {
 		}
 }
 	
-public void insertToursiteSub(Toursite tour, Connection conn) {
+public void insertToursiteSub(ToursiteSub tour, Connection conn) {
 		
 		PreparedStatement pstm = null;
 	
-		String query = "insert into toursite(content_id, addr, name, image, mapx, mapy)"
+		String query = "insert into toursite(content_id, overview)"
 				
-					 + " values(?,?,?,?,?,?) ";
+					 + " values(?,?) ";
 		try {
 			pstm = conn.prepareStatement(query);
 			pstm.setString(1, tour.getContentId());
-			pstm.setString(2, tour.getAddr());
-			pstm.setString(3, tour.getName());
-			pstm.setString(4, tour.getImage());
-			pstm.setString(5, tour.getMapx());
-			pstm.setString(6, tour.getMapy());
+			pstm.setString(2, tour.getOverview());
 			pstm.executeQuery();
 			
 		} catch (SQLException e) {
