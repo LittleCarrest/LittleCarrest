@@ -30,12 +30,15 @@
         <h3>리틀카레스트 인기팔로워 TOP10<a href="/community/board-form" id="btn_write">글쓰기</a></h3>
       </div>
       <article class="wrap-col-sub03-best-camper">
+      <c:forEach items="${camperBoards}" var="camperBoard">
         <div class="col-sub03-bc open-modal">
-          <span class="userId">@jungyk</span>
-          <a class="col-sub03-bc-item" href="#">	<%-- /community/camper/detail?bdIdx=${camperBoard.bdIdx } --%>
+          <span class="userId">${camperBoard.nickname }</span>
+          <a class="col-sub03-bc-item" href="/community/camper/detail?bdIdx=${camperBoard.bdIdx }">	
             <img class="col-sub03-bc-img" src="/resources/img/sub03/차박가이드_ex.jpg" alt="">
           </a>
-        </div>
+        </div>      
+      </c:forEach>
+
         <div class="col-sub03-bc">
           <a class="col-sub03-bc-item" href="#">
             <img class="col-sub03-bc-img" src="/resources/img/sub03/텐트 고르는 꿀tip.jpg" alt="">

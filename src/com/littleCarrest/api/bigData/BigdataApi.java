@@ -31,7 +31,14 @@ public class BigdataApi {
 			String touNum = e.getAsJsonObject().get("touNum").getAsString();	//관광객수
 			String baseYmd = e.getAsJsonObject().get("baseYmd").getAsString();	//기준연원일
 			
+			System.out.println(areaNm);
+			System.out.println(day);
+			System.out.println(tourist);
+			System.out.println(touNum);
+			System.out.println(baseYmd);
 		}		 
+		
+		
 
 	}
 	
