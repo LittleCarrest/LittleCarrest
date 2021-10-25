@@ -26,6 +26,7 @@ public class DetailCommon {
 		ToursiteService toursiteService = new ToursiteService();	
 		List<String> contentIdList = toursiteService.selectContentId();
 		
+		System.out.println(contentIdList);
 		
         StringBuilder urlBuilder = new StringBuilder("http://api.visitkorea.or.kr/openapi/service/rest/KorService/detailCommon"); /*URL*/
         urlBuilder.append("?" + URLEncoder.encode("serviceKey","UTF-8") + "=st2qPe5R3zFH%2B5e0zSdhNE2RIu6nT94woDEgFmQUCLbMArl9ZJgEhrToJJ3FwJbhxvFuJf%2FeZ%2Ba270VCMjxcZA%3D%3D"); /*Service Key*/

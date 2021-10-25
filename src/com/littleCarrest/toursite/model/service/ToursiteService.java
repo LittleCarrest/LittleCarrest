@@ -1,6 +1,7 @@
 package com.littleCarrest.toursite.model.service;
 
 import java.sql.Connection;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.littleCarrest.common.db.JDBCTemplate;
@@ -17,7 +18,7 @@ public class ToursiteService {
 		      Connection conn = template.getConnection();
 		      
 		      try {
-		    	  toursiteDao.insertToursite(tour, conn);
+		    	 toursiteDao.insertToursite(tour, conn);
 		    	 template.commit(conn);
 		      } catch (Exception e) {
 		         template.rollback(conn);
@@ -30,7 +31,7 @@ public class ToursiteService {
 		      Connection conn = template.getConnection();
 		      
 		      try {
-		    	  toursiteDao.insertToursiteSub(tour, conn);
+		    	 toursiteDaoSub.insertToursiteSub(tour, conn);
 		    	 template.commit(conn);
 		      } catch (Exception e) {
 		         template.rollback(conn);
@@ -39,8 +40,20 @@ public class ToursiteService {
 		      }
 		   }
 
-	public List<String> selectContentId() {
-		toursiteDao.selectContentId();
-		return null;
-	}
+	   
+		public List<String> selectContentId() {
+
+			List<String> contentIdList = new ArrayList<String>();
+			Connection conn = template.getConnection();
+			
+			try {
+				contentIdList = toursiteDao.selectContentId(conn);
+			} catch (Exception e) {
+				template.rollback(conn);
+			} finally {
+				template.close(conn);
+			}
+			
+			return contentIdList;
+		}
 }

@@ -13,6 +13,7 @@ import com.littleCarrest.toursite.model.service.ToursiteService;
 
 public class ToursiteApiSub {
 
+	//12관광지 처음 콘텐트번호 125266 마지막번호 2761294
 	public void api() throws XmlPullParserException, IOException{
 		ToursiteSub toursite = new ToursiteSub();
 		ToursiteService toursiteService = new ToursiteService();

@@ -7,12 +7,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.littleCarrest.toursite.model.service.ToursiteService;
+
 /**
  * Servlet implementation class TourController
  */
 @WebServlet("/toursite/*")
 public class TourController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	ToursiteService toursiteService = new ToursiteService();
        
     /**
      * @see HttpServlet#HttpServlet()
