@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/mediaQuery.css">
+  <script defer src="js/gnb-menu.js"></script>
+  <script src="https://kit.fontawesome.com/6fd6b71dc1.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+  <aside id="gnb-aside">
+    <ul class="gnb-aside-menu">
+      <li id="gnb-aside-search" data-gnb='01'><a href="index.html">차박검색</a></li>
+      <li id="gnb-aside-tourInfo" data-gnb='02'><a href="#">관광정보</a></li>
+      <li id="gnb-aside-community" data-gnb='03'><a href="#">커뮤니티</a></li>
+    </ul>
+  </aside>
+  <header>
+    <div class="wrap-header">
+      <div class="container con-header">
+        <button class="nav-toggleBtn">
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="user">
+          <span class="login">LOGIN</span>
+          <span class="join">JOIN</span>
+        </div>
+        <div class="logo">
+          <img src="img/real_logo.png" alt="">
+        </div>
+      </div>
+      <div class="wrap-gnb-menu">
+        <ul class="gnb-menu">
+          <li id="gnb-search" data-gnb='01'><a href="#">차박검색</a></li>
+          <li id="gnb-tourInfo" data-gnb='02'><a href="#">관광정보</a></li>
+          <li id="gnb-community" data-gnb='03'><a href="#">커뮤니티</a></li>
+        </ul>
+      </div>
+      <div class="wrap-gnb-subMenu">
+        <ul class="sub-menu search" data-gnb='01'>
+          <li>테마별</li>
+          <li>풀코스추천</li>
+        </ul>
+        <ul class="sub-menu tourInfo" data-gnb='02'>
+          <li>지역별 축제</li>
+          <li>지역별 명소</li>
+        </ul>
+        <ul class="sub-menu community" data-gnb='03'>
+          <li>홈</li>
+          <li>#차박캠퍼</li>
+          <li>차박가이드</li>
+        </ul>
+      </div>
+    </div>
+  </header>
+  <form class="join-page">
+    <div class="wrap-join">
+      <div class="join-title">
+        <h1>회원가입</h1>
+      </div>
+      <div class="profile-img">
+        <input type="file" id="profile" accept=".jpg, .png, .jpeg">
+      </div>
+      <div class="id">
+        <label for="id">아이디</label>
+        <input type="id" placeholder="아이디를 입력하세요">
+      </div>
+      <div class="password">
+        <label for="password">비밀번호</label>
+        <input id="password" type="password" placeholder="비밀번호">
+        <input id="pw-chk" type="password" placeholder="비밀번호 확인">
+      </div>
+      <div class="nickname">
+        <label for="nickname">닉네임</label>
+        <input type="text" placeholder="사용하실 닉네임을 입력하세요">
+      </div>
+      <div class="name">
+        <label for="name">이름</label>
+        <input type="name" placeholder="이름을 입력하세요">
+      </div>
+      <div class="email">
+        <label for="email">이메일</label>
+        <input type="email" placeholder="이메일을 입력하세요">
+      </div>
+      <div class="birth">
+        <label for="birth">생년월일</label>
+        <input type="date">
+      </div>
+      <button type="submit">가입하기</button>
+    </div>
+  </form>
+  
+</body>
+</html>
